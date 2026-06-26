@@ -148,20 +148,24 @@ function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-[rgba(212,160,23,0.08)] px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
+        <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-transparent px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
           ✦ Jasa Desain Grafis & Pembuatan Website ✦
         </span>
 
-        <div className="mt-8 animate-fade-up">
-          <p className="text-script text-3xl md:text-5xl text-violet-bright -mb-2 md:-mb-4">
-            Junior
-          </p>
-          <h1 className="text-display text-6xl sm:text-7xl md:text-9xl text-white">
-            GRAPHICS
-          </h1>
-          <h2 className="text-display text-4xl sm:text-5xl md:text-7xl text-violet-bright mt-2">
-            DESIGN SERVICE
-          </h2>
+        <div className="mt-10 animate-fade-up">
+          <div className="relative inline-block text-left">
+            <span
+              className="absolute -top-2 md:-top-3 left-0 md:left-1 z-20 text-script italic text-3xl md:text-4xl text-white leading-none"
+            >
+              Junior
+            </span>
+            <h1 className="text-display text-6xl sm:text-7xl md:text-9xl text-white leading-[0.9]">
+              GRAPHICS
+            </h1>
+            <h2 className="text-display text-4xl sm:text-5xl md:text-7xl text-violet-bright leading-[0.95]">
+              DESIGN SERVICE
+            </h2>
+          </div>
         </div>
 
         <p className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-white/75">
