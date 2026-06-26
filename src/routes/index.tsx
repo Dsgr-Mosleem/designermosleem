@@ -107,10 +107,45 @@ function Hero() {
       className="relative pt-32 pb-24 overflow-hidden noise-bg"
       style={{ background: "var(--gradient-hero)" }}
     >
-      {/* decorative slashes */}
-      <div className="absolute top-24 right-0 w-40 h-24 slash-deco opacity-60 hidden md:block" />
-      <div className="absolute bottom-10 left-0 w-32 h-20 slash-deco opacity-40 hidden md:block" />
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-violet-electric/20 blur-3xl pointer-events-none" />
+      {/* Grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.08] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(157,78,221,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(157,78,221,0.7) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+          maskImage:
+            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+        }}
+      />
+      {/* Ambient glows */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-violet-electric/25 blur-[120px] pointer-events-none" />
+      <div className="absolute top-40 -left-24 w-[380px] h-[380px] rounded-full bg-violet-bright/20 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 -right-24 w-[420px] h-[420px] rounded-full bg-gold/10 blur-[110px] pointer-events-none" />
+
+      {/* Floating creative tool chips */}
+      <div className="absolute top-28 left-[6%] hidden lg:block opacity-60">
+        <div className="w-16 h-16 rounded-2xl border border-violet-bright/40 bg-violet-medium/40 backdrop-blur-sm grid place-items-center -rotate-12 glow-violet-soft">
+          <Palette className="w-7 h-7 text-violet-bright" />
+        </div>
+      </div>
+      <div className="absolute top-44 right-[8%] hidden lg:block opacity-60">
+        <div className="w-14 h-14 rounded-2xl border border-gold/40 bg-[rgba(212,160,23,0.1)] backdrop-blur-sm grid place-items-center rotate-12">
+          <ImageIcon className="w-6 h-6 text-gold" />
+        </div>
+      </div>
+      <div className="absolute bottom-24 left-[12%] hidden lg:block opacity-55">
+        <div className="w-12 h-12 rounded-xl border border-violet-bright/40 bg-violet-medium/40 backdrop-blur-sm grid place-items-center rotate-6">
+          <Globe className="w-5 h-5 text-violet-bright" />
+        </div>
+      </div>
+      <div className="absolute bottom-32 right-[12%] hidden lg:block opacity-55">
+        <div className="w-12 h-12 rounded-xl border border-gold/40 bg-[rgba(212,160,23,0.1)] backdrop-blur-sm grid place-items-center -rotate-12">
+          <Sparkles className="w-5 h-5 text-gold" />
+        </div>
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-[rgba(212,160,23,0.08)] px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
@@ -218,7 +253,7 @@ function Services() {
     <section id="layanan" className="py-20 px-6 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <span className="text-gold text-sm font-semibold tracking-widest">/// LAYANAN KAMI</span>
+          <span className="text-gold text-sm font-semibold tracking-widest">LAYANAN KAMI</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">
             Solusi Kreatif <span className="text-violet-bright">Lengkap</span>
           </h2>
@@ -264,7 +299,7 @@ function Gallery() {
     <section id="katalog" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <span className="text-gold text-sm font-semibold tracking-widest">/// PORTOFOLIO</span>
+          <span className="text-gold text-sm font-semibold tracking-widest">PORTOFOLIO</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">Hasil Karya Kami</h2>
           <p className="text-white/65 mt-4 max-w-xl mx-auto">
             Beberapa contoh proyek desain & website yang telah kami kerjakan.
@@ -283,7 +318,6 @@ function Gallery() {
                   background: `linear-gradient(135deg, rgba(124,58,237,${0.25 + (i % 3) * 0.1}), rgba(45,10,107,0.6))`,
                 }}
               />
-              <div className="absolute inset-0 slash-deco opacity-10" />
               <div className="absolute inset-0 grid place-items-center">
                 <ImageIcon className="w-14 h-14 text-white/30 group-hover:scale-110 transition-transform" />
               </div>
@@ -333,7 +367,7 @@ function Testimonials() {
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <span className="text-gold text-sm font-semibold tracking-widest">/// TESTIMONI</span>
+          <span className="text-gold text-sm font-semibold tracking-widest">TESTIMONI</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">
             Apa Kata <span className="text-violet-bright">Klien Kami</span>
           </h2>
@@ -374,7 +408,7 @@ function Pricing() {
       <div className="max-w-4xl mx-auto text-center relative">
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-violet-electric/30 blur-3xl rounded-full pointer-events-none" />
         <div className="relative">
-          <span className="text-gold text-sm font-semibold tracking-widest">/// PRICING</span>
+          <span className="text-gold text-sm font-semibold tracking-widest">PRICING</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">
             Harga Terjangkau untuk <span className="text-violet-bright">Semua Kalangan</span>
           </h2>
@@ -411,8 +445,6 @@ function CTABanner() {
         className="max-w-7xl mx-auto rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
         style={{ background: "var(--gradient-violet)" }}
       >
-        <div className="absolute top-0 right-0 w-48 h-32 slash-deco opacity-25" />
-        <div className="absolute bottom-0 left-0 w-48 h-32 slash-deco opacity-25" />
         <div className="relative">
           <h2 className="text-display text-4xl md:text-6xl text-white">
             Siap Tampil Lebih Profesional?
