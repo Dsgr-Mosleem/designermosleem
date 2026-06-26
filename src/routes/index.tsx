@@ -253,7 +253,7 @@ function Services() {
     <section id="layanan" className="py-20 px-6 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <span className="text-gold text-sm font-semibold tracking-widest">/// LAYANAN KAMI</span>
+          <span className="text-gold text-sm font-semibold tracking-widest">LAYANAN KAMI</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">
             Solusi Kreatif <span className="text-violet-bright">Lengkap</span>
           </h2>
@@ -299,7 +299,7 @@ function Gallery() {
     <section id="katalog" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <span className="text-gold text-sm font-semibold tracking-widest">/// PORTOFOLIO</span>
+          <span className="text-gold text-sm font-semibold tracking-widest">PORTOFOLIO</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">Hasil Karya Kami</h2>
           <p className="text-white/65 mt-4 max-w-xl mx-auto">
             Beberapa contoh proyek desain & website yang telah kami kerjakan.
@@ -318,7 +318,6 @@ function Gallery() {
                   background: `linear-gradient(135deg, rgba(124,58,237,${0.25 + (i % 3) * 0.1}), rgba(45,10,107,0.6))`,
                 }}
               />
-              <div className="absolute inset-0 slash-deco opacity-10" />
               <div className="absolute inset-0 grid place-items-center">
                 <ImageIcon className="w-14 h-14 text-white/30 group-hover:scale-110 transition-transform" />
               </div>
@@ -368,7 +367,7 @@ function Testimonials() {
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <span className="text-gold text-sm font-semibold tracking-widest">/// TESTIMONI</span>
+          <span className="text-gold text-sm font-semibold tracking-widest">TESTIMONI</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">
             Apa Kata <span className="text-violet-bright">Klien Kami</span>
           </h2>
@@ -409,7 +408,7 @@ function Pricing() {
       <div className="max-w-4xl mx-auto text-center relative">
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-violet-electric/30 blur-3xl rounded-full pointer-events-none" />
         <div className="relative">
-          <span className="text-gold text-sm font-semibold tracking-widest">/// PRICING</span>
+          <span className="text-gold text-sm font-semibold tracking-widest">PRICING</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">
             Harga Terjangkau untuk <span className="text-violet-bright">Semua Kalangan</span>
           </h2>
@@ -446,8 +445,6 @@ function CTABanner() {
         className="max-w-7xl mx-auto rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
         style={{ background: "var(--gradient-violet)" }}
       >
-        <div className="absolute top-0 right-0 w-48 h-32 slash-deco opacity-25" />
-        <div className="absolute bottom-0 left-0 w-48 h-32 slash-deco opacity-25" />
         <div className="relative">
           <h2 className="text-display text-4xl md:text-6xl text-white">
             Siap Tampil Lebih Profesional?
