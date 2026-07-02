@@ -5,7 +5,6 @@ import {
   MessageCircle,
   Check,
   X,
-  Star,
   Palette,
   Globe,
   Zap,
