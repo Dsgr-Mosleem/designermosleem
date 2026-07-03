@@ -156,7 +156,7 @@ function Hero() {
         <div className="mt-10 animate-fade-up">
           <div className="relative inline-block text-left">
             <span
-              className="absolute -top-6 md:-top-7 left-3 md:left-5 z-30 text-script text-[34px] md:text-[40px] text-gold leading-none transform -translate-x-1/2 rotate-[-6deg] pointer-events-none"
+              className="absolute -top-6 md:-top-7 left-6 md:left-5 z-30 text-script text-[32px] md:text-[40px] text-gold leading-none transform -translate-x-1/2 rotate-[-6deg] pointer-events-none"
             >
               Junior
             </span>
