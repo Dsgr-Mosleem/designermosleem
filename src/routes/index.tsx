@@ -153,13 +153,12 @@ function Hero() {
           ✦ Jasa Desain Grafis & Pembuatan Website ✦
         </span>
 
-        <div className="mt-10 animate-fade-up">
+        <p className="mt-3 mb-5 text-sm md:text-base text-gold/80 font-medium tracking-wide">
+          by Junior Designer
+        </p>
+
+        <div className="animate-fade-up">
           <div className="relative inline-block text-left">
-            <span
-              className="absolute -top-6 md:-top-7 left-6 md:left-5 z-30 text-script text-[32px] md:text-[40px] text-gold leading-none transform -translate-x-1/2 rotate-[-6deg] pointer-events-none"
-            >
-              Junior
-            </span>
             <h1 className="text-display text-6xl sm:text-7xl md:text-9xl text-white leading-[0.9]">
               GRAPHICS
             </h1>
