@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
 import { useEffect, useState } from "react";
 import {
   Palette,
@@ -69,8 +70,8 @@ function NavBar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#beranda" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-gradient-violet grid place-items-center glow-violet-soft">
-            <Sparkles className="w-5 h-5 text-white" />
+          <div className="w-9 h-9 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
+            <img src={mosleemLogo.url} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
           </div>
           <span className="text-display text-lg tracking-wide">
             DESIGNER <span className="text-violet-bright">MOSLEEM</span>
@@ -478,8 +479,8 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-violet-bright/20">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-violet grid place-items-center">
-                <Sparkles className="w-5 h-5 text-white" />
+              <div className="w-9 h-9 rounded-lg overflow-hidden grid place-items-center">
+                <img src={mosleemLogo.url} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
               </div>
               <span className="text-display text-lg">
                 DESIGNER <span className="text-violet-bright">MOSLEEM</span>
