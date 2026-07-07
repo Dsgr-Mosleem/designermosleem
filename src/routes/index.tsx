@@ -92,7 +92,7 @@ function NavBar() {
           href={WA_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-violet-electric hover:bg-violet-bright text-white font-semibold px-5 py-2.5 text-sm transition-all hover:glow-violet"
+          className="rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-5 py-2.5 text-sm transition-all hover:glow-violet-soft"
         >
           Hubungi Kami
         </a>
@@ -122,13 +122,13 @@ function Hero() {
         }}
       />
       {/* Ambient glows */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-violet-electric/25 blur-[120px] pointer-events-none" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-violet-electric/15 blur-[120px] pointer-events-none" />
       <div className="absolute top-40 -left-24 w-[380px] h-[380px] rounded-full bg-violet-bright/20 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 -right-24 w-[420px] h-[420px] rounded-full bg-gold/10 blur-[110px] pointer-events-none" />
 
       {/* Floating creative tool chips */}
       <div className="absolute top-28 left-[6%] hidden lg:block opacity-60">
-        <div className="w-16 h-16 rounded-2xl border border-violet-bright/40 bg-violet-medium/40 backdrop-blur-sm grid place-items-center -rotate-12 glow-violet-soft">
+        <div className="w-16 h-16 rounded-2xl border border-violet-bright/30 bg-violet-medium/40 backdrop-blur-sm grid place-items-center -rotate-12 glow-violet-soft">
           <Palette className="w-7 h-7 text-violet-bright" />
         </div>
       </div>
@@ -138,7 +138,7 @@ function Hero() {
         </div>
       </div>
       <div className="absolute bottom-24 left-[12%] hidden lg:block opacity-55">
-        <div className="w-12 h-12 rounded-xl border border-violet-bright/40 bg-violet-medium/40 backdrop-blur-sm grid place-items-center rotate-6">
+        <div className="w-12 h-12 rounded-xl border border-violet-bright/30 bg-violet-medium/40 backdrop-blur-sm grid place-items-center rotate-6 glow-violet-soft">
           <Globe className="w-5 h-5 text-violet-bright" />
         </div>
       </div>
@@ -178,7 +178,7 @@ function Hero() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-violet-electric hover:bg-violet-bright text-white font-semibold px-7 py-3.5 text-sm md:text-base transition-all hover:glow-violet inline-flex items-center gap-2"
+            className="rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-7 py-3.5 text-sm md:text-base transition-all hover:glow-violet-soft inline-flex items-center gap-2"
           >
             <MessageCircle className="w-4 h-4" />
             Konsultasi via WhatsApp
@@ -210,7 +210,7 @@ function Features() {
           {features.map((f) => (
             <div
               key={f.title}
-              className="group rounded-2xl bg-violet-medium/40 backdrop-blur-sm border border-violet-bright/30 p-6 transition-all hover:border-violet-bright hover:-translate-y-1 hover:glow-violet-soft"
+              className="group rounded-2xl bg-violet-medium/40 backdrop-blur-sm border border-white/10 p-6 transition-all hover:border-violet-bright/50 hover:-translate-y-1 hover:glow-violet-soft"
             >
               <div className="w-12 h-12 rounded-xl bg-[rgba(232,181,35,0.12)] border border-gold/40 grid place-items-center mb-4 group-hover:scale-110 transition-transform">
                 <f.icon className="w-6 h-6 text-gold" />
@@ -242,8 +242,8 @@ const webServices = [
 
 function ServiceCard({ icon: Icon, title, desc }: { icon: typeof Globe; title: string; desc: string }) {
   return (
-    <div className="group rounded-2xl bg-violet-medium/40 border border-violet-bright/25 p-6 transition-all hover:border-violet-bright hover:glow-violet-soft hover:-translate-y-1">
-      <div className="w-11 h-11 rounded-lg bg-gradient-violet grid place-items-center mb-4 group-hover:glow-violet transition-all">
+    <div className="group rounded-2xl bg-violet-medium/40 border border-white/10 p-6 transition-all hover:border-violet-bright/50 hover:glow-violet-soft hover:-translate-y-1">
+      <div className="w-11 h-11 rounded-lg bg-gradient-violet grid place-items-center mb-4 group-hover:glow-violet-soft transition-all">
         <Icon className="w-5 h-5 text-white" />
       </div>
       <h4 className="text-display text-base text-white mb-1.5">{title}</h4>
@@ -314,7 +314,7 @@ function Gallery() {
           {galleryCategories.map((cat, i) => (
             <div
               key={cat}
-              className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-violet-medium/50 border border-violet-bright/25 cursor-pointer"
+              className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-violet-medium/50 border border-white/10 cursor-pointer"
             >
               <div
                 className="absolute inset-0"
@@ -325,7 +325,7 @@ function Gallery() {
               <div className="absolute inset-0 grid place-items-center">
                 <ImageIcon className="w-14 h-14 text-white/30 group-hover:scale-110 transition-transform" />
               </div>
-              <div className="absolute inset-0 bg-violet-electric/0 group-hover:bg-violet-electric/70 transition-all duration-300 grid place-items-center opacity-0 group-hover:opacity-100">
+              <div className="absolute inset-0 bg-violet-electric/0 group-hover:bg-violet-electric/50 transition-all duration-300 grid place-items-center opacity-0 group-hover:opacity-100">
                 <ZoomIn className="w-10 h-10 text-white" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-violet-deep to-transparent">
@@ -338,7 +338,7 @@ function Gallery() {
         <div className="text-center mt-12">
           <a
             href="#"
-            className="inline-flex rounded-full border-2 border-violet-bright hover:bg-violet-bright text-white font-semibold px-7 py-3 text-sm transition-all hover:glow-violet"
+            className="inline-flex rounded-full border-2 border-violet-bright/60 hover:bg-violet-bright/20 text-white font-semibold px-7 py-3 text-sm transition-all hover:glow-violet-soft"
           >
             Lihat Semua Karya
           </a>
@@ -410,7 +410,7 @@ function Pricing() {
   return (
     <section id="harga" className="py-20 px-6">
       <div className="max-w-4xl mx-auto text-center relative">
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-violet-electric/30 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-violet-electric/18 blur-3xl rounded-full pointer-events-none" />
         <div className="relative">
           <span className="text-gold text-sm font-semibold tracking-widest">PRICING</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">
@@ -432,7 +432,7 @@ function Pricing() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex rounded-full bg-violet-electric hover:bg-violet-bright text-white font-semibold px-7 py-3.5 transition-all hover:glow-violet"
+            className="inline-flex rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-7 py-3.5 transition-all hover:glow-violet-soft"
           >
             Lihat Detail Harga
           </a>
@@ -519,7 +519,7 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="w-10 h-10 rounded-full bg-violet-medium hover:bg-violet-electric grid place-items-center transition-all hover:glow-violet-soft"
+                className="w-10 h-10 rounded-full bg-violet-medium/70 hover:bg-violet-electric/80 grid place-items-center transition-all hover:glow-violet-soft"
               >
                 <MessageCircle className="w-5 h-5 text-white" />
               </a>
