@@ -48,8 +48,8 @@
   --violet-deep: #1A0533;
   --violet-dark: #2D0A6B;
   --violet-medium: #3D1278;
-  --violet-electric: #7C3AED;
-  --violet-bright: #9D4EDD;
+  --violet-electric: #6B5FA8;
+  --violet-bright: #8B7BC7;
   --gold: #E8B523;
   --footer: #0F0120;
 
@@ -59,24 +59,24 @@
   --card-foreground: #FFFFFF;
   --popover: #2D0A6B;
   --popover-foreground: #FFFFFF;
-  --primary: #7C3AED;
+  --primary: #6B5FA8;
   --primary-foreground: #FFFFFF;
   --secondary: #3D1278;
   --secondary-foreground: #FFFFFF;
   --muted: #2D0A6B;
   --muted-foreground: #C9B8E8;
-  --accent: #9D4EDD;
+  --accent: #8B7BC7;
   --accent-foreground: #FFFFFF;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #FFFFFF;
-  --border: rgba(157, 78, 221, 0.25);
-  --input: rgba(157, 78, 221, 0.25);
-  --ring: #9D4EDD;
+  --border: rgba(139, 123, 199, 0.25);
+  --input: rgba(139, 123, 199, 0.25);
+  --ring: #8B7BC7;
 
-  --gradient-violet: linear-gradient(135deg, #7C3AED, #9D4EDD);
+  --gradient-violet: linear-gradient(135deg, #6B5FA8, #8B7BC7);
   --gradient-hero: radial-gradient(ellipse at top, #2D0A6B 0%, #1A0533 60%);
-  --shadow-glow: 0 0 40px rgba(157, 78, 221, 0.45);
-  --shadow-glow-soft: 0 0 24px rgba(124, 58, 237, 0.3);
+  --shadow-glow: 0 0 40px rgba(139, 123, 199, 0.45);
+  --shadow-glow-soft: 0 0 24px rgba(107, 95, 168, 0.3);
 }
 
 .dark {
@@ -96,8 +96,8 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     background-image:
-      radial-gradient(circle at 20% 10%, rgba(124, 58, 237, 0.15), transparent 40%),
-      radial-gradient(circle at 80% 60%, rgba(157, 78, 221, 0.1), transparent 45%);
+      radial-gradient(circle at 20% 10%, rgba(107, 95, 168, 0.15), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(139, 123, 199, 0.1), transparent 45%);
     background-attachment: fixed;
   }
 }
