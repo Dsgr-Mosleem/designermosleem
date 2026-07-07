@@ -92,7 +92,7 @@ function NavBar() {
           href={WA_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-violet-electric hover:bg-violet-bright text-white font-semibold px-5 py-2.5 text-sm transition-all hover:glow-violet"
+          className="rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-5 py-2.5 text-sm transition-all hover:glow-violet-soft"
         >
           Hubungi Kami
         </a>
@@ -119,7 +119,7 @@ function PageHero() {
             "radial-gradient(ellipse at center, black 30%, transparent 75%)",
         }}
       />
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-violet-electric/25 blur-[120px] pointer-events-none" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-violet-electric/15 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 -right-24 w-[420px] h-[420px] rounded-full bg-gold/10 blur-[110px] pointer-events-none" />
 
       <div className="relative max-w-4xl mx-auto px-6 text-center">
@@ -142,7 +142,7 @@ function PageHero() {
           biaya tersembunyi, semua transparan dan jelas.
         </p>
 
-        <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-violet-electric px-6 py-2.5 border-2 border-gold glow-violet-soft">
+        <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-violet px-6 py-2.5 border-2 border-gold/60 glow-violet-soft">
           <span className="text-lg">💰</span>
           <span className="text-display text-lg text-gold">Mulai dari 25K</span>
         </div>
@@ -282,8 +282,8 @@ function PlanCard({ plan }: { plan: Plan }) {
     <div
       className={`relative rounded-3xl p-8 backdrop-blur-sm transition-all duration-300 flex flex-col ${
         plan.popular
-          ? "bg-violet-medium/70 border-[3px] border-gold glow-violet -translate-y-2 md:-translate-y-4"
-          : "bg-violet-medium/40 border border-violet-bright/30 hover:-translate-y-1.5 hover:glow-violet-soft hover:border-violet-bright"
+          ? "bg-violet-medium/70 border-[3px] border-gold/80 glow-violet-soft -translate-y-2 md:-translate-y-4"
+          : "bg-violet-medium/40 border border-white/10 hover:-translate-y-1.5 hover:glow-violet-soft hover:border-violet-bright/50"
       }`}
     >
       {plan.popular && (
@@ -334,7 +334,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         className={`rounded-full font-semibold px-6 py-3 text-sm text-center transition-all hover:scale-[1.03] inline-flex items-center justify-center gap-2 ${
           plan.popular
             ? "bg-gold text-violet-deep hover:bg-white"
-            : "bg-violet-electric hover:bg-violet-bright text-white hover:glow-violet"
+            : "bg-gradient-violet hover:bg-violet-bright/90 text-white hover:glow-violet-soft"
         }`}
       >
         <MessageCircle className="w-4 h-4" />
@@ -371,7 +371,7 @@ function ComparisonTable({
   rows: { label: string; values: (string | boolean)[] }[];
 }) {
   return (
-    <div className="overflow-x-auto rounded-2xl border border-violet-bright/30 bg-violet-medium/30 backdrop-blur-sm">
+    <div className="overflow-x-auto rounded-2xl border border-white/10 bg-violet-medium/30 backdrop-blur-sm">
       <table className="w-full min-w-[560px] text-sm">
         <thead>
           <tr className="bg-gold text-violet-deep">
@@ -434,13 +434,13 @@ function PricingTabs() {
       <div className="max-w-7xl mx-auto">
         {/* Tabs */}
         <div className="flex justify-center mb-14">
-          <div className="inline-flex gap-2 p-1.5 rounded-full border border-violet-bright/30 bg-violet-medium/30 backdrop-blur-sm">
+          <div className="inline-flex gap-2 p-1.5 rounded-full border border-white/10 bg-violet-medium/30 backdrop-blur-sm">
             <button
               type="button"
               onClick={() => setTab("grafis")}
               className={`inline-flex items-center gap-2 rounded-full px-5 md:px-7 py-2.5 text-sm font-semibold transition-all ${
                 tab === "grafis"
-                  ? "bg-violet-electric text-white glow-violet-soft"
+                  ? "bg-gradient-violet text-white glow-violet-soft"
                   : "text-white/60 hover:text-white"
               }`}
             >
@@ -451,7 +451,7 @@ function PricingTabs() {
               onClick={() => setTab("web")}
               className={`inline-flex items-center gap-2 rounded-full px-5 md:px-7 py-2.5 text-sm font-semibold transition-all ${
                 tab === "web"
-                  ? "bg-violet-electric text-white glow-violet-soft"
+                  ? "bg-gradient-violet text-white glow-violet-soft"
                   : "text-white/60 hover:text-white"
               }`}
             >
@@ -547,7 +547,7 @@ function Addons() {
             return (
               <div
                 key={a.title}
-                className="group rounded-2xl bg-violet-medium/30 border border-white/10 p-6 flex flex-col transition-all hover:border-violet-bright/60 hover:-translate-y-1 hover:glow-violet-soft"
+                className="group rounded-2xl bg-violet-medium/30 border border-white/10 p-6 flex flex-col transition-all hover:border-violet-bright/40 hover:-translate-y-1 hover:glow-violet-soft"
               >
                 <div className="w-11 h-11 rounded-xl border border-gold/40 bg-[rgba(232,181,35,0.1)] grid place-items-center mb-4">
                   <Icon className="w-5 h-5 text-gold" />
@@ -623,7 +623,7 @@ function Timeline() {
           {timeline.map((t, i) => (
             <div
               key={t.title}
-              className="relative rounded-2xl bg-violet-medium/40 border border-violet-bright/25 p-6 hover:border-violet-bright hover:glow-violet-soft transition-all"
+              className="relative rounded-2xl bg-violet-medium/40 border border-white/10 p-6 hover:border-violet-bright/50 hover:glow-violet-soft transition-all"
             >
               <div className="flex items-start gap-4">
                 <div className="text-display text-5xl text-gold leading-none shrink-0">
@@ -752,7 +752,7 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="w-10 h-10 rounded-full bg-violet-medium hover:bg-violet-electric grid place-items-center transition-all hover:glow-violet-soft"
+                className="w-10 h-10 rounded-full bg-violet-medium/70 hover:bg-violet-electric/80 grid place-items-center transition-all hover:glow-violet-soft"
               >
                 <MessageCircle className="w-5 h-5 text-white" />
               </a>

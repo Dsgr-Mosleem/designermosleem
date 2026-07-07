@@ -73,10 +73,10 @@
   --input: rgba(139, 123, 199, 0.25);
   --ring: #8B7BC7;
 
-  --gradient-violet: linear-gradient(135deg, #6B5FA8, #8B7BC7);
+  --gradient-violet: linear-gradient(135deg, #6B5FA8 0%, #7B6FB8 50%, #8B7BC7 100%);
   --gradient-hero: radial-gradient(ellipse at top, #2D0A6B 0%, #1A0533 60%);
-  --shadow-glow: 0 0 40px rgba(139, 123, 199, 0.45);
-  --shadow-glow-soft: 0 0 24px rgba(107, 95, 168, 0.3);
+  --shadow-glow: 0 0 50px rgba(139, 123, 199, 0.32);
+  --shadow-glow-soft: 0 0 30px rgba(107, 95, 168, 0.22);
 }
 
 .dark {
