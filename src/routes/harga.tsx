@@ -60,7 +60,7 @@ function NavBar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-[rgba(26,5,51,0.75)] border-b border-[rgba(212,160,23,0.2)]"
+          ? "backdrop-blur-xl bg-[rgba(26,5,51,0.75)] border-b border-[rgba(232,181,35,0.2)]"
           : "bg-transparent"
       }`}
     >
@@ -296,7 +296,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         className={`w-14 h-14 rounded-2xl grid place-items-center mb-5 ${
           plan.popular
             ? "bg-gradient-violet glow-violet-soft"
-            : "bg-[rgba(212,160,23,0.12)] border border-gold/40"
+            : "bg-[rgba(232,181,35,0.12)] border border-gold/40"
         }`}
       >
         <Icon className={`w-7 h-7 ${plan.popular ? "text-white" : "text-gold"}`} />
@@ -549,7 +549,7 @@ function Addons() {
                 key={a.title}
                 className="group rounded-2xl bg-violet-medium/30 border border-white/10 p-6 flex flex-col transition-all hover:border-violet-bright/60 hover:-translate-y-1 hover:glow-violet-soft"
               >
-                <div className="w-11 h-11 rounded-xl border border-gold/40 bg-[rgba(212,160,23,0.1)] grid place-items-center mb-4">
+                <div className="w-11 h-11 rounded-xl border border-gold/40 bg-[rgba(232,181,35,0.1)] grid place-items-center mb-4">
                   <Icon className="w-5 h-5 text-gold" />
                 </div>
                 <h4 className="text-display text-lg text-white mb-1">

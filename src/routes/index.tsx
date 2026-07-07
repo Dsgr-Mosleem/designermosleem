@@ -64,7 +64,7 @@ function NavBar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-[rgba(26,5,51,0.75)] border-b border-[rgba(212,160,23,0.2)]"
+          ? "backdrop-blur-xl bg-[rgba(26,5,51,0.75)] border-b border-[rgba(232,181,35,0.2)]"
           : "bg-transparent"
       }`}
     >
@@ -133,7 +133,7 @@ function Hero() {
         </div>
       </div>
       <div className="absolute top-44 right-[8%] hidden lg:block opacity-60">
-        <div className="w-14 h-14 rounded-2xl border border-gold/40 bg-[rgba(212,160,23,0.1)] backdrop-blur-sm grid place-items-center rotate-12">
+        <div className="w-14 h-14 rounded-2xl border border-gold/40 bg-[rgba(232,181,35,0.1)] backdrop-blur-sm grid place-items-center rotate-12">
           <ImageIcon className="w-6 h-6 text-gold" />
         </div>
       </div>
@@ -143,7 +143,7 @@ function Hero() {
         </div>
       </div>
       <div className="absolute bottom-32 right-[12%] hidden lg:block opacity-55">
-        <div className="w-12 h-12 rounded-xl border border-gold/40 bg-[rgba(212,160,23,0.1)] backdrop-blur-sm grid place-items-center -rotate-12">
+        <div className="w-12 h-12 rounded-xl border border-gold/40 bg-[rgba(232,181,35,0.1)] backdrop-blur-sm grid place-items-center -rotate-12">
           <Sparkles className="w-5 h-5 text-gold" />
         </div>
       </div>
@@ -212,7 +212,7 @@ function Features() {
               key={f.title}
               className="group rounded-2xl bg-violet-medium/40 backdrop-blur-sm border border-violet-bright/30 p-6 transition-all hover:border-violet-bright hover:-translate-y-1 hover:glow-violet-soft"
             >
-              <div className="w-12 h-12 rounded-xl bg-[rgba(212,160,23,0.12)] border border-gold/40 grid place-items-center mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-[rgba(232,181,35,0.12)] border border-gold/40 grid place-items-center mb-4 group-hover:scale-110 transition-transform">
                 <f.icon className="w-6 h-6 text-gold" />
               </div>
               <h3 className="text-display text-lg text-white mb-1.5">{f.title}</h3>
@@ -417,7 +417,7 @@ function Pricing() {
             Harga Terjangkau untuk <span className="text-violet-bright">Semua Kalangan</span>
           </h2>
 
-          <div className="my-10 inline-flex items-center gap-3 rounded-full border-2 border-gold bg-[rgba(212,160,23,0.1)] px-8 py-3">
+          <div className="my-10 inline-flex items-center gap-3 rounded-full border-2 border-gold bg-[rgba(232,181,35,0.1)] px-8 py-3">
             <Sparkles className="w-5 h-5 text-gold" />
             <span className="text-display text-2xl md:text-3xl text-gold">Start from 25K</span>
             <Sparkles className="w-5 h-5 text-gold" />
