@@ -113,7 +113,7 @@ function Hero() {
         className="absolute inset-0 opacity-[0.08] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(157,78,221,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(157,78,221,0.7) 1px, transparent 1px)",
+            "linear-gradient(rgba(139,123,199,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(139,123,199,0.7) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
             "radial-gradient(ellipse at center, black 30%, transparent 75%)",
@@ -319,7 +319,7 @@ function Gallery() {
               <div
                 className="absolute inset-0"
                 style={{
-                  background: `linear-gradient(135deg, rgba(124,58,237,${0.25 + (i % 3) * 0.1}), rgba(45,10,107,0.6))`,
+                  background: `linear-gradient(135deg, rgba(107,95,168,${0.25 + (i % 3) * 0.1}), rgba(45,10,107,0.6))`,
                 }}
               />
               <div className="absolute inset-0 grid place-items-center">
