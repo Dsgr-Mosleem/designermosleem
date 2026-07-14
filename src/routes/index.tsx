@@ -311,6 +311,24 @@ function Services() {
 
 
 function Gallery() {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+      if (e.key === "ArrowRight") setLightbox((i) => (i === null ? i : (i + 1) % portfolioImages.length));
+      if (e.key === "ArrowLeft") setLightbox((i) => (i === null ? i : (i - 1 + portfolioImages.length) % portfolioImages.length));
+    };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [lightbox]);
+
   return (
     <section id="katalog" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -324,9 +342,11 @@ function Gallery() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {portfolioImages.map((img, i) => (
-            <div
+            <button
+              type="button"
               key={i}
-              className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-violet-medium/50 border border-white/10 cursor-pointer"
+              onClick={() => setLightbox(i)}
+              className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-violet-medium/50 border border-white/10 cursor-pointer text-left"
             >
               <img
                 src={img.url}
@@ -337,7 +357,7 @@ function Gallery() {
               <div className="absolute inset-0 bg-violet-electric/0 group-hover:bg-violet-electric/40 transition-all duration-300 grid place-items-center opacity-0 group-hover:opacity-100">
                 <ZoomIn className="w-10 h-10 text-white" />
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
@@ -350,6 +370,44 @@ function Gallery() {
           </a>
         </div>
       </div>
+
+      {lightbox !== null && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            type="button"
+            aria-label="Tutup"
+            onClick={() => setLightbox(null)}
+            className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white grid place-items-center transition"
+          >
+            <span className="text-2xl leading-none">×</span>
+          </button>
+          <button
+            type="button"
+            aria-label="Sebelumnya"
+            onClick={(e) => { e.stopPropagation(); setLightbox((i) => (i === null ? i : (i - 1 + portfolioImages.length) % portfolioImages.length)); }}
+            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white grid place-items-center transition"
+          >
+            <span className="text-2xl leading-none">‹</span>
+          </button>
+          <button
+            type="button"
+            aria-label="Berikutnya"
+            onClick={(e) => { e.stopPropagation(); setLightbox((i) => (i === null ? i : (i + 1) % portfolioImages.length)); }}
+            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white grid place-items-center transition"
+          >
+            <span className="text-2xl leading-none">›</span>
+          </button>
+          <img
+            src={portfolioImages[lightbox].url}
+            alt=""
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-[92vw] max-h-[88vh] object-contain rounded-lg shadow-2xl"
+          />
+        </div>
+      )}
     </section>
   );
 }
