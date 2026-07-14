@@ -1,5 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
+import p1 from "@/assets/portfolio/09-31.21.jpeg.asset.json";
+import p2 from "@/assets/portfolio/09-31.21_1.jpeg.asset.json";
+import p3 from "@/assets/portfolio/09-31.22.jpeg.asset.json";
+import p4 from "@/assets/portfolio/09-31.22_1.jpeg.asset.json";
+import p5 from "@/assets/portfolio/09-31.24.jpeg.asset.json";
+import p6 from "@/assets/portfolio/09-31.25.jpeg.asset.json";
+import p7 from "@/assets/portfolio/09-31.25_1.jpeg.asset.json";
+import p8 from "@/assets/portfolio/09-31.27.jpeg.asset.json";
+import p9 from "@/assets/portfolio/09-31.27_1.jpeg.asset.json";
+import p10 from "@/assets/portfolio/09-31.27_2.jpeg.asset.json";
+const portfolioImages = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
 import { useEffect, useState } from "react";
 import {
   Palette,
@@ -289,14 +300,6 @@ function Services() {
   );
 }
 
-const galleryCategories = [
-  "Poster Kajian",
-  "Undangan",
-  "Infografis",
-  "Banner",
-  "Sampul Buku",
-  "Kartu Ucapan",
-];
 
 function Gallery() {
   return (
@@ -310,26 +313,20 @@ function Gallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-          {galleryCategories.map((cat, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          {portfolioImages.map((img, i) => (
             <div
-              key={cat}
+              key={i}
               className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-violet-medium/50 border border-white/10 cursor-pointer"
             >
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: `linear-gradient(135deg, rgba(107,95,168,${0.25 + (i % 3) * 0.1}), rgba(45,10,107,0.6))`,
-                }}
+              <img
+                src={img.url}
+                alt=""
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 grid place-items-center">
-                <ImageIcon className="w-14 h-14 text-white/30 group-hover:scale-110 transition-transform" />
-              </div>
-              <div className="absolute inset-0 bg-violet-electric/0 group-hover:bg-violet-electric/50 transition-all duration-300 grid place-items-center opacity-0 group-hover:opacity-100">
+              <div className="absolute inset-0 bg-violet-electric/0 group-hover:bg-violet-electric/40 transition-all duration-300 grid place-items-center opacity-0 group-hover:opacity-100">
                 <ZoomIn className="w-10 h-10 text-white" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-violet-deep to-transparent">
-                <span className="text-sm font-semibold text-white">{cat}</span>
               </div>
             </div>
           ))}
