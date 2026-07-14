@@ -1,5 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
+import p1 from "@/assets/portfolio/09-31.21.jpeg.asset.json";
+import p2 from "@/assets/portfolio/09-31.21_1.jpeg.asset.json";
+import p3 from "@/assets/portfolio/09-31.22.jpeg.asset.json";
+import p4 from "@/assets/portfolio/09-31.22_1.jpeg.asset.json";
+import p5 from "@/assets/portfolio/09-31.24.jpeg.asset.json";
+import p6 from "@/assets/portfolio/09-31.25.jpeg.asset.json";
+import p7 from "@/assets/portfolio/09-31.25_1.jpeg.asset.json";
+import p8 from "@/assets/portfolio/09-31.27.jpeg.asset.json";
+import p9 from "@/assets/portfolio/09-31.27_1.jpeg.asset.json";
+import p10 from "@/assets/portfolio/09-31.27_2.jpeg.asset.json";
+const portfolioImages = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
 import { useEffect, useState } from "react";
 import {
   Palette,
