@@ -300,14 +300,6 @@ function Services() {
   );
 }
 
-const galleryCategories = [
-  "Poster Kajian",
-  "Undangan",
-  "Infografis",
-  "Banner",
-  "Sampul Buku",
-  "Kartu Ucapan",
-];
 
 function Gallery() {
   return (
