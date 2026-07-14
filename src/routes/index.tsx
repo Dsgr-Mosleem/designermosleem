@@ -10,7 +10,14 @@ import p7 from "@/assets/portfolio/09-31.25_1.jpeg.asset.json";
 import p8 from "@/assets/portfolio/09-31.27.jpeg.asset.json";
 import p9 from "@/assets/portfolio/09-31.27_1.jpeg.asset.json";
 import p10 from "@/assets/portfolio/09-31.27_2.jpeg.asset.json";
-const portfolioImages = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+import p11 from "@/assets/portfolio/09.31.23_1.jpeg.asset.json";
+import p12 from "@/assets/portfolio/09.31.26_1.jpeg.asset.json";
+import p13 from "@/assets/portfolio/09.31.26.jpeg.asset.json";
+import p14 from "@/assets/portfolio/09.31.25_2.jpeg.asset.json";
+import p15 from "@/assets/portfolio/09.31.24_1.jpeg.asset.json";
+import p16 from "@/assets/portfolio/09.31.23.jpeg.asset.json";
+import p17 from "@/assets/portfolio/09.31.28.jpeg.asset.json";
+const portfolioImages = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17];
 import { useEffect, useState } from "react";
 import {
   Palette,
