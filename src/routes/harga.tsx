@@ -5,35 +5,31 @@ import {
   MessageCircle,
   Check,
   X,
-  Palette,
-  Globe,
-  Zap,
-  Plus,
-  Package,
-  Rocket,
+  ArrowLeft,
+  Star,
   Crown,
-  LayoutTemplate,
-  Server,
-  Layers,
+  Rocket,
+  Package,
 } from "lucide-react";
+import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
 
-const WA_URL = "https://wa.me/6289939662344";
+const WA_URL = "https://wa.me/628993966234";
 const WA_DISPLAY = "+62 899 3966 234";
 
 export const Route = createFileRoute("/harga")({
   head: () => ({
     meta: [
-      { title: "Harga & Paket — Designer Mosleem" },
+      { title: "Katalog Harga Lengkap — Designer Mosleem" },
       {
         name: "description",
         content:
-          "Paket harga transparan & terjangkau untuk jasa desain grafis dan pembuatan website. Mulai dari 25K tanpa biaya tersembunyi.",
+          "Pilih paket desain grafis sesuai kebutuhanmu. Mulai dari Rp 25.000. Tersedia juga paket custom dan konsultasi gratis.",
       },
-      { property: "og:title", content: "Paket Harga — Designer Mosleem" },
+      { property: "og:title", content: "Katalog Harga Lengkap — Designer Mosleem" },
       {
         property: "og:description",
         content:
-          "Pilih paket desain grafis atau pembuatan website sesuai kebutuhan. Harga jelas, mulai 25K.",
+          "Paket desain grafis transparan & terjangkau. Mulai dari Rp 25.000 dengan opsi custom dan konsultasi gratis.",
       },
     ],
   }),
@@ -66,8 +62,12 @@ function NavBar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-gradient-violet grid place-items-center glow-violet-soft">
-            <Sparkles className="w-5 h-5 text-white" />
+          <div className="w-9 h-9 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
+            <img
+              src={mosleemLogo.url}
+              alt="Designer Mosleem logo"
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="text-display text-lg tracking-wide">
             DESIGNER <span className="text-violet-bright">MOSLEEM</span>
@@ -79,9 +79,7 @@ function NavBar() {
               key={l.label}
               href={l.href}
               className={`text-sm font-medium transition-colors ${
-                l.active
-                  ? "text-gold"
-                  : "text-white/80 hover:text-white"
+                l.active ? "text-gold" : "text-white/80 hover:text-white"
               }`}
             >
               {l.label}
@@ -89,11 +87,12 @@ function NavBar() {
           ))}
         </nav>
         <a
-          href={WA_URL}
+          href={`${WA_URL}?text=Halo%20Designer%20Mosleem%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20jasa%20desain%2Fwebsite`}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-5 py-2.5 text-sm transition-all hover:glow-violet-soft"
+          className="rounded-full bg-gradient-violet text-white font-semibold px-5 py-2.5 text-sm transition-all hover:glow-violet-soft inline-flex items-center gap-2"
         >
+          <MessageCircle className="w-4 h-4" />
           Hubungi Kami
         </a>
       </div>
@@ -104,7 +103,7 @@ function NavBar() {
 function PageHero() {
   return (
     <section
-      className="relative pt-32 pb-16 overflow-hidden noise-bg"
+      className="relative pt-28 pb-12 md:pt-32 md:pb-16 overflow-hidden noise-bg"
       style={{ background: "var(--gradient-hero)" }}
     >
       <div
@@ -119,33 +118,26 @@ function PageHero() {
             "radial-gradient(ellipse at center, black 30%, transparent 75%)",
         }}
       />
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-violet-electric/15 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 -right-24 w-[420px] h-[420px] rounded-full bg-gold/10 blur-[110px] pointer-events-none" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-violet-electric/15 blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-4xl mx-auto px-6 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-transparent px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
-          ✦ Harga Transparan & Terjangkau ✦
-        </span>
-
-        <div className="mt-8 animate-fade-up">
-          <h1 className="text-display text-6xl sm:text-7xl md:text-8xl text-white leading-[0.95]">
-            PAKET
-          </h1>
-          <h2 className="text-display text-5xl sm:text-6xl md:text-7xl text-violet-bright leading-[0.95] mt-2">
-            HARGA
-          </h2>
+        <div className="flex justify-start mb-6">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Kembali ke Beranda
+          </Link>
         </div>
 
-        <p className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-white/75">
-          Kami menawarkan paket harga yang fleksibel dan terjangkau untuk semua
-          kalangan — mulai dari individu hingga perusahaan besar. Tidak ada
-          biaya tersembunyi, semua transparan dan jelas.
+        <h1 className="text-display text-4xl sm:text-5xl md:text-6xl text-white leading-[0.95]">
+          Katalog Harga Lengkap
+        </h1>
+        <p className="mt-6 max-w-2xl mx-auto text-base md:text-lg text-white/75">
+          Pilih paket sesuai kebutuhanmu, atau konsultasikan kebutuhan custom-mu
+          langsung ke kami
         </p>
-
-        <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-violet px-6 py-2.5 border-2 border-gold/60 glow-violet-soft">
-          <span className="text-lg">💰</span>
-          <span className="text-display text-lg text-gold">Mulai dari 25K</span>
-        </div>
       </div>
     </section>
   );
@@ -154,125 +146,82 @@ function PageHero() {
 type Plan = {
   name: string;
   price: string;
-  desc: string;
+  label: string;
+  suit: string;
   features: string[];
+  limitations: string[];
   cta: string;
-  popular?: boolean;
+  waText: string;
   icon: typeof Package;
+  popular?: boolean;
 };
 
 const grafisPlans: Plan[] = [
   {
-    name: "Starter",
-    price: "25K – 50K",
-    desc: "Untuk yang baru memulai atau proyek sederhana.",
+    name: "Basic",
+    price: "Rp 25.000",
+    label: "Desain Simple",
+    suit: "Poster acara sederhana, flyer, feed Instagram",
     icon: Package,
     features: [
-      "1x Desain Poster/Grafis",
-      "Size standar (A4, A3)",
-      "Max 2 kali revisi",
-      "File JPG + PNG",
-      "Durasi: 1–2 hari kerja",
+      "1 desain custom",
+      "Ukuran sesuai kebutuhan (A4/Instagram/Story)",
+      "Revisi 1x",
+      "File JPG/PNG",
+      "Estimasi 1 hari kerja",
     ],
-    cta: "Pesan Sekarang",
-  },
-  {
-    name: "Professional",
-    price: "75K – 150K",
-    desc: "Paket favorit untuk hasil berkualitas tinggi & profesional.",
-    icon: Rocket,
-    popular: true,
-    features: [
-      "2–3x Desain dengan tema",
-      "Custom size & layout",
-      "Max 5 kali revisi",
-      "File JPG + PNG + PDF",
-      "Source file (Canva/Figma)",
-      "Durasi: 3–5 hari kerja",
-      "Konsultasi gratis",
+    limitations: [
+      "Tanpa file source (PSD/AI)",
+      "Tanpa konsultasi konsep",
+      "Tidak termasuk foto berbayar/premium",
     ],
-    cta: "Pesan Sekarang",
-  },
-  {
-    name: "Premium",
-    price: "200K – 500K",
-    desc: "Paket lengkap dengan konsultasi penuh dan hasil maksimal.",
-    icon: Crown,
-    features: [
-      "Unlimited desain & revisi",
-      "Custom branding package",
-      "Priority support",
-      "File lengkap semua format",
-      "Konsultasi strategi design",
-      "Durasi: 7–14 hari kerja",
-      "Bonus: mockup & presentasi",
-      "Garansi kepuasan 100%",
-    ],
-    cta: "Hubungi untuk Penawaran Khusus",
-  },
-];
-
-const webPlans: Plan[] = [
-  {
-    name: "Basic",
-    price: "500K – 1.5Jt",
-    desc: "Landing page sederhana untuk promosi produk atau jasa.",
-    icon: LayoutTemplate,
-    features: [
-      "1 halaman (single page)",
-      "Design responsif mobile",
-      "Contact form + maps",
-      "Max 2 revisi",
-      "Hosting 3 bulan",
-      "Domain custom (.com)",
-      "Durasi: 7–10 hari kerja",
-      "Support gratis 1 bulan",
-    ],
-    cta: "Pesan Sekarang",
+    cta: "Tanya Lebih Lanjut",
+    waText:
+      "Halo%20Designer%20Mosleem%2C%20saya%20ingin%20order%20paket%20Desain%20Simple%20(Rp%2025.000).%20Mohon%20info%20lebih%20lanjut.",
   },
   {
     name: "Standard",
-    price: "2Jt – 4Jt",
-    desc: "Website company profile lengkap dengan portfolio & testimoni.",
-    icon: Layers,
+    price: "Rp 50.000",
+    label: "Desain Profesional",
+    suit: "Undangan pernikahan, poster event Islami, infografis",
+    icon: Rocket,
     popular: true,
     features: [
-      "4–6 halaman",
-      "Design custom & modern",
-      "Responsif (mobile/desktop)",
-      "Portfolio/Katalog produk",
-      "Testimoni section",
-      "Blog/news ready",
-      "Max 5 revisi",
-      "Hosting 1 tahun",
-      "Domain custom (.com)",
-      "Durasi: 14–21 hari kerja",
-      "Support gratis 3 bulan",
-      "SEO basic setup",
+      "1 desain custom premium",
+      "Revisi hingga 3x",
+      "File JPG/PNG + PDF",
+      "Konsultasi konsep singkat",
+      "Estimasi 1-2 hari kerja",
+      "Free 1 variasi warna",
     ],
-    cta: "Pesan Sekarang",
+    limitations: [
+      "File source (AI/PSD) tambahan +Rp 20.000",
+      "Tidak termasuk cetak fisik",
+    ],
+    cta: "Tanya Lebih Lanjut",
+    waText:
+      "Halo%20Designer%20Mosleem%2C%20saya%20ingin%20order%20paket%20Desain%20Profesional%20(Rp%2050.000).%20Mohon%20info%20lebih%20lanjut.",
   },
   {
-    name: "Enterprise",
-    price: "5Jt+",
-    desc: "Website skala besar dengan fitur custom & integrasi lengkap.",
-    icon: Server,
+    name: "Premium",
+    price: "Rp 100.000",
+    label: "Desain Eksklusif",
+    suit: "Cover buku, branding kit, desain multi-halaman",
+    icon: Crown,
     features: [
-      "8+ halaman",
-      "Design & UX profesional",
-      "E-commerce / pembayaran",
-      "Database & backend custom",
-      "Integrasi API (email, WA)",
-      "Admin dashboard",
-      "Unlimited revisi",
-      "Hosting & domain 2 tahun",
-      "SSL certificate",
-      "Durasi: 30+ hari kerja",
-      "Maintenance 6 bulan gratis",
-      "Training admin",
-      "Dedicated support",
+      "Desain custom + konsep mendalam",
+      "Revisi hingga 5x",
+      "File lengkap (JPG, PNG, PDF, source AI/PSD)",
+      "Konsultasi via WhatsApp",
+      "Estimasi 2-4 hari kerja",
+      "Free 2 variasi desain awal",
     ],
-    cta: "Hubungi untuk Konsultasi",
+    limitations: [
+      "Untuk kebutuhan lebih dari 5 halaman, dikenakan biaya tambahan",
+    ],
+    cta: "Tanya Lebih Lanjut",
+    waText:
+      "Halo%20Designer%20Mosleem%2C%20saya%20ingin%20order%20paket%20Desain%20Eksklusif%20(Rp%20100.000).%20Mohon%20info%20lebih%20lanjut.",
   },
 ];
 
@@ -280,15 +229,15 @@ function PlanCard({ plan }: { plan: Plan }) {
   const Icon = plan.icon;
   return (
     <div
-      className={`relative rounded-3xl p-8 backdrop-blur-sm transition-all duration-300 flex flex-col ${
+      className={`relative rounded-3xl p-6 md:p-8 backdrop-blur-sm transition-all duration-300 flex flex-col h-full ${
         plan.popular
-          ? "bg-violet-medium/70 border-[3px] border-gold/80 glow-violet-soft -translate-y-2 md:-translate-y-4"
+          ? "bg-violet-medium/70 border-[3px] border-gold/80 glow-violet-soft -translate-y-2 md:-translate-y-3"
           : "bg-violet-medium/40 border border-white/10 hover:-translate-y-1.5 hover:glow-violet-soft hover:border-violet-bright/50"
       }`}
     >
       {plan.popular && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gold text-violet-deep font-bold text-xs px-4 py-1.5 tracking-wide shadow-lg">
-          ⭐ PALING DIMINATI
+          ⭐ PALING LARIS
         </div>
       )}
 
@@ -302,21 +251,22 @@ function PlanCard({ plan }: { plan: Plan }) {
         <Icon className={`w-7 h-7 ${plan.popular ? "text-white" : "text-gold"}`} />
       </div>
 
-      <h3 className="text-display text-2xl text-white mb-1.5">{plan.name}</h3>
-      <p className="text-sm text-white/65 mb-5 leading-relaxed min-h-[42px]">
-        {plan.desc}
+      <h3 className="text-display text-2xl md:text-3xl text-white mb-1">
+        {plan.name}
+      </h3>
+      <div className="text-display text-3xl md:text-4xl text-gold mb-3">
+        {plan.price}
+      </div>
+      <p className="text-sm font-semibold text-violet-bright mb-2">
+        {plan.label}
+      </p>
+      <p className="text-sm text-white/65 mb-5 leading-relaxed">
+        Cocok untuk: {plan.suit}
       </p>
 
-      <div className="mb-6 pb-6 border-b border-violet-bright/20">
-        <div className="text-display text-3xl md:text-4xl text-gold">
-          {plan.price}
-        </div>
-        <div className="text-xs text-white/50 mt-1">per proyek</div>
-      </div>
-
-      <ul className="space-y-3 mb-8 flex-1">
+      <ul className="space-y-2.5 mb-5 flex-1">
         {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-sm text-white/85">
+          <li key={f} className="flex items-start gap-2.5 text-sm text-white/90">
             <Check
               className={`w-4 h-4 mt-0.5 shrink-0 ${
                 plan.popular ? "text-gold" : "text-violet-bright"
@@ -327,15 +277,20 @@ function PlanCard({ plan }: { plan: Plan }) {
         ))}
       </ul>
 
+      <ul className="space-y-2.5 mb-6">
+        {plan.limitations.map((f) => (
+          <li key={f} className="flex items-start gap-2.5 text-sm text-white/55">
+            <X className="w-4 h-4 mt-0.5 shrink-0 text-white/40" />
+            <span>{f}</span>
+          </li>
+        ))}
+      </ul>
+
       <a
-        href={WA_URL}
+        href={`${WA_URL}?text=${plan.waText}`}
         target="_blank"
         rel="noopener noreferrer"
-        className={`rounded-full font-semibold px-6 py-3 text-sm text-center transition-all hover:scale-[1.03] inline-flex items-center justify-center gap-2 ${
-          plan.popular
-            ? "bg-gold text-violet-deep hover:bg-white"
-            : "bg-gradient-violet hover:bg-violet-bright/90 text-white hover:glow-violet-soft"
-        }`}
+        className="mt-auto rounded-full font-semibold px-6 py-3 text-sm text-center transition-all hover:scale-[1.03] inline-flex items-center justify-center gap-2 bg-gradient-violet text-white hover:glow-violet-soft"
       >
         <MessageCircle className="w-4 h-4" />
         {plan.cta}
@@ -344,302 +299,141 @@ function PlanCard({ plan }: { plan: Plan }) {
   );
 }
 
-const grafisRows = [
-  { label: "Jumlah desain", values: ["1", "2–3", "∞"] },
-  { label: "Revisi", values: ["2x", "5x", "∞"] },
-  { label: "Durasi pengerjaan", values: ["1–2 hari", "3–5 hari", "7–14 hari"] },
-  { label: "Custom size", values: [false, true, true] },
-  { label: "Source file", values: [false, true, true] },
-  { label: "Konsultasi gratis", values: [false, true, true] },
-];
-
-const webRows = [
-  { label: "Jumlah halaman", values: ["1", "4–6", "8+"] },
-  { label: "Responsif mobile", values: [true, true, true] },
-  { label: "Portfolio/katalog", values: [false, true, true] },
-  { label: "E-commerce", values: [false, false, true] },
-  { label: "Hosting 1 tahun", values: [true, true, true] },
-  { label: "Support gratis", values: ["1 bln", "3 bln", "6 bln"] },
-  { label: "Maintenance", values: [false, false, true] },
-];
-
-function ComparisonTable({
-  headers,
-  rows,
-}: {
-  headers: string[];
-  rows: { label: string; values: (string | boolean)[] }[];
-}) {
-  return (
-    <div className="overflow-x-auto rounded-2xl border border-white/10 bg-violet-medium/30 backdrop-blur-sm">
-      <table className="w-full min-w-[560px] text-sm">
-        <thead>
-          <tr className="bg-gold text-violet-deep">
-            <th className="text-left px-5 py-4 font-bold text-display tracking-wide">
-              Fitur
-            </th>
-            {headers.map((h) => (
-              <th
-                key={h}
-                className="px-5 py-4 font-bold text-display tracking-wide text-center"
-              >
-                {h}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((r, i) => (
-            <tr
-              key={r.label}
-              className={`border-t border-violet-bright/20 transition-colors hover:bg-violet-deep/40 ${
-                i % 2 === 1 ? "bg-violet-deep/20" : ""
-              }`}
-            >
-              <td className="px-5 py-3.5 text-white/85 font-medium">{r.label}</td>
-              {r.values.map((v, j) => (
-                <td key={j} className="px-5 py-3.5 text-center">
-                  {typeof v === "boolean" ? (
-                    v ? (
-                      <Check className="w-5 h-5 text-gold mx-auto" />
-                    ) : (
-                      <X className="w-5 h-5 text-white/30 mx-auto" />
-                    )
-                  ) : (
-                    <span className="text-white/85">{v}</span>
-                  )}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-type Category = "grafis" | "web";
-
-function PricingTabs() {
-  const [tab, setTab] = useState<Category>("grafis");
-  const plans = tab === "grafis" ? grafisPlans : webPlans;
-  const headers =
-    tab === "grafis"
-      ? ["Starter", "Professional", "Premium"]
-      : ["Basic", "Standard", "Enterprise"];
-  const rows = tab === "grafis" ? grafisRows : webRows;
-
+function GraphicDesignSection() {
   return (
     <section className="py-16 px-6">
       <div className="max-w-7xl mx-auto">
-        {/* Tabs */}
-        <div className="flex justify-center mb-14">
-          <div className="inline-flex gap-2 p-1.5 rounded-full border border-white/10 bg-violet-medium/30 backdrop-blur-sm">
-            <button
-              type="button"
-              onClick={() => setTab("grafis")}
-              className={`inline-flex items-center gap-2 rounded-full px-5 md:px-7 py-2.5 text-sm font-semibold transition-all ${
-                tab === "grafis"
-                  ? "bg-gradient-violet text-white glow-violet-soft"
-                  : "text-white/60 hover:text-white"
-              }`}
-            >
-              <Palette className="w-4 h-4" /> Desain Grafis
-            </button>
-            <button
-              type="button"
-              onClick={() => setTab("web")}
-              className={`inline-flex items-center gap-2 rounded-full px-5 md:px-7 py-2.5 text-sm font-semibold transition-all ${
-                tab === "web"
-                  ? "bg-gradient-violet text-white glow-violet-soft"
-                  : "text-white/60 hover:text-white"
-              }`}
-            >
-              <Globe className="w-4 h-4" /> Pembuatan Website
-            </button>
-          </div>
+        <div className="text-center mb-12">
+          <span className="text-gold text-sm font-semibold tracking-widest">
+            KATEGORI JASA DESAIN GRAFIS
+          </span>
+          <h3 className="text-display text-3xl md:text-5xl mt-3">
+            Paket Desain <span className="text-violet-bright">Grafis</span>
+          </h3>
         </div>
 
-        {/* Cards */}
-        <div
-          key={tab}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6 animate-fade-up"
-        >
-          {plans.map((p) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {grafisPlans.map((p) => (
             <PlanCard key={p.name} plan={p} />
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* Comparison Table */}
-        <div className="mt-24">
-          <div className="text-center mb-10">
-            <span className="text-gold text-sm font-semibold tracking-widest">
-              PERBANDINGAN
-            </span>
-            <h3 className="text-display text-3xl md:text-5xl mt-3">
-              Bandingkan{" "}
-              <span className="text-violet-bright">
-                {tab === "grafis" ? "Paket Desain" : "Paket Website"}
-              </span>
+function CustomPackageSection() {
+  return (
+    <section className="py-12 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div
+          className="relative overflow-hidden rounded-3xl border border-gold/60 glow-violet-soft p-8 md:p-12"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(107,95,168,0.35) 0%, rgba(26,5,51,0.85) 100%)",
+          }}
+        >
+          <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-gold/10 blur-[100px] pointer-events-none" />
+          <div className="absolute -bottom-16 -left-16 w-[260px] h-[260px] rounded-full bg-violet-electric/15 blur-[90px] pointer-events-none" />
+
+          <div className="relative text-center max-w-3xl mx-auto">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-violet grid place-items-center mx-auto mb-5 glow-violet-soft">
+              <Sparkles className="w-7 h-7 text-white" />
+            </div>
+            <h3 className="text-display text-3xl md:text-5xl text-white mb-4">
+              Punya Kebutuhan Khusus?
+            </h3>
+            <p className="text-base md:text-lg text-white/80 leading-relaxed mb-8">
+              Setiap project itu unik. Kalau paket di atas belum sesuai dengan
+              kebutuhanmu — baik dari sisi jumlah revisi, kompleksitas desain,
+              jumlah halaman, atau permintaan khusus lainnya — kami siap
+              diskusikan solusi custom sesuai budget dan kebutuhanmu.
+            </p>
+
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left mb-10 max-w-4xl mx-auto">
+              {[
+                "Konsultasi gratis sebelum penentuan harga",
+                "Harga disesuaikan dengan kompleksitas & scope project",
+                "Fleksibel untuk kebutuhan jangka panjang/berkelanjutan",
+              ].map((f) => (
+                <li
+                  key={f}
+                  className="flex items-start gap-2.5 text-sm text-white/90"
+                >
+                  <Check className="w-4 h-4 mt-0.5 shrink-0 text-gold" />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-10 max-w-3xl mx-auto">
+              {[
+                "Harga final ditentukan setelah diskusi kebutuhan",
+                "Estimasi waktu pengerjaan menyesuaikan scope",
+              ].map((f) => (
+                <li
+                  key={f}
+                  className="flex items-start gap-2.5 text-sm text-white/55"
+                >
+                  <X className="w-4 h-4 mt-0.5 shrink-0 text-white/40" />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={`${WA_URL}?text=Halo%20Designer%20Mosleem%2C%20saya%20tertarik%20untuk%20konsultasi%20paket%20custom%20sesuai%20kebutuhan%20saya.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-gold text-violet-deep hover:bg-white font-bold px-8 py-4 text-base transition-all hover:scale-105 shadow-lg"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Konsultasi Custom Sekarang
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const terms = [
+  "Pembayaran dilakukan minimal 50% di awal (DP) sebagai tanda jadi",
+  "Revisi di luar ketentuan paket dikenakan biaya tambahan Rp 10.000 - Rp 50.000 tergantung kompleksitas",
+  "Pembatalan setelah proses desain dimulai, DP tidak dapat dikembalikan",
+  "Estimasi waktu pengerjaan dihitung setelah brief & materi lengkap diterima",
+  "Harga dapat berubah sewaktu-waktu sesuai kompleksitas project",
+  "Request mendesak (same-day) dikenakan biaya tambahan (rush fee) 50% dari harga normal",
+  "Hak cipta desain sepenuhnya milik klien setelah pelunasan",
+];
+
+function TermsSection() {
+  return (
+    <section className="py-16 px-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="rounded-2xl bg-violet-deep/60 border border-white/10 p-8 md:p-12">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-xl bg-[rgba(232,181,35,0.12)] border border-gold/40 grid place-items-center">
+              <Star className="w-5 h-5 text-gold" />
+            </div>
+            <h3 className="text-display text-2xl md:text-3xl text-white">
+              Ketentuan Umum
             </h3>
           </div>
-          <ComparisonTable headers={headers} rows={rows} />
-        </div>
-      </div>
-    </section>
-  );
-}
 
-const addons = [
-  {
-    icon: RefreshIcon,
-    title: "Revisi Tambahan",
-    price: "10K – 25K",
-    desc: "Per item revisi tambahan. Waktu 1–2 hari kerja.",
-    cta: "Tambah ke pesanan",
-  },
-  {
-    icon: Zap,
-    title: "Rush / Express",
-    price: "+30% harga paket",
-    desc: "Pengerjaan dipercepat, selesai dalam 24 jam.",
-    cta: "Pilih opsi ini",
-  },
-  {
-    icon: Palette,
-    title: "Branding Package",
-    price: "500K",
-    desc: "Logo, color palette, dan typography guide siap pakai.",
-    cta: "Tambah ke pesanan",
-  },
-  {
-    icon: Server,
-    title: "Hosting & Domain",
-    price: "300K / tahun",
-    desc: "Renewal otomatis dengan support 24/7.",
-    cta: "Pilih paket",
-  },
-];
-
-function RefreshIcon(props: React.SVGProps<SVGSVGElement>) {
-  return <Plus {...props} />;
-}
-
-function Addons() {
-  return (
-    <section className="py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="text-gold text-sm font-semibold tracking-widest">
-            OPSI TAMBAHAN
-          </span>
-          <h3 className="text-display text-3xl md:text-5xl mt-3">
-            Add-ons <span className="text-violet-bright">Fleksibel</span>
-          </h3>
-          <p className="text-white/65 mt-4 max-w-xl mx-auto">
-            Sesuaikan paket dengan kebutuhan Anda. Bisa ditambahkan kapan saja.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {addons.map((a) => {
-            const Icon = a.icon;
-            return (
-              <div
-                key={a.title}
-                className="group rounded-2xl bg-violet-medium/30 border border-white/10 p-6 flex flex-col transition-all hover:border-violet-bright/40 hover:-translate-y-1 hover:glow-violet-soft"
+          <ol className="space-y-4">
+            {terms.map((t, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-4 text-sm md:text-base text-white/85"
               >
-                <div className="w-11 h-11 rounded-xl border border-gold/40 bg-[rgba(232,181,35,0.1)] grid place-items-center mb-4">
-                  <Icon className="w-5 h-5 text-gold" />
-                </div>
-                <h4 className="text-display text-lg text-white mb-1">
-                  {a.title}
-                </h4>
-                <div className="text-gold font-bold text-lg mb-2">{a.price}</div>
-                <p className="text-sm text-white/65 leading-relaxed mb-5 flex-1">
-                  {a.desc}
-                </p>
-                <a
-                  href={WA_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-semibold text-violet-bright hover:text-gold transition-colors inline-flex items-center gap-1"
-                >
-                  {a.cta} →
-                </a>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const timeline = [
-  {
-    title: "Konsultasi Gratis",
-    desc: "Cerita kebutuhan Anda via WhatsApp, tanpa biaya.",
-  },
-  {
-    title: "Penawaran & Kesepakatan",
-    desc: "Kami buat quote, Anda approve sebelum mulai.",
-  },
-  {
-    title: "DP 50%",
-    desc: "Konfirmasi pesanan dan pengerjaan dimulai.",
-  },
-  {
-    title: "Proses Pengerjaan",
-    desc: "Kami buat, Anda review & minta revisi.",
-  },
-  {
-    title: "Pelunasan 50%",
-    desc: "Setelah final, bayar sisa pelunasan.",
-  },
-  {
-    title: "File Delivered",
-    desc: "Terima file final, support gratis dimulai.",
-  },
-];
-
-function Timeline() {
-  return (
-    <section className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="text-gold text-sm font-semibold tracking-widest">
-            ALUR KERJA
-          </span>
-          <h3 className="text-display text-3xl md:text-5xl mt-3">
-            Proses <span className="text-violet-bright">Pembayaran</span>
-          </h3>
-          <p className="text-white/65 mt-4 max-w-xl mx-auto">
-            Transparan dari awal hingga file diterima.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {timeline.map((t, i) => (
-            <div
-              key={t.title}
-              className="relative rounded-2xl bg-violet-medium/40 border border-white/10 p-6 hover:border-violet-bright/50 hover:glow-violet-soft transition-all"
-            >
-              <div className="flex items-start gap-4">
-                <div className="text-display text-5xl text-gold leading-none shrink-0">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <div>
-                  <h4 className="text-display text-lg text-white mb-1.5">
-                    {t.title}
-                  </h4>
-                  <p className="text-sm text-white/65 leading-relaxed">
-                    {t.desc}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+                <span className="shrink-0 w-7 h-7 rounded-full bg-gold/10 border border-gold/40 text-gold text-xs font-bold grid place-items-center">
+                  {i + 1}
+                </span>
+                <span className="leading-relaxed pt-0.5">{t}</span>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
@@ -654,10 +448,10 @@ function CTABanner() {
         style={{ background: "var(--gradient-violet)" }}
       >
         <div className="relative">
-          <h2 className="text-display text-4xl md:text-6xl text-white">
+          <h2 className="text-display text-3xl md:text-5xl text-white">
             Masih Bingung Pilih Paket?
           </h2>
-          <p className="mt-5 text-white/90 text-lg max-w-2xl mx-auto">
+          <p className="mt-5 text-white/90 text-base md:text-lg max-w-2xl mx-auto">
             Konsultasikan kebutuhan Anda —{" "}
             <span className="font-bold text-gold">GRATIS</span> dan tanpa
             komitmen.
@@ -687,8 +481,12 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-violet-bright/20">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-violet grid place-items-center">
-                <Sparkles className="w-5 h-5 text-white" />
+              <div className="w-9 h-9 rounded-lg overflow-hidden grid place-items-center">
+                <img
+                  src={mosleemLogo.url}
+                  alt="Designer Mosleem logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="text-display text-lg">
                 DESIGNER <span className="text-violet-bright">MOSLEEM</span>
@@ -774,9 +572,9 @@ function HargaPage() {
       <NavBar />
       <main>
         <PageHero />
-        <PricingTabs />
-        <Addons />
-        <Timeline />
+        <GraphicDesignSection />
+        <CustomPackageSection />
+        <TermsSection />
         <CTABanner />
       </main>
       <Footer />
