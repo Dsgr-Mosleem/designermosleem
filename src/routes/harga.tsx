@@ -121,15 +121,17 @@ function PageHero() {
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-violet-electric/15 blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-4xl mx-auto px-6 text-center">
-        <Link
-          to="/"
-          className="absolute top-0 left-0 md:-left-4 inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Kembali ke Beranda
-        </Link>
+        <div className="flex justify-start mb-6">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Kembali ke Beranda
+          </Link>
+        </div>
 
-        <h1 className="text-display text-4xl sm:text-5xl md:text-6xl text-white leading-[0.95] mt-8">
+        <h1 className="text-display text-4xl sm:text-5xl md:text-6xl text-white leading-[0.95]">
           Katalog Harga Lengkap
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-base md:text-lg text-white/75">
