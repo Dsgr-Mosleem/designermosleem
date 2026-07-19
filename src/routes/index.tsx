@@ -346,9 +346,33 @@ function Gallery() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {portfolioImages.map((img, i) => (
             <button
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+          {bannerImages.map((img, i) => (
+            <button
+              type="button"
+              key={`banner-${i}`}
+              onClick={() => setLightbox(i)}
+              className="group relative aspect-[5/2] rounded-2xl overflow-hidden bg-violet-medium/50 border border-white/10 cursor-pointer text-left"
+            >
+              <img
+                src={img.url}
+                alt=""
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-violet-electric/0 group-hover:bg-violet-electric/40 transition-all duration-300 grid place-items-center opacity-0 group-hover:opacity-100">
+                <ZoomIn className="w-10 h-10 text-white" />
+              </div>
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          {portfolioImages.slice(bannerImages.length).map((img, i) => (
+            <button
               type="button"
               key={i}
-              onClick={() => setLightbox(i)}
+              onClick={() => setLightbox(i + bannerImages.length)}
               className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-violet-medium/50 border border-white/10 cursor-pointer text-left"
             >
               <img
