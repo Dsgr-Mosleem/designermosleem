@@ -568,6 +568,100 @@ function Footer() {
   );
 }
 
+const faqs = [
+  {
+    q: "Berapa kali revisi yang didapatkan?",
+    a: "Jumlah revisi tergantung paket yang dipilih: Basic mendapat 1x revisi, Standard hingga 3x revisi, dan Premium hingga 5x revisi. Revisi di luar ketentuan paket akan dikenakan biaya tambahan.",
+  },
+  {
+    q: "Apakah saya mendapatkan file source seperti PSD atau AI?",
+    a: "File source (PSD/AI) tersedia untuk paket Premium secara gratis. Untuk paket Standard, file source bisa didapatkan dengan tambahan biaya Rp 20.000. Paket Basic tidak menyertakan file source.",
+  },
+  {
+    q: "Berapa lama estimasi waktu pengerjaan?",
+    a: "Estimasi waktu pengerjaan dihitung setelah brief dan materi lengkap diterima. Umumnya paket Basic 1 hari kerja, Standard 1-2 hari kerja, dan Premium 2-4 hari kerja. Durasi bisa lebih cepat atau lebih lama tergantung kompleksitas desain.",
+  },
+  {
+    q: "Apakah bisa request pengerjaan cepat atau same-day?",
+    a: "Bisa. Request mendesak atau same-day dikenakan biaya tambahan rush fee sebesar 50% dari harga paket normal. Ketersediaan tergantung jadwal pengerjaan saat itu.",
+  },
+  {
+    q: "Bagaimana cara pembayarannya?",
+    a: "Pembayaran dilakukan minimal 50% di awal sebagai down payment (DP) untuk memulai pengerjaan. Sisa pelunasan dibayarkan sebelum file final dikirim. Pembayaran bisa melalui transfer bank atau e-wallet yang akan diinformasikan setelah deal.",
+  },
+  {
+    q: "Apakah bisa konsultasi dulu sebelum order?",
+    a: "Tentu, konsultasi gratis tersedia untuk membahas kebutuhan, konsep, budget, dan estimasi waktu. Silakan klik tombol WhatsApp untuk berdiskusi tanpa komitmen.",
+  },
+];
+
+function FAQSection() {
+  const [open, setOpen] = useState<number | null>(null);
+
+  return (
+    <section className="py-16 px-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <span className="text-gold text-sm font-semibold tracking-widest">
+            FAQ
+          </span>
+          <h3 className="text-display text-3xl md:text-5xl mt-3">
+            Pertanyaan yang Sering <span className="text-violet-bright">Diajukan</span>
+          </h3>
+        </div>
+
+        <div className="space-y-4">
+          {faqs.map((item, i) => {
+            const isOpen = open === i;
+            return (
+              <div
+                key={i}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? "bg-violet-medium/50 border-gold/50 glow-violet-soft"
+                    : "bg-violet-medium/30 border-white/10 hover:border-violet-bright/40"
+                }`}
+              >
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left"
+                  aria-expanded={isOpen}
+                >
+                  <span className="text-base md:text-lg font-semibold text-white">
+                    {item.q}
+                  </span>
+                  <span
+                    className={`shrink-0 w-8 h-8 rounded-full grid place-items-center border transition-colors ${
+                      isOpen
+                        ? "bg-gold border-gold text-violet-deep"
+                        : "border-violet-bright/40 text-violet-bright"
+                    }`}
+                  >
+                    {isOpen ? (
+                      <Minus className="w-4 h-4" />
+                    ) : (
+                      <Plus className="w-4 h-4" />
+                    )}
+                  </span>
+                </button>
+                <div
+                  className={`px-5 md:px-6 transition-all duration-300 ease-in-out ${
+                    isOpen ? "pb-5 md:pb-6 max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-sm md:text-base text-white/75 leading-relaxed">
+                    {item.a}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HargaPage() {
   return (
     <div className="min-h-screen text-white">
@@ -577,6 +671,7 @@ function HargaPage() {
         <GraphicDesignSection />
         <CustomPackageSection />
         <TermsSection />
+        <FAQSection />
         <CTABanner />
       </main>
       <Footer />
