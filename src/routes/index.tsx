@@ -521,14 +521,12 @@ function Pricing() {
             pelaku usaha, komunitas, dan kebutuhan personal.
           </p>
 
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/harga"
             className="inline-flex rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-7 py-3.5 transition-all hover:glow-violet-soft"
           >
             Lihat Detail Harga
-          </a>
+          </Link>
         </div>
       </div>
     </section>
