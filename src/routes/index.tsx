@@ -109,6 +109,12 @@ function NavBar() {
               {l.label}
             </a>
           ))}
+          <Link
+            to="/harga"
+            className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+          >
+            Harga
+          </Link>
         </nav>
         <a
           href={WA_URL}
