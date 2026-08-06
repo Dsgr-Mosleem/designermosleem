@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
 import p1 from "@/assets/portfolio/09-31.21.jpeg.asset.json";
 import p2 from "@/assets/portfolio/09-31.21_1.jpeg.asset.json";
@@ -79,7 +79,6 @@ function NavBar() {
     { href: "#beranda", label: "Beranda" },
     { href: "#layanan", label: "Layanan" },
     { href: "#katalog", label: "Katalog" },
-    { href: "#harga", label: "Harga" },
     { href: "#kontak", label: "Kontak" },
   ];
 
@@ -110,6 +109,12 @@ function NavBar() {
               {l.label}
             </a>
           ))}
+          <Link
+            to="/harga"
+            className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+          >
+            Harga
+          </Link>
         </nav>
         <a
           href={WA_URL}
@@ -516,14 +521,12 @@ function Pricing() {
             pelaku usaha, komunitas, dan kebutuhan personal.
           </p>
 
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/harga"
             className="inline-flex rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-7 py-3.5 transition-all hover:glow-violet-soft"
           >
             Lihat Detail Harga
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -582,11 +585,14 @@ function Footer() {
           <div>
             <h4 className="text-display text-sm tracking-wider text-gold mb-4">MENU CEPAT</h4>
             <ul className="space-y-2 text-sm text-white/70">
-              {["Beranda", "Layanan", "Katalog", "Harga", "Kontak"].map((m) => (
+              {["Beranda", "Layanan", "Katalog", "Kontak"].map((m) => (
                 <li key={m}>
                   <a href={`#${m.toLowerCase()}`} className="hover:text-violet-bright transition-colors">{m}</a>
                 </li>
               ))}
+              <li>
+                <Link to="/harga" className="hover:text-violet-bright transition-colors">Harga</Link>
+              </li>
             </ul>
           </div>
 
