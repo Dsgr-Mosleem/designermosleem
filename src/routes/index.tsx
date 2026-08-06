@@ -585,11 +585,14 @@ function Footer() {
           <div>
             <h4 className="text-display text-sm tracking-wider text-gold mb-4">MENU CEPAT</h4>
             <ul className="space-y-2 text-sm text-white/70">
-              {["Beranda", "Layanan", "Katalog", "Harga", "Kontak"].map((m) => (
+              {["Beranda", "Layanan", "Katalog", "Kontak"].map((m) => (
                 <li key={m}>
                   <a href={`#${m.toLowerCase()}`} className="hover:text-violet-bright transition-colors">{m}</a>
                 </li>
               ))}
+              <li>
+                <Link to="/harga" className="hover:text-violet-bright transition-colors">Harga</Link>
+              </li>
             </ul>
           </div>
 
