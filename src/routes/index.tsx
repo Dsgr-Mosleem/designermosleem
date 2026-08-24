@@ -38,7 +38,7 @@ import {
   LayoutTemplate,
   Users,
   ShoppingBag,
-  Star,
+  
   ZoomIn,
   MessageCircle,
   Sparkles,
