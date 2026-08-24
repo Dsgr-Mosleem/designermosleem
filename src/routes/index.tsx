@@ -35,9 +35,6 @@ import {
   Heart,
   BookOpen,
   Globe,
-  LayoutTemplate,
-  Users,
-  ShoppingBag,
   
   ZoomIn,
   MessageCircle,
@@ -296,16 +293,6 @@ function Services() {
           </div>
         </div>
 
-        <div>
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-2xl">📌</span>
-            <h3 className="text-display text-2xl md:text-3xl">PEMBUATAN WEBSITE</h3>
-            <div className="flex-1 h-px bg-gradient-to-r from-gold/60 to-transparent" />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {webServices.map((s) => <ServiceCard key={s.title} {...s} />)}
-          </div>
-        </div>
       </div>
     </section>
   );
