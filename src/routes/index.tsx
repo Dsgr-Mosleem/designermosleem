@@ -38,7 +38,7 @@ import {
   LayoutTemplate,
   Users,
   ShoppingBag,
-  Star,
+  
   ZoomIn,
   MessageCircle,
   Sparkles,
@@ -441,63 +441,6 @@ function Gallery() {
   );
 }
 
-const testimonials = [
-  {
-    name: "Ahmad Fauzi",
-    role: "Ketua Komunitas Kajian",
-    quote: "Desain poster kajian kami jadi sangat menarik. Proses cepat dan harga sangat bersahabat. Sangat direkomendasikan!",
-  },
-  {
-    name: "Siti Rahmawati",
-    role: "Owner Online Shop",
-    quote: "Website toko online saya selesai tepat waktu dengan tampilan yang profesional. Penjualan meningkat signifikan.",
-  },
-  {
-    name: "Muhammad Ridho",
-    role: "Panitia Acara",
-    quote: "Undangan digital dan banner acara dibuat dengan sangat detail. Tim Designer Mosleem sangat responsif dan ramah.",
-  },
-];
-
-function Testimonials() {
-  return (
-    <section className="py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="text-gold text-sm font-semibold tracking-widest">TESTIMONI</span>
-          <h2 className="text-display text-4xl md:text-6xl mt-3">
-            Apa Kata <span className="text-violet-bright">Klien Kami</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="rounded-2xl bg-violet-medium/40 border border-gold/40 p-7 hover:border-gold transition-all hover:glow-violet-soft"
-            >
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-gold text-gold" />
-                ))}
-              </div>
-              <p className="text-white/85 italic leading-relaxed mb-6">"{t.quote}"</p>
-              <div className="flex items-center gap-3 pt-4 border-t border-violet-bright/20">
-                <div className="w-11 h-11 rounded-full bg-gradient-violet grid place-items-center text-white font-bold">
-                  {t.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-semibold text-white text-sm">{t.name}</p>
-                  <p className="text-xs text-white/60">{t.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function Pricing() {
   return (
@@ -638,7 +581,7 @@ function Home() {
         <Features />
         <Services />
         <Gallery />
-        <Testimonials />
+        
         <Pricing />
         <CTABanner />
       </main>
