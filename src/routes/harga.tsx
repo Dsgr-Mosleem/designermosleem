@@ -89,7 +89,7 @@ function NavBar() {
           ))}
         </nav>
         <a
-          href={`${WA_URL}?text=Halo%20Designer%20Mosleem%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20jasa%20desain%2Fwebsite`}
+          href={`${WA_URL}?text=Halo%20Designer%20Mosleem%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20jasa%20desain`}
           target="_blank"
           rel="noopener noreferrer"
           className="rounded-full bg-gradient-violet text-white font-semibold px-5 py-2.5 text-sm transition-all hover:glow-violet-soft inline-flex items-center gap-2"
@@ -495,7 +495,7 @@ function Footer() {
               </span>
             </div>
             <p className="text-sm text-white/65 leading-relaxed">
-              Jasa desain grafis & pembuatan website profesional untuk bisnis,
+              Jasa desain grafis profesional untuk bisnis,
               komunitas, dan acara Anda.
             </p>
           </div>

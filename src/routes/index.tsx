@@ -35,9 +35,6 @@ import {
   Heart,
   BookOpen,
   Globe,
-  LayoutTemplate,
-  Users,
-  ShoppingBag,
   
   ZoomIn,
   MessageCircle,
@@ -50,17 +47,17 @@ const WA_DISPLAY = "+62 899 3966 234";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Designer Mosleem — Jasa Desain Grafis & Website Profesional" },
+      { title: "Designer Mosleem — Jasa Desain Grafis Profesional" },
       {
         name: "description",
         content:
-          "Solusi Kreatif Digital untuk Bisnis dan Komunitas Anda. Jasa desain poster, undangan, infografis, dan pembuatan website mulai dari 25K.",
+          "Solusi Kreatif Digital untuk Bisnis dan Komunitas Anda. Jasa desain poster, undangan, dan infografis mulai dari 25K.",
       },
       { property: "og:title", content: "Designer Mosleem — Jasa Kreatif Digital" },
       {
         property: "og:description",
         content:
-          "Desain grafis & pembuatan website profesional untuk pelaku usaha, komunitas Islam, dan organisasi.",
+          "Desain grafis profesional untuk pelaku usaha, komunitas Islam, dan organisasi.",
       },
     ],
   }),
@@ -178,7 +175,7 @@ function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-transparent px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
-          ✦ Jasa Desain Grafis & Pembuatan Website ✦
+          ✦ Jasa Desain Grafis ✦
         </span>
 
         <p className="mt-3 mb-5 text-sm md:text-base text-gold/80 font-medium tracking-wide">
@@ -261,12 +258,6 @@ const grafisServices = [
   { icon: BookOpen, title: "Sampul Buku", desc: "Cover buku yang berkarakter dan menarik." },
 ];
 
-const webServices = [
-  { icon: Globe, title: "Company Profile", desc: "Website resmi yang merepresentasikan brand Anda." },
-  { icon: LayoutTemplate, title: "Landing Page / Portofolio", desc: "Halaman konversi & portofolio profesional." },
-  { icon: Users, title: "Website Komunitas", desc: "Platform organisasi & komunitas yang rapi." },
-  { icon: ShoppingBag, title: "Toko Online", desc: "Solusi jualan online yang mudah dikelola." },
-];
 
 function ServiceCard({ icon: Icon, title, desc }: { icon: typeof Globe; title: string; desc: string }) {
   return (
@@ -302,16 +293,6 @@ function Services() {
           </div>
         </div>
 
-        <div>
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-2xl">📌</span>
-            <h3 className="text-display text-2xl md:text-3xl">PEMBUATAN WEBSITE</h3>
-            <div className="flex-1 h-px bg-gradient-to-r from-gold/60 to-transparent" />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {webServices.map((s) => <ServiceCard key={s.title} {...s} />)}
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -344,7 +325,7 @@ function Gallery() {
           <span className="text-gold text-sm font-semibold tracking-widest">PORTOFOLIO</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">Hasil Karya Kami</h2>
           <p className="text-white/65 mt-4 max-w-xl mx-auto">
-            Beberapa contoh proyek desain & website yang telah kami kerjakan.
+            Beberapa contoh proyek desain yang telah kami kerjakan.
           </p>
         </div>
 
@@ -520,7 +501,7 @@ function Footer() {
               </span>
             </div>
             <p className="text-sm text-white/65 leading-relaxed">
-              Jasa desain grafis & pembuatan website profesional untuk bisnis,
+              Jasa desain grafis profesional untuk bisnis,
               komunitas, dan acara Anda.
             </p>
           </div>
