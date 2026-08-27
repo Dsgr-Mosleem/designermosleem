@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/asset-url";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
@@ -66,7 +67,7 @@ function NavBar() {
         <Link to="/" className="flex min-w-0 items-center gap-2">
           <div className="w-9 h-9 shrink-0 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
             <img
-              src={mosleemLogo.url}
+              src={assetUrl(mosleemLogo)}
               alt="Designer Mosleem logo"
               className="w-full h-full object-cover"
             />
@@ -486,7 +487,7 @@ function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <div className="w-9 h-9 rounded-lg overflow-hidden grid place-items-center">
                 <img
-                  src={mosleemLogo.url}
+                  src={assetUrl(mosleemLogo)}
                   alt="Designer Mosleem logo"
                   className="w-full h-full object-cover"
                 />

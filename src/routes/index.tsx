@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/asset-url";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
 import p1 from "@/assets/portfolio/09-31.21.jpeg.asset.json";
@@ -91,7 +92,7 @@ function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
         <a href="#beranda" className="flex min-w-0 items-center gap-2">
           <div className="w-9 h-9 shrink-0 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
-            <img src={mosleemLogo.url} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
+            <img src={assetUrl(mosleemLogo)} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
           </div>
           <span className="text-display text-base sm:text-lg tracking-wide leading-[1.05]">
             DESIGNER <span className="text-violet-bright">MOSLEEM</span>
@@ -341,7 +342,7 @@ function Gallery() {
               className="group relative aspect-[5/2] rounded-2xl overflow-hidden bg-violet-medium/50 border border-white/10 cursor-pointer text-left"
             >
               <img
-                src={img.url}
+                src={assetUrl(img)}
                 alt=""
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -362,7 +363,7 @@ function Gallery() {
               className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-violet-medium/50 border border-white/10 cursor-pointer text-left"
             >
               <img
-                src={img.url}
+                src={assetUrl(img)}
                 alt=""
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -414,7 +415,7 @@ function Gallery() {
             <span className="text-2xl leading-none">›</span>
           </button>
           <img
-            src={portfolioImages[lightbox].url}
+            src={assetUrl(portfolioImages[lightbox])}
             alt=""
             onClick={(e) => e.stopPropagation()}
             className="max-w-[92vw] max-h-[88vh] object-contain rounded-lg shadow-2xl"
@@ -497,7 +498,7 @@ function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-9 h-9 rounded-lg overflow-hidden grid place-items-center">
-                <img src={mosleemLogo.url} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
+                <img src={assetUrl(mosleemLogo)} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
               </div>
               <span className="text-display text-lg">
                 DESIGNER <span className="text-violet-bright">MOSLEEM</span>
