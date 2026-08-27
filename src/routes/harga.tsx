@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/asset-url";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
@@ -14,7 +15,6 @@ import {
   Minus,
 } from "lucide-react";
 import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
-import { assetUrl } from "@/lib/asset-url";
 
 const WA_URL = "https://wa.me/628993966234";
 const WA_DISPLAY = "+62 899 3966 234";
