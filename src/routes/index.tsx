@@ -88,12 +88,12 @@ function NavBar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#beranda" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+        <a href="#beranda" className="flex min-w-0 items-center gap-2">
+          <div className="w-9 h-9 shrink-0 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
             <img src={mosleemLogo.url} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
           </div>
-          <span className="text-display text-lg tracking-wide">
+          <span className="text-display text-base sm:text-lg tracking-wide leading-[1.05]">
             DESIGNER <span className="text-violet-bright">MOSLEEM</span>
           </span>
         </a>
@@ -118,10 +118,11 @@ function NavBar() {
           href={WA_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-5 py-2.5 text-sm transition-all hover:glow-violet-soft"
+          className="shrink-0 inline-flex items-center justify-center text-center whitespace-nowrap rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-4 sm:px-5 h-10 text-xs sm:text-sm leading-none transition-all hover:glow-violet-soft"
         >
           Hubungi Kami
         </a>
+
       </div>
     </header>
   );
@@ -184,15 +185,16 @@ function Hero() {
         </p>
 
         <div className="animate-fade-up">
-          <div className="relative inline-block text-left">
-            <h1 className="text-display text-6xl sm:text-7xl md:text-9xl text-white leading-[0.9]">
+          <div className="mx-auto w-full text-center">
+            <h1 className="text-display text-5xl sm:text-7xl md:text-9xl text-white leading-[0.9]">
               GRAPHICS
             </h1>
-            <h2 className="text-display text-4xl sm:text-5xl md:text-7xl text-violet-bright leading-[0.95]">
+            <h2 className="text-display text-[1.75rem] sm:text-5xl md:text-7xl text-violet-bright leading-[1.05]">
               DESIGN SERVICE
             </h2>
           </div>
         </div>
+
 
         <p className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-white/75">
           Wujudkan identitas visual bisnis dan komunitas Anda dengan desain
