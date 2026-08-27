@@ -62,16 +62,16 @@ function NavBar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+        <Link to="/" className="flex min-w-0 items-center gap-2">
+          <div className="w-9 h-9 shrink-0 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
             <img
               src={mosleemLogo.url}
               alt="Designer Mosleem logo"
               className="w-full h-full object-cover"
             />
           </div>
-          <span className="text-display text-lg tracking-wide">
+          <span className="text-display text-base sm:text-lg tracking-wide leading-[1.05]">
             DESIGNER <span className="text-violet-bright">MOSLEEM</span>
           </span>
         </Link>
@@ -92,11 +92,12 @@ function NavBar() {
           href={`${WA_URL}?text=Halo%20Designer%20Mosleem%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20jasa%20desain`}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-gradient-violet text-white font-semibold px-5 py-2.5 text-sm transition-all hover:glow-violet-soft inline-flex items-center gap-2"
+          className="shrink-0 rounded-full bg-gradient-violet text-white font-semibold px-4 sm:px-5 h-10 text-xs sm:text-sm leading-none transition-all hover:glow-violet-soft inline-flex items-center justify-center whitespace-nowrap gap-2"
         >
           <MessageCircle className="w-4 h-4" />
           Hubungi Kami
         </a>
+
       </div>
     </header>
   );
