@@ -283,7 +283,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       </ul>
 
       <a
-        href={`${WA_URL}?text=${plan.waText}`}
+        href={WA_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-auto rounded-full font-semibold px-6 py-3 text-sm text-center transition-all hover:scale-[1.03] inline-flex items-center justify-center gap-2 bg-gradient-violet text-white hover:glow-violet-soft"
