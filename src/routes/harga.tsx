@@ -378,7 +378,7 @@ function CustomPackageSection() {
             </ul>
 
             <a
-              href={`${WA_URL}?text=Halo%20Designer%20Mosleem%2C%20saya%20tertarik%20untuk%20konsultasi%20paket%20custom%20sesuai%20kebutuhan%20saya.`}
+              href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-gold text-violet-deep hover:bg-white font-bold px-8 py-4 text-base transition-all hover:scale-105 shadow-lg"
