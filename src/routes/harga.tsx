@@ -154,7 +154,6 @@ type Plan = {
   features: string[];
   limitations: string[];
   cta: string;
-  waText: string;
   icon: typeof Package;
   popular?: boolean;
 };
