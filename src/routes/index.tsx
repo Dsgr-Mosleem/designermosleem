@@ -44,8 +44,6 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const WA_URL = "https://wa.me/628993966234";
-const WA_DISPLAY = "+62 899 3966 234";
 
 export const Route = createFileRoute("/")({
   head: () => ({
