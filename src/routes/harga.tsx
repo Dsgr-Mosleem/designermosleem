@@ -1,4 +1,5 @@
 import { assetUrl } from "@/lib/asset-url";
+import { WA_URL, WA_DISPLAY } from "@/lib/whatsapp";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
@@ -16,8 +17,6 @@ import {
 } from "lucide-react";
 import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
 
-const WA_URL = "https://wa.me/628993966234";
-const WA_DISPLAY = "+62 899 3966 234";
 
 export const Route = createFileRoute("/harga")({
   head: () => ({
