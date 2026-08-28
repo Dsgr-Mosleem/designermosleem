@@ -218,8 +218,6 @@ const grafisPlans: Plan[] = [
       "Untuk kebutuhan lebih dari 5 halaman, dikenakan biaya tambahan",
     ],
     cta: "Tanya Lebih Lanjut",
-    waText:
-      "Halo%20Designer%20Mosleem%2C%20saya%20ingin%20order%20paket%20Desain%20Eksklusif%20(Rp%20100.000).%20Mohon%20info%20lebih%20lanjut.",
   },
 ];
 
