@@ -199,8 +199,6 @@ const grafisPlans: Plan[] = [
       "Tidak termasuk cetak fisik",
     ],
     cta: "Tanya Lebih Lanjut",
-    waText:
-      "Halo%20Designer%20Mosleem%2C%20saya%20ingin%20order%20paket%20Desain%20Profesional%20(Rp%2050.000).%20Mohon%20info%20lebih%20lanjut.",
   },
   {
     name: "Premium",
