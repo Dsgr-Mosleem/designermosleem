@@ -1,4 +1,5 @@
 import { assetUrl } from "@/lib/asset-url";
+import { WA_URL, WA_DISPLAY } from "@/lib/whatsapp";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
@@ -16,8 +17,6 @@ import {
 } from "lucide-react";
 import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
 
-const WA_URL = "https://wa.me/628993966234";
-const WA_DISPLAY = "+62 899 3966 234";
 
 export const Route = createFileRoute("/harga")({
   head: () => ({
@@ -90,7 +89,7 @@ function NavBar() {
           ))}
         </nav>
         <a
-          href={`${WA_URL}?text=Halo%20Designer%20Mosleem%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20jasa%20desain`}
+          href={WA_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 rounded-full bg-gradient-violet text-white font-semibold px-4 sm:px-5 h-10 text-xs sm:text-sm leading-none transition-all hover:glow-violet-soft inline-flex items-center justify-center whitespace-nowrap gap-2"
@@ -155,7 +154,6 @@ type Plan = {
   features: string[];
   limitations: string[];
   cta: string;
-  waText: string;
   icon: typeof Package;
   popular?: boolean;
 };
@@ -180,8 +178,6 @@ const grafisPlans: Plan[] = [
       "Tidak termasuk foto berbayar/premium",
     ],
     cta: "Tanya Lebih Lanjut",
-    waText:
-      "Halo%20Designer%20Mosleem%2C%20saya%20ingin%20order%20paket%20Desain%20Simple%20(Rp%2025.000).%20Mohon%20info%20lebih%20lanjut.",
   },
   {
     name: "Standard",
@@ -203,8 +199,6 @@ const grafisPlans: Plan[] = [
       "Tidak termasuk cetak fisik",
     ],
     cta: "Tanya Lebih Lanjut",
-    waText:
-      "Halo%20Designer%20Mosleem%2C%20saya%20ingin%20order%20paket%20Desain%20Profesional%20(Rp%2050.000).%20Mohon%20info%20lebih%20lanjut.",
   },
   {
     name: "Premium",
@@ -224,8 +218,6 @@ const grafisPlans: Plan[] = [
       "Untuk kebutuhan lebih dari 5 halaman, dikenakan biaya tambahan",
     ],
     cta: "Tanya Lebih Lanjut",
-    waText:
-      "Halo%20Designer%20Mosleem%2C%20saya%20ingin%20order%20paket%20Desain%20Eksklusif%20(Rp%20100.000).%20Mohon%20info%20lebih%20lanjut.",
   },
 ];
 
@@ -291,7 +283,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       </ul>
 
       <a
-        href={`${WA_URL}?text=${plan.waText}`}
+        href={WA_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-auto rounded-full font-semibold px-6 py-3 text-sm text-center transition-all hover:scale-[1.03] inline-flex items-center justify-center gap-2 bg-gradient-violet text-white hover:glow-violet-soft"
@@ -386,7 +378,7 @@ function CustomPackageSection() {
             </ul>
 
             <a
-              href={`${WA_URL}?text=Halo%20Designer%20Mosleem%2C%20saya%20tertarik%20untuk%20konsultasi%20paket%20custom%20sesuai%20kebutuhan%20saya.`}
+              href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-gold text-violet-deep hover:bg-white font-bold px-8 py-4 text-base transition-all hover:scale-105 shadow-lg"
