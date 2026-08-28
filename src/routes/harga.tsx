@@ -89,7 +89,7 @@ function NavBar() {
           ))}
         </nav>
         <a
-          href={`${WA_URL}?text=Halo%20Designer%20Mosleem%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20jasa%20desain`}
+          href={WA_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 rounded-full bg-gradient-violet text-white font-semibold px-4 sm:px-5 h-10 text-xs sm:text-sm leading-none transition-all hover:glow-violet-soft inline-flex items-center justify-center whitespace-nowrap gap-2"
