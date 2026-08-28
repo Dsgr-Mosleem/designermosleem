@@ -178,8 +178,6 @@ const grafisPlans: Plan[] = [
       "Tidak termasuk foto berbayar/premium",
     ],
     cta: "Tanya Lebih Lanjut",
-    waText:
-      "Halo%20Designer%20Mosleem%2C%20saya%20ingin%20order%20paket%20Desain%20Simple%20(Rp%2025.000).%20Mohon%20info%20lebih%20lanjut.",
   },
   {
     name: "Standard",
