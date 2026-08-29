@@ -583,8 +583,7 @@ function HargaPage() {
       <NavBar />
       <main>
         <PageHero />
-        <GraphicDesignSection />
-        <CustomPackageSection />
+        <PricingSection />
         <TermsSection />
         <FAQSection />
         <CTABanner />
