@@ -3,17 +3,13 @@ import { WA_URL, WA_DISPLAY } from "@/lib/whatsapp";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
-  Sparkles,
   MessageCircle,
-  Check,
-  X,
   ArrowLeft,
   Star,
-  Crown,
-  Rocket,
-  Package,
   Plus,
   Minus,
+  Palette,
+  Sparkles,
 } from "lucide-react";
 import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
 
@@ -146,171 +142,164 @@ function PageHero() {
   );
 }
 
-type Plan = {
-  name: string;
+type TableRow = {
+  package: string;
   price: string;
-  label: string;
   suit: string;
-  features: string[];
-  limitations: string[];
-  cta: string;
-  icon: typeof Package;
-  popular?: boolean;
+  includes: string;
+  formats: string;
 };
 
-const grafisPlans: Plan[] = [
+const grafisRows: TableRow[] = [
   {
-    name: "Basic",
-    price: "Rp 25.000",
-    label: "Desain Simple",
-    suit: "Poster acara sederhana, flyer, feed Instagram",
-    icon: Package,
-    features: [
-      "1 desain custom",
-      "Ukuran sesuai kebutuhan (A4/Instagram/Story)",
-      "Revisi 1x",
-      "File JPG/PNG",
-      "Estimasi 1 hari kerja",
-    ],
-    limitations: [
-      "Tanpa file source (PSD/AI)",
-      "Tanpa konsultasi konsep",
-      "Tidak termasuk foto berbayar/premium",
-    ],
-    cta: "Tanya Lebih Lanjut",
+    package: "Basic",
+    price: "Rp25.000 – Rp50.000",
+    suit: "Konten harian, kebutuhan personal",
+    includes:
+      "1 desain (feed IG, poster sederhana, quotes), 1x revisi, 1-2 hari kerja",
+    formats: "JPG, PNG (siap pakai)",
   },
   {
-    name: "Standard",
-    price: "Rp 50.000",
-    label: "Desain Profesional",
-    suit: "Undangan pernikahan, poster event Islami, infografis",
-    icon: Rocket,
-    popular: true,
-    features: [
-      "1 desain custom premium",
-      "Revisi hingga 3x",
-      "File JPG/PNG + PDF",
-      "Konsultasi konsep singkat",
-      "Estimasi 1-2 hari kerja",
-      "Free 1 variasi warna",
-    ],
-    limitations: [
-      "File source (AI/PSD) tambahan +Rp 20.000",
-      "Tidak termasuk cetak fisik",
-    ],
-    cta: "Tanya Lebih Lanjut",
+    package: "Standard",
+    price: "Rp75.000 – Rp150.000",
+    suit: "Pelaku usaha kecil, komunitas",
+    includes:
+      "Logo sederhana / banner / X-banner, 2x revisi, file HD + source, 2-3 hari kerja",
+    formats: "JPG, PNG, PDF",
   },
   {
-    name: "Premium",
-    price: "Rp 100.000",
-    label: "Desain Eksklusif",
-    suit: "Cover buku, branding kit, desain multi-halaman",
-    icon: Crown,
-    features: [
-      "Desain custom + konsep mendalam",
-      "Revisi hingga 5x",
-      "File lengkap (JPG, PNG, PDF, source AI/PSD)",
-      "Konsultasi via WhatsApp",
-      "Estimasi 2-4 hari kerja",
-      "Free 2 variasi desain awal",
-    ],
-    limitations: [
-      "Untuk kebutuhan lebih dari 5 halaman, dikenakan biaya tambahan",
-    ],
-    cta: "Tanya Lebih Lanjut",
+    package: "Premium",
+    price: "Rp200.000 – Rp500.000",
+    suit: "Bisnis & organisasi yang butuh identitas lengkap",
+    includes:
+      "Paket branding (logo + kartu nama + template sosmed), revisi unlimited (batas wajar), 4-5 hari kerja",
+    formats: "JPG, PNG, PDF + source file (AI/PSD/CDR)",
   },
 ];
 
-function PlanCard({ plan }: { plan: Plan }) {
-  const Icon = plan.icon;
+const customRows: TableRow[] = [
+  {
+    package: "Custom",
+    price: "Nego, berdasarkan brief & scope",
+    suit:
+      "Proyek besar, permintaan khusus lembaga/institusi (misal sistem sekolah, tool internal), atau kombinasi banyak layanan sekaligus",
+    includes:
+      "Disesuaikan sepenuhnya dengan scope project — bisa gabungan desain, website, dan/atau sistem/tool",
+    formats:
+      "Sesuai kebutuhan project (bisa termasuk AI/PSD/Figma, source code, PDF, dll) — dikonfirmasi saat konsultasi",
+  },
+];
+
+const columns: { key: keyof TableRow; label: string; width: string }[] = [
+  { key: "package", label: "Paket", width: "14%" },
+  { key: "price", label: "Harga", width: "18%" },
+  { key: "suit", label: "Cocok Untuk", width: "20%" },
+  { key: "includes", label: "Termasuk", width: "30%" },
+  { key: "formats", label: "Format File", width: "18%" },
+];
+
+function PricingTable({
+  title,
+  icon,
+  rows,
+}: {
+  title: string;
+  icon: React.ReactNode;
+  rows: TableRow[];
+}) {
   return (
-    <div
-      className={`relative rounded-3xl p-6 md:p-8 backdrop-blur-sm transition-all duration-300 flex flex-col h-full ${
-        plan.popular
-          ? "bg-violet-medium/70 border-[3px] border-gold/80 glow-violet-soft -translate-y-2 md:-translate-y-3"
-          : "bg-violet-medium/40 border border-white/10 hover:-translate-y-1.5 hover:glow-violet-soft hover:border-violet-bright/50"
-      }`}
-    >
-      {plan.popular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gold text-violet-deep font-bold text-xs px-4 py-1.5 tracking-wide shadow-lg">
-          ⭐ PALING LARIS
-        </div>
-      )}
-
-      <div
-        className={`w-14 h-14 rounded-2xl grid place-items-center mb-5 ${
-          plan.popular
-            ? "bg-gradient-violet glow-violet-soft"
-            : "bg-[rgba(232,181,35,0.12)] border border-gold/40"
-        }`}
-      >
-        <Icon className={`w-7 h-7 ${plan.popular ? "text-white" : "text-gold"}`} />
-      </div>
-
-      <h3 className="text-display text-2xl md:text-3xl text-white mb-1">
-        {plan.name}
-      </h3>
-      <div className="text-display text-3xl md:text-4xl text-gold mb-3">
-        {plan.price}
-      </div>
-      <p className="text-sm font-semibold text-violet-bright mb-2">
-        {plan.label}
-      </p>
-      <p className="text-sm text-white/65 mb-5 leading-relaxed">
-        Cocok untuk: {plan.suit}
-      </p>
-
-      <ul className="space-y-2.5 mb-5 flex-1">
-        {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-sm text-white/90">
-            <Check
-              className={`w-4 h-4 mt-0.5 shrink-0 ${
-                plan.popular ? "text-gold" : "text-violet-bright"
-              }`}
-            />
-            <span>{f}</span>
-          </li>
-        ))}
-      </ul>
-
-      <ul className="space-y-2.5 mb-6">
-        {plan.limitations.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-sm text-white/55">
-            <X className="w-4 h-4 mt-0.5 shrink-0 text-white/40" />
-            <span>{f}</span>
-          </li>
-        ))}
-      </ul>
-
-      <a
-        href={WA_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-auto rounded-full font-semibold px-6 py-3 text-sm text-center transition-all hover:scale-[1.03] inline-flex items-center justify-center gap-2 bg-gradient-violet text-white hover:glow-violet-soft"
-      >
-        <MessageCircle className="w-4 h-4" />
-        {plan.cta}
-      </a>
-    </div>
-  );
-}
-
-function GraphicDesignSection() {
-  return (
-    <section className="py-16 px-6">
+    <section className="py-10 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="text-gold text-sm font-semibold tracking-widest">
-            KATEGORI JASA DESAIN GRAFIS
+        <div className="text-center mb-10">
+          <span className="inline-flex items-center gap-2 text-gold text-sm font-semibold tracking-widest">
+            <span className="text-gold">{icon}</span>
+            {title}
           </span>
           <h3 className="text-display text-3xl md:text-5xl mt-3">
-            Paket Desain <span className="text-violet-bright">Grafis</span>
+            Detail Harga <span className="text-violet-bright">{title}</span>
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {grafisPlans.map((p) => (
-            <PlanCard key={p.name} plan={p} />
+        {/* Desktop table */}
+        <div className="hidden md:block overflow-hidden rounded-2xl border border-white/10">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="bg-gold/15 text-gold text-left">
+                {columns.map((col) => (
+                  <th
+                    key={col.key}
+                    className="px-6 py-4 text-sm font-bold tracking-wide"
+                    style={{ width: col.width }}
+                  >
+                    {col.label}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr
+                  key={i}
+                  className={`border-t border-white/10 ${
+                    i % 2 === 0
+                      ? "bg-violet-medium/25"
+                      : "bg-violet-medium/10"
+                  } hover:bg-violet-medium/40 transition-colors`}
+                >
+                  {columns.map((col) => (
+                    <td
+                      key={col.key}
+                      className={`px-6 py-5 align-top ${
+                        col.key === "package"
+                          ? "font-bold text-white"
+                          : col.key === "price"
+                          ? "text-gold font-semibold"
+                          : "text-white/80"
+                      } ${col.key === "includes" ? "leading-relaxed text-white/85" : ""}`}
+                    >
+                      {row[col.key]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Mobile cards */}
+        <div className="md:hidden space-y-4">
+          {rows.map((row, i) => (
+            <div
+              key={i}
+              className="rounded-2xl border border-white/10 bg-violet-medium/25 p-5 hover:border-violet-bright/40 transition-colors"
+            >
+              <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                <span className="text-display text-xl text-white">
+                  {row.package}
+                </span>
+                <span className="text-gold font-bold text-sm text-right max-w-[55%]">
+                  {row.price}
+                </span>
+              </div>
+              <dl className="space-y-3">
+                {columns
+                  .filter((c) => c.key !== "package" && c.key !== "price")
+                  .map((col) => (
+                    <div key={col.key}>
+                      <dt className="text-xs uppercase tracking-wider text-violet-bright font-semibold mb-1">
+                        {col.label}
+                      </dt>
+                      <dd
+                        className={`text-sm text-white/80 ${
+                          col.key === "includes" ? "leading-relaxed" : ""
+                        }`}
+                      >
+                        {row[col.key]}
+                      </dd>
+                    </div>
+                  ))}
+              </dl>
+            </div>
           ))}
         </div>
       </div>
@@ -318,78 +307,20 @@ function GraphicDesignSection() {
   );
 }
 
-function CustomPackageSection() {
+function PricingSection() {
   return (
-    <section className="py-12 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div
-          className="relative overflow-hidden rounded-3xl border border-gold/60 glow-violet-soft p-8 md:p-12"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(107,95,168,0.35) 0%, rgba(26,5,51,0.85) 100%)",
-          }}
-        >
-          <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-gold/10 blur-[100px] pointer-events-none" />
-          <div className="absolute -bottom-16 -left-16 w-[260px] h-[260px] rounded-full bg-violet-electric/15 blur-[90px] pointer-events-none" />
-
-          <div className="relative text-center max-w-3xl mx-auto">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-violet grid place-items-center mx-auto mb-5 glow-violet-soft">
-              <Sparkles className="w-7 h-7 text-white" />
-            </div>
-            <h3 className="text-display text-3xl md:text-5xl text-white mb-4">
-              Punya Kebutuhan Khusus?
-            </h3>
-            <p className="text-base md:text-lg text-white/80 leading-relaxed mb-8">
-              Setiap project itu unik. Kalau paket di atas belum sesuai dengan
-              kebutuhanmu — baik dari sisi jumlah revisi, kompleksitas desain,
-              jumlah halaman, atau permintaan khusus lainnya — kami siap
-              diskusikan solusi custom sesuai budget dan kebutuhanmu.
-            </p>
-
-            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left mb-10 max-w-4xl mx-auto">
-              {[
-                "Konsultasi gratis sebelum penentuan harga",
-                "Harga disesuaikan dengan kompleksitas & scope project",
-                "Fleksibel untuk kebutuhan jangka panjang/berkelanjutan",
-              ].map((f) => (
-                <li
-                  key={f}
-                  className="flex items-start gap-2.5 text-sm text-white/90"
-                >
-                  <Check className="w-4 h-4 mt-0.5 shrink-0 text-gold" />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-10 max-w-3xl mx-auto">
-              {[
-                "Harga final ditentukan setelah diskusi kebutuhan",
-                "Estimasi waktu pengerjaan menyesuaikan scope",
-              ].map((f) => (
-                <li
-                  key={f}
-                  className="flex items-start gap-2.5 text-sm text-white/55"
-                >
-                  <X className="w-4 h-4 mt-0.5 shrink-0 text-white/40" />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-
-            <a
-              href={WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gold text-violet-deep hover:bg-white font-bold px-8 py-4 text-base transition-all hover:scale-105 shadow-lg"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Konsultasi Custom Sekarang
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <>
+      <PricingTable
+        title="Desain Grafis"
+        icon={<Palette className="w-5 h-5" />}
+        rows={grafisRows}
+      />
+      <PricingTable
+        title="Custom"
+        icon={<Sparkles className="w-5 h-5" />}
+        rows={customRows}
+      />
+    </>
   );
 }
 
@@ -662,8 +593,7 @@ function HargaPage() {
       <NavBar />
       <main>
         <PageHero />
-        <GraphicDesignSection />
-        <CustomPackageSection />
+        <PricingSection />
         <TermsSection />
         <FAQSection />
         <CTABanner />
