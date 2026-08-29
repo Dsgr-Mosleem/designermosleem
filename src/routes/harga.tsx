@@ -599,6 +599,7 @@ function HargaPage() {
       <main>
         <PageHero />
         <PricingSection />
+        <CustomSection />
         <TermsSection />
         <FAQSection />
         <CTABanner />
