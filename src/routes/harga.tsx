@@ -204,7 +204,7 @@ function PricingTable({
   rows,
 }: {
   title: string;
-  icon: string;
+  icon: React.ReactNode;
   rows: TableRow[];
 }) {
   return (
@@ -212,7 +212,7 @@ function PricingTable({
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <span className="inline-flex items-center gap-2 text-gold text-sm font-semibold tracking-widest">
-            <span className="text-lg">{icon}</span>
+            <span className="text-gold">{icon}</span>
             {title}
           </span>
           <h3 className="text-display text-3xl md:text-5xl mt-3">
