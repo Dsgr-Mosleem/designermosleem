@@ -144,164 +144,138 @@ function PageHero() {
   );
 }
 
-type TableRow = {
-  package: string;
+type PricingPlan = {
+  key: string;
+  name: string;
+  icon: React.ReactNode;
   price: string;
-  suit: string;
-  includes: string;
-  formats: string;
+  features: string[];
+  cta: string;
+  highlighted?: boolean;
 };
 
-const grafisRows: TableRow[] = [
+const plans: PricingPlan[] = [
   {
-    package: "Basic",
+    key: "basic",
+    name: "Basic",
+    icon: <Palette className="w-7 h-7 text-gold" />,
     price: "Rp25.000 – Rp50.000",
-    suit: "Konten harian, kebutuhan personal",
-    includes:
-      "1 desain (feed IG, poster sederhana, quotes), 1x revisi, 1-2 hari kerja",
-    formats: "JPG, PNG (siap pakai)",
+    features: [
+      "Cocok untuk konten harian & kebutuhan personal",
+      "1 desain (feed IG, poster sederhana, quotes)",
+      "1x revisi",
+      "1-2 hari kerja",
+      "Format file: JPG, PNG (siap pakai)",
+    ],
+    cta: "Pilih Basic",
   },
   {
-    package: "Standard",
+    key: "standard",
+    name: "Standard",
+    icon: <Star className="w-7 h-7 text-gold" />,
     price: "Rp75.000 – Rp150.000",
-    suit: "Pelaku usaha kecil, komunitas",
-    includes:
-      "Logo sederhana / banner / X-banner, 2x revisi, file HD + source, 2-3 hari kerja",
-    formats: "JPG, PNG, PDF",
+    features: [
+      "Cocok untuk pelaku usaha kecil & komunitas",
+      "Logo sederhana / banner / X-banner",
+      "2x revisi",
+      "File HD + source, 2-3 hari kerja",
+      "Format file: JPG, PNG, PDF",
+    ],
+    cta: "Pilih Standard",
+    highlighted: true,
   },
   {
-    package: "Premium",
+    key: "premium",
+    name: "Premium",
+    icon: <Crown className="w-7 h-7 text-gold" />,
     price: "Rp200.000 – Rp500.000",
-    suit: "Bisnis & organisasi yang butuh identitas lengkap",
-    includes:
-      "Paket branding (logo + kartu nama + template sosmed), revisi unlimited (batas wajar), 4-5 hari kerja",
-    formats: "JPG, PNG, PDF + source file (AI/PSD/CDR)",
+    features: [
+      "Cocok untuk bisnis & organisasi",
+      "Paket branding (logo + kartu nama + template sosmed)",
+      "Revisi unlimited (batas wajar)",
+      "4-5 hari kerja",
+      "Format file: JPG, PNG, PDF + source file (AI/PSD/CDR)",
+    ],
+    cta: "Pilih Premium",
   },
 ];
 
-const customRows: TableRow[] = [
-  {
-    package: "Custom",
-    price: "Nego, berdasarkan brief & scope",
-    suit:
-      "Proyek besar, permintaan khusus lembaga/institusi (misal sistem sekolah, tool internal), atau kombinasi banyak layanan sekaligus",
-    includes:
-      "Disesuaikan sepenuhnya dengan scope project — bisa gabungan desain, website, dan/atau sistem/tool",
-    formats:
-      "Sesuai kebutuhan project (bisa termasuk AI/PSD/Figma, source code, PDF, dll) — dikonfirmasi saat konsultasi",
-  },
-];
+function PlanCard({ plan }: { plan: PricingPlan }) {
+  return (
+    <div
+      className={`relative flex flex-col rounded-2xl p-6 md:p-8 transition-all duration-300 ${
+        plan.highlighted
+          ? "bg-violet-deep/80 border-2 border-gold/60 glow-violet-soft md:-mt-4 md:mb-0"
+          : "bg-violet-deep/60 border border-white/10 hover:border-violet-bright/40"
+      }`}
+    >
+      {plan.highlighted && (
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-gold to-[#F5D76E] text-violet-deep text-xs font-bold px-4 py-1 shadow-lg">
+          PALING POPULER
+        </span>
+      )}
 
-const columns: { key: keyof TableRow; label: string; width: string }[] = [
-  { key: "package", label: "Paket", width: "14%" },
-  { key: "price", label: "Harga", width: "18%" },
-  { key: "suit", label: "Cocok Untuk", width: "20%" },
-  { key: "includes", label: "Termasuk", width: "30%" },
-  { key: "formats", label: "Format File", width: "18%" },
-];
+      <div className="mb-5">
+        <div
+          className={`w-14 h-14 rounded-2xl grid place-items-center mb-5 ${
+            plan.highlighted
+              ? "bg-gold/20 border border-gold/50"
+              : "bg-violet-medium/50 border border-violet-bright/30"
+          }`}
+        >
+          {plan.icon}
+        </div>
+        <h4 className="text-display text-2xl text-white mb-2">{plan.name}</h4>
+        <p className="text-gold text-2xl md:text-3xl font-bold">{plan.price}</p>
+      </div>
 
-function PricingTable({
-  title,
-  icon,
-  rows,
-}: {
-  title: string;
-  icon: React.ReactNode;
-  rows: TableRow[];
-}) {
+      <div className="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent my-5" />
+
+      <ul className="flex-1 space-y-3 mb-8">
+        {plan.features.map((feature, i) => (
+          <li key={i} className="flex items-start gap-3 text-sm md:text-base text-white/85">
+            <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-gold/10 border border-gold/40 grid place-items-center">
+              <Check className="w-3 h-3 text-gold" />
+            </span>
+            <span className="leading-relaxed">{feature}</span>
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href={WA_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`mt-auto inline-flex items-center justify-center gap-2 rounded-full font-semibold px-6 py-3 text-sm transition-all ${
+          plan.highlighted
+            ? "bg-gradient-violet text-white hover:glow-violet-soft"
+            : "bg-white/5 border border-white/20 text-white hover:bg-white/10 hover:border-violet-bright/40"
+        }`}
+      >
+        <MessageCircle className="w-4 h-4" />
+        {plan.cta}
+      </a>
+    </div>
+  );
+}
+
+function PricingSection() {
   return (
     <section className="py-10 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <span className="inline-flex items-center gap-2 text-gold text-sm font-semibold tracking-widest">
-            <span className="text-gold">{icon}</span>
-            {title}
+            <Palette className="w-5 h-5" />
+            Desain Grafis
           </span>
           <h3 className="text-display text-3xl md:text-5xl mt-3">
-            Detail Harga <span className="text-violet-bright">{title}</span>
+            Detail Harga <span className="text-violet-bright">Desain Grafis</span>
           </h3>
         </div>
 
-        {/* Desktop table */}
-        <div className="hidden md:block overflow-hidden rounded-2xl border border-white/10">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="bg-gold/15 text-gold text-left">
-                {columns.map((col) => (
-                  <th
-                    key={col.key}
-                    className="px-6 py-4 text-sm font-bold tracking-wide"
-                    style={{ width: col.width }}
-                  >
-                    {col.label}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, i) => (
-                <tr
-                  key={i}
-                  className={`border-t border-white/10 ${
-                    i % 2 === 0
-                      ? "bg-violet-medium/25"
-                      : "bg-violet-medium/10"
-                  } hover:bg-violet-medium/40 transition-colors`}
-                >
-                  {columns.map((col) => (
-                    <td
-                      key={col.key}
-                      className={`px-6 py-5 align-top ${
-                        col.key === "package"
-                          ? "font-bold text-white"
-                          : col.key === "price"
-                          ? "text-gold font-semibold"
-                          : "text-white/80"
-                      } ${col.key === "includes" ? "leading-relaxed text-white/85" : ""}`}
-                    >
-                      {row[col.key]}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        {/* Mobile cards */}
-        <div className="md:hidden space-y-4">
-          {rows.map((row, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-white/10 bg-violet-medium/25 p-5 hover:border-violet-bright/40 transition-colors"
-            >
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
-                <span className="text-display text-xl text-white">
-                  {row.package}
-                </span>
-                <span className="text-gold font-bold text-sm text-right max-w-[55%]">
-                  {row.price}
-                </span>
-              </div>
-              <dl className="space-y-3">
-                {columns
-                  .filter((c) => c.key !== "package" && c.key !== "price")
-                  .map((col) => (
-                    <div key={col.key}>
-                      <dt className="text-xs uppercase tracking-wider text-violet-bright font-semibold mb-1">
-                        {col.label}
-                      </dt>
-                      <dd
-                        className={`text-sm text-white/80 ${
-                          col.key === "includes" ? "leading-relaxed" : ""
-                        }`}
-                      >
-                        {row[col.key]}
-                      </dd>
-                    </div>
-                  ))}
-              </dl>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          {plans.map((plan) => (
+            <PlanCard key={plan.key} plan={plan} />
           ))}
         </div>
       </div>
@@ -309,20 +283,49 @@ function PricingTable({
   );
 }
 
-function PricingSection() {
+function CustomSection() {
   return (
-    <>
-      <PricingTable
-        title="Desain Grafis"
-        icon={<Palette className="w-5 h-5" />}
-        rows={grafisRows}
-      />
-      <PricingTable
-        title="Custom"
-        icon={<Sparkles className="w-5 h-5" />}
-        rows={customRows}
-      />
-    </>
+    <section className="py-10 px-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="rounded-2xl bg-violet-deep/60 border border-white/10 p-8 md:p-12 relative overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-violet-electric/10 blur-[80px] pointer-events-none" />
+
+          <div className="relative flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+            <div className="flex-1">
+              <span className="inline-flex items-center gap-2 text-gold text-sm font-semibold tracking-widest mb-4">
+                <Sparkles className="w-5 h-5" />
+                Custom
+              </span>
+              <h3 className="text-display text-3xl md:text-4xl text-white mb-4">
+                Butuh Paket <span className="text-violet-bright">Khusus?</span>
+              </h3>
+              <p className="text-white/75 leading-relaxed max-w-2xl">
+                Untuk proyek besar, permintaan khusus lembaga/institusi, atau
+                kombinasi banyak layanan sekaligus. Scope dan harga disesuaikan
+                sepenuhnya berdasarkan brief — bisa termasuk file AI/PSD/Figma,
+                source code, PDF, dan lainnya. Detail dikonfirmasi saat konsultasi.
+              </p>
+            </div>
+
+            <div className="md:w-80 shrink-0 rounded-2xl bg-violet-medium/30 border border-white/10 p-6">
+              <p className="text-gold text-2xl font-bold mb-2">Nego</p>
+              <p className="text-white/70 text-sm mb-6">
+                Berdasarkan brief & scope project
+              </p>
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-violet text-white font-semibold px-6 py-3 text-sm transition-all hover:glow-violet-soft"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Konsultasi Custom
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
