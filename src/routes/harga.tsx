@@ -310,8 +310,16 @@ function PricingTable({
 function PricingSection() {
   return (
     <>
-      <PricingTable title="Desain Grafis" icon="🎨" rows={grafisRows} />
-      <PricingTable title="Custom" icon="✨" rows={customRows} />
+      <PricingTable
+        title="Desain Grafis"
+        icon={<Palette className="w-5 h-5" />}
+        rows={grafisRows}
+      />
+      <PricingTable
+        title="Custom"
+        icon={<Sparkles className="w-5 h-5" />}
+        rows={customRows}
+      />
     </>
   );
 }
