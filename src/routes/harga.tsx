@@ -3,15 +3,9 @@ import { WA_URL, WA_DISPLAY } from "@/lib/whatsapp";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
-  Sparkles,
   MessageCircle,
-  Check,
-  X,
   ArrowLeft,
   Star,
-  Crown,
-  Rocket,
-  Package,
   Plus,
   Minus,
 } from "lucide-react";
