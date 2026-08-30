@@ -203,25 +203,44 @@ const plans: PricingPlan[] = [
 function PlanCard({ plan }: { plan: PricingPlan }) {
   return (
     <div
-      className={`relative flex flex-col rounded-2xl p-6 md:p-8 transition-all duration-300 ${
+      className={`group relative flex w-[280px] shrink-0 snap-center flex-col overflow-hidden rounded-2xl p-6 md:w-auto md:p-8 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${
         plan.highlighted
-          ? "bg-violet-deep/80 border-2 border-gold/60 glow-violet-soft md:-mt-4 md:mb-0"
-          : "bg-violet-deep/60 border border-white/10 hover:border-violet-bright/40"
+          ? "bg-violet-deep/80 border-2 border-gold/60 glow-violet-soft hover:shadow-[0_0_45px_-10px_rgba(232,181,35,0.45)]"
+          : "bg-violet-deep/60 border border-white/10 hover:border-violet-bright/50 hover:shadow-[0_0_40px_-14px_rgba(139,123,199,0.6)]"
       }`}
     >
+      {/* decorative accents */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(232,181,35,0.8) 1px, transparent 1px)",
+          backgroundSize: "18px 18px",
+          maskImage:
+            "radial-gradient(ellipse at top right, black 0%, transparent 65%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at top right, black 0%, transparent 65%)",
+        }}
+      />
+      <div className="pointer-events-none absolute -top-20 -right-16 w-44 h-44 rounded-full bg-violet-electric/20 blur-[70px]" />
+
       {plan.highlighted && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-gold to-[#F5D76E] text-violet-deep text-xs font-bold px-4 py-1 shadow-lg">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-gold to-[#F5D76E] text-violet-deep text-xs font-bold px-4 py-1 shadow-lg z-10">
           PALING POPULER
         </span>
       )}
 
-      <div className="mb-5">
+      <div className="relative mb-5">
         <div
-          className={`w-14 h-14 rounded-2xl grid place-items-center mb-5 ${
+          className={`w-14 h-14 rounded-2xl grid place-items-center mb-5 border transition-shadow ${
             plan.highlighted
-              ? "bg-gold/20 border border-gold/50"
-              : "bg-violet-medium/50 border border-violet-bright/30"
+              ? "border-gold/60 shadow-[0_0_25px_-6px_rgba(232,181,35,0.6)]"
+              : "border-violet-bright/40 shadow-[0_0_22px_-8px_rgba(139,123,199,0.8)]"
           }`}
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(107,95,168,0.55), rgba(232,181,35,0.28))",
+          }}
         >
           {plan.icon}
         </div>
@@ -229,12 +248,12 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         <p className="text-gold text-2xl md:text-3xl font-bold">{plan.price}</p>
       </div>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent my-5" />
+      <div className="relative h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent my-5" />
 
-      <ul className="flex-1 space-y-3 mb-8">
+      <ul className="relative flex-1 space-y-3 mb-8">
         {plan.features.map((feature, i) => (
           <li key={i} className="flex items-start gap-3 text-sm md:text-base text-white/85">
-            <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-gold/10 border border-gold/40 grid place-items-center">
+            <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-gold/15 border border-gold/50 grid place-items-center">
               <Check className="w-3 h-3 text-gold" />
             </span>
             <span className="leading-relaxed">{feature}</span>
@@ -246,13 +265,13 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         href={WA_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className={`mt-auto inline-flex items-center justify-center gap-2 rounded-full font-semibold px-6 py-3 text-sm transition-all ${
+        className={`relative mt-auto flex items-center justify-center gap-2 rounded-full font-semibold px-6 py-3 text-sm leading-none transition-all ${
           plan.highlighted
             ? "bg-gradient-violet text-white hover:glow-violet-soft"
             : "bg-white/5 border border-white/20 text-white hover:bg-white/10 hover:border-violet-bright/40"
         }`}
       >
-        <MessageCircle className="w-4 h-4" />
+        <MessageCircle className="w-4 h-4 shrink-0" />
         {plan.cta}
       </a>
     </div>
@@ -261,9 +280,9 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
 function PricingSection() {
   return (
-    <section className="py-10 px-6">
+    <section className="py-10 px-0 md:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16 md:mb-20 px-6">
           <span className="inline-flex items-center gap-2 text-gold text-sm font-semibold tracking-widest">
             <Palette className="w-5 h-5" />
             Desain Grafis
@@ -273,7 +292,7 @@ function PricingSection() {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 pt-4 md:grid md:grid-cols-3 md:overflow-visible lg:gap-8 items-stretch">
           {plans.map((plan) => (
             <PlanCard key={plan.key} plan={plan} />
           ))}
@@ -316,10 +335,10 @@ function CustomSection() {
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-violet text-white font-semibold px-6 py-3 text-sm transition-all hover:glow-violet-soft"
+                className="w-full flex items-center justify-center gap-2 rounded-full bg-gradient-violet text-white font-semibold px-6 py-3 text-sm leading-none text-center whitespace-nowrap transition-all hover:glow-violet-soft"
               >
-                <MessageCircle className="w-4 h-4" />
-                Konsultasi Custom
+                <MessageCircle className="w-4 h-4 shrink-0" />
+                <span>Konsultasi Custom</span>
               </a>
             </div>
           </div>
