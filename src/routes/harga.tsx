@@ -203,7 +203,7 @@ const plans: PricingPlan[] = [
 function PlanCard({ plan }: { plan: PricingPlan }) {
   return (
     <div
-      className={`group relative flex w-[280px] shrink-0 snap-center flex-col overflow-hidden rounded-2xl p-6 md:w-auto md:p-8 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${
+      className={`group relative flex w-[280px] shrink-0 snap-center flex-col rounded-2xl p-6 md:w-auto md:p-8 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${
         plan.highlighted
           ? "bg-violet-deep/80 border-2 border-gold/60 glow-violet-soft hover:shadow-[0_0_45px_-10px_rgba(232,181,35,0.45)]"
           : "bg-violet-deep/60 border border-white/10 hover:border-violet-bright/50 hover:shadow-[0_0_40px_-14px_rgba(139,123,199,0.6)]"
