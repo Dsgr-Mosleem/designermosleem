@@ -66,6 +66,25 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const NAV_LINKS = [
+  { id: "beranda", label: "Beranda" },
+  { id: "layanan", label: "Layanan" },
+  { id: "katalog", label: "Katalog" },
+  { id: "harga", label: "Harga" },
+  { id: "kontak", label: "Kontak" },
+];
+
+export function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const offset = 72;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top: id === "beranda" ? 0 : top, behavior: "smooth" });
+  if (typeof history !== "undefined") {
+    history.replaceState(null, "", `#${id}`);
+  }
+}
+
 function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -74,12 +93,12 @@ function NavBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = [
-    { href: "#beranda", label: "Beranda" },
-    { href: "#layanan", label: "Layanan" },
-    { href: "#katalog", label: "Katalog" },
-    { href: "#kontak", label: "Kontak" },
-  ];
+  const links = NAV_LINKS;
+
+  const handleClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    scrollToSection(id);
+  };
 
   return (
     <header
@@ -90,7 +109,11 @@ function NavBar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-        <a href="#beranda" className="flex min-w-0 items-center gap-2">
+        <a
+          href="#beranda"
+          onClick={(e) => handleClick(e, "beranda")}
+          className="flex min-w-0 items-center gap-2"
+        >
           <div className="w-9 h-9 shrink-0 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
             <img src={assetUrl(mosleemLogo)} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
           </div>
@@ -101,20 +124,16 @@ function NavBar() {
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <a
-              key={l.href}
-              href={l.href}
+              key={l.id}
+              href={`#${l.id}`}
+              onClick={(e) => handleClick(e, l.id)}
               className="text-sm font-medium text-white/80 hover:text-white transition-colors"
             >
               {l.label}
             </a>
           ))}
-          <Link
-            to="/harga"
-            className="text-sm font-medium text-white/80 hover:text-white transition-colors"
-          >
-            Harga
-          </Link>
         </nav>
+
         <a
           href={WA_URL}
           target="_blank"
