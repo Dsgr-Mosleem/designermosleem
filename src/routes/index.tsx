@@ -1,6 +1,7 @@
 import { assetUrl } from "@/lib/asset-url";
 import { WA_URL, WA_DISPLAY } from "@/lib/whatsapp";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { PricingSection, CustomSection, TermsSection, FAQSection } from "@/components/pricing-sections";
 import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
 import p1 from "@/assets/portfolio/09-31.21.jpeg.asset.json";
 import p2 from "@/assets/portfolio/09-31.21_1.jpeg.asset.json";
@@ -296,7 +297,7 @@ function ServiceCard({ icon: Icon, title, desc }: { icon: typeof Globe; title: s
 
 function Services() {
   return (
-    <section id="layanan" className="py-20 px-6 relative">
+    <section id="layanan" className="scroll-mt-20 py-20 px-6 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-gold text-sm font-semibold tracking-widest">LAYANAN KAMI</span>
@@ -342,7 +343,7 @@ function Gallery() {
   }, [lightbox]);
 
   return (
-    <section id="katalog" className="py-20 px-6">
+    <section id="katalog" className="scroll-mt-20 py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-gold text-sm font-semibold tracking-widest">PORTOFOLIO</span>
@@ -483,7 +484,7 @@ function Pricing() {
 
 function CTABanner() {
   return (
-    <section id="kontak" className="py-12 px-6">
+    <section id="kontak" className="scroll-mt-20 py-12 px-6">
       <div
         className="max-w-7xl mx-auto rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
         style={{ background: "var(--gradient-violet)" }}
@@ -533,14 +534,20 @@ function Footer() {
           <div>
             <h4 className="text-display text-sm tracking-wider text-gold mb-4">MENU CEPAT</h4>
             <ul className="space-y-2 text-sm text-white/70">
-              {["Beranda", "Layanan", "Katalog", "Kontak"].map((m) => (
+              {["Beranda", "Layanan", "Katalog", "Harga", "Kontak"].map((m) => (
                 <li key={m}>
-                  <a href={`#${m.toLowerCase()}`} className="hover:text-violet-bright transition-colors">{m}</a>
+                  <a
+                    href={`#${m.toLowerCase()}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(m.toLowerCase());
+                    }}
+                    className="hover:text-violet-bright transition-colors"
+                  >
+                    {m}
+                  </a>
                 </li>
               ))}
-              <li>
-                <Link to="/harga" className="hover:text-violet-bright transition-colors">Harga</Link>
-              </li>
             </ul>
           </div>
 
@@ -578,6 +585,13 @@ function Footer() {
 }
 
 function Home() {
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    const t = window.setTimeout(() => scrollToSection(hash), 120);
+    return () => window.clearTimeout(t);
+  }, []);
+
   return (
     <div className="min-h-screen text-white">
       <NavBar />
