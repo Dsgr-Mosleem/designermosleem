@@ -1,6 +1,7 @@
 import { assetUrl } from "@/lib/asset-url";
 import { WA_URL, WA_DISPLAY } from "@/lib/whatsapp";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { PricingSection, CustomSection, TermsSection, FAQSection } from "@/components/pricing-sections";
 import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
 import p1 from "@/assets/portfolio/09-31.21.jpeg.asset.json";
 import p2 from "@/assets/portfolio/09-31.21_1.jpeg.asset.json";
@@ -66,6 +67,25 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const NAV_LINKS = [
+  { id: "beranda", label: "Beranda" },
+  { id: "layanan", label: "Layanan" },
+  { id: "katalog", label: "Katalog" },
+  { id: "harga", label: "Harga" },
+  { id: "kontak", label: "Kontak" },
+];
+
+export function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const offset = 72;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top: id === "beranda" ? 0 : top, behavior: "smooth" });
+  if (typeof history !== "undefined") {
+    history.replaceState(null, "", `#${id}`);
+  }
+}
+
 function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -74,12 +94,12 @@ function NavBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = [
-    { href: "#beranda", label: "Beranda" },
-    { href: "#layanan", label: "Layanan" },
-    { href: "#katalog", label: "Katalog" },
-    { href: "#kontak", label: "Kontak" },
-  ];
+  const links = NAV_LINKS;
+
+  const handleClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    scrollToSection(id);
+  };
 
   return (
     <header
@@ -90,7 +110,11 @@ function NavBar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-        <a href="#beranda" className="flex min-w-0 items-center gap-2">
+        <a
+          href="#beranda"
+          onClick={(e) => handleClick(e, "beranda")}
+          className="flex min-w-0 items-center gap-2"
+        >
           <div className="w-9 h-9 shrink-0 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
             <img src={assetUrl(mosleemLogo)} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
           </div>
@@ -101,20 +125,16 @@ function NavBar() {
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <a
-              key={l.href}
-              href={l.href}
+              key={l.id}
+              href={`#${l.id}`}
+              onClick={(e) => handleClick(e, l.id)}
               className="text-sm font-medium text-white/80 hover:text-white transition-colors"
             >
               {l.label}
             </a>
           ))}
-          <Link
-            to="/harga"
-            className="text-sm font-medium text-white/80 hover:text-white transition-colors"
-          >
-            Harga
-          </Link>
         </nav>
+
         <a
           href={WA_URL}
           target="_blank"
@@ -277,7 +297,7 @@ function ServiceCard({ icon: Icon, title, desc }: { icon: typeof Globe; title: s
 
 function Services() {
   return (
-    <section id="layanan" className="py-20 px-6 relative">
+    <section id="layanan" className="scroll-mt-20 py-20 px-6 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-gold text-sm font-semibold tracking-widest">LAYANAN KAMI</span>
@@ -323,7 +343,7 @@ function Gallery() {
   }, [lightbox]);
 
   return (
-    <section id="katalog" className="py-20 px-6">
+    <section id="katalog" className="scroll-mt-20 py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-gold text-sm font-semibold tracking-widest">PORTOFOLIO</span>
@@ -429,7 +449,7 @@ function Gallery() {
 
 function Pricing() {
   return (
-    <section id="harga" className="py-20 px-6">
+    <section id="harga" className="scroll-mt-20 py-20 px-6">
       <div className="max-w-4xl mx-auto text-center relative">
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-violet-electric/18 blur-3xl rounded-full pointer-events-none" />
         <div className="relative">
@@ -444,26 +464,27 @@ function Pricing() {
             <Sparkles className="w-5 h-5 text-gold" />
           </div>
 
-          <p className="text-white/75 max-w-xl mx-auto mb-8">
+          <p className="text-white/75 max-w-xl mx-auto">
             Dapatkan desain profesional dengan harga yang bersahabat. Cocok untuk
             pelaku usaha, komunitas, dan kebutuhan personal.
           </p>
-
-          <Link
-            to="/harga"
-            className="inline-flex rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-7 py-3.5 transition-all hover:glow-violet-soft"
-          >
-            Lihat Detail Harga
-          </Link>
         </div>
+      </div>
+
+      <div className="mt-10">
+        <PricingSection />
+        <CustomSection />
+        <TermsSection />
+        <FAQSection />
       </div>
     </section>
   );
 }
 
+
 function CTABanner() {
   return (
-    <section id="kontak" className="py-12 px-6">
+    <section id="kontak" className="scroll-mt-20 py-12 px-6">
       <div
         className="max-w-7xl mx-auto rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
         style={{ background: "var(--gradient-violet)" }}
@@ -513,14 +534,20 @@ function Footer() {
           <div>
             <h4 className="text-display text-sm tracking-wider text-gold mb-4">MENU CEPAT</h4>
             <ul className="space-y-2 text-sm text-white/70">
-              {["Beranda", "Layanan", "Katalog", "Kontak"].map((m) => (
+              {["Beranda", "Layanan", "Katalog", "Harga", "Kontak"].map((m) => (
                 <li key={m}>
-                  <a href={`#${m.toLowerCase()}`} className="hover:text-violet-bright transition-colors">{m}</a>
+                  <a
+                    href={`#${m.toLowerCase()}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(m.toLowerCase());
+                    }}
+                    className="hover:text-violet-bright transition-colors"
+                  >
+                    {m}
+                  </a>
                 </li>
               ))}
-              <li>
-                <Link to="/harga" className="hover:text-violet-bright transition-colors">Harga</Link>
-              </li>
             </ul>
           </div>
 
@@ -558,6 +585,13 @@ function Footer() {
 }
 
 function Home() {
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    const t = window.setTimeout(() => scrollToSection(hash), 120);
+    return () => window.clearTimeout(t);
+  }, []);
+
   return (
     <div className="min-h-screen text-white">
       <NavBar />
