@@ -429,7 +429,7 @@ function Gallery() {
 
 function Pricing() {
   return (
-    <section id="harga" className="py-20 px-6">
+    <section id="harga" className="scroll-mt-20 py-20 px-6">
       <div className="max-w-4xl mx-auto text-center relative">
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-violet-electric/18 blur-3xl rounded-full pointer-events-none" />
         <div className="relative">
@@ -444,22 +444,23 @@ function Pricing() {
             <Sparkles className="w-5 h-5 text-gold" />
           </div>
 
-          <p className="text-white/75 max-w-xl mx-auto mb-8">
+          <p className="text-white/75 max-w-xl mx-auto">
             Dapatkan desain profesional dengan harga yang bersahabat. Cocok untuk
             pelaku usaha, komunitas, dan kebutuhan personal.
           </p>
-
-          <Link
-            to="/harga"
-            className="inline-flex rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-7 py-3.5 transition-all hover:glow-violet-soft"
-          >
-            Lihat Detail Harga
-          </Link>
         </div>
+      </div>
+
+      <div className="mt-10">
+        <PricingSection />
+        <CustomSection />
+        <TermsSection />
+        <FAQSection />
       </div>
     </section>
   );
 }
+
 
 function CTABanner() {
   return (
