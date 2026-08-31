@@ -26,8 +26,14 @@ import p20 from "@/assets/portfolio/p20.png.asset.json";
 import p21 from "@/assets/portfolio/p21.png.asset.json";
 import p22 from "@/assets/portfolio/p22.jpg.asset.json";
 import p23 from "@/assets/portfolio/p23.jpg.asset.json";
+import p24 from "@/assets/portfolio/p24.webp.asset.json";
+import p25 from "@/assets/portfolio/p25.png.asset.json";
+import p26 from "@/assets/portfolio/p26.png.asset.json";
+import p27 from "@/assets/portfolio/p27.jpeg.asset.json";
+import p28 from "@/assets/portfolio/p28.png.asset.json";
+import p29 from "@/assets/portfolio/p29.png.asset.json";
 const bannerImages = [p20, p21];
-const portfolioImages = [...bannerImages, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p22, p23];
+const portfolioImages = [...bannerImages, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p22, p23, p24, p25, p26, p27, p28, p29];
 import { useEffect, useState } from "react";
 import {
   Palette,
