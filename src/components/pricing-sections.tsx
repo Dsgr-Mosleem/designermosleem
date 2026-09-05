@@ -91,7 +91,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       <div className="pointer-events-none absolute -top-20 -right-16 w-44 h-44 rounded-full bg-violet-electric/20 blur-[70px]" />
 
       {plan.highlighted && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-gold to-[#F5D76E] text-violet-deep text-xs font-bold px-4 py-1 shadow-lg z-10">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-gold to-[#F5D76E] text-violet-deep text-xs font-bold px-4 py-1 leading-none whitespace-nowrap shadow-lg z-10">
           PALING POPULER
         </span>
       )}
