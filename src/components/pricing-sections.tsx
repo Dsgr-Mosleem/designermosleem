@@ -203,10 +203,12 @@ export function CustomSection() {
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 rounded-full bg-gradient-violet text-white font-semibold px-6 py-3 text-sm leading-none text-center whitespace-nowrap transition-all hover:glow-violet-soft"
+                className="relative w-full flex items-center justify-center rounded-full bg-gradient-violet text-white font-semibold px-6 py-3 text-sm leading-none whitespace-nowrap transition-all hover:glow-violet-soft"
               >
-                <MessageCircle className="w-4 h-4 shrink-0" />
-                <span>Konsultasi Custom</span>
+                <span className="inline-flex items-center justify-center gap-2">
+                  <MessageCircle className="w-4 h-4 shrink-0" />
+                  <span>Konsultasi Custom</span>
+                </span>
               </a>
             </div>
           </div>
