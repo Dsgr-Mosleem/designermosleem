@@ -506,7 +506,7 @@ function CTABanner() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white text-violet-deep hover:bg-gold hover:text-violet-deep font-bold px-8 py-4 text-base leading-none whitespace-nowrap transition-all hover:scale-105"
+            className="mt-8 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-white text-violet-deep hover:bg-gold hover:text-violet-deep font-bold px-6 sm:px-8 py-4 text-sm sm:text-base leading-tight text-center transition-all hover:scale-105"
           >
             <MessageCircle className="w-5 h-5 shrink-0" />
             <span>Chat WhatsApp Sekarang</span>
