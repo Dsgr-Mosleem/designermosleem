@@ -91,7 +91,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       <div className="pointer-events-none absolute -top-20 -right-16 w-44 h-44 rounded-full bg-violet-electric/20 blur-[70px]" />
 
       {plan.highlighted && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-gold to-[#F5D76E] text-violet-deep text-xs font-bold px-4 py-1 shadow-lg z-10">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-gold to-[#F5D76E] text-violet-deep text-xs font-bold px-4 py-1 leading-none whitespace-nowrap shadow-lg z-10">
           PALING POPULER
         </span>
       )}
@@ -131,14 +131,16 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         href={WA_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className={`relative mt-auto flex items-center justify-center gap-2 rounded-full font-semibold px-6 py-3 text-sm leading-none transition-all ${
+        className={`relative mt-auto w-full flex items-center justify-center rounded-full font-semibold px-6 py-3 text-sm leading-none whitespace-nowrap transition-all ${
           plan.highlighted
             ? "bg-gradient-violet text-white hover:glow-violet-soft"
             : "bg-white/5 border border-white/20 text-white hover:bg-white/10 hover:border-violet-bright/40"
         }`}
       >
-        <MessageCircle className="w-4 h-4 shrink-0" />
-        {plan.cta}
+        <span className="inline-flex items-center justify-center gap-2">
+          <MessageCircle className="w-4 h-4 shrink-0" />
+          <span>{plan.cta}</span>
+        </span>
       </a>
     </div>
   );
@@ -201,10 +203,12 @@ export function CustomSection() {
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 rounded-full bg-gradient-violet text-white font-semibold px-6 py-3 text-sm leading-none text-center whitespace-nowrap transition-all hover:glow-violet-soft"
+                className="relative w-full flex items-center justify-center rounded-full bg-gradient-violet text-white font-semibold px-6 py-3 text-sm leading-none whitespace-nowrap transition-all hover:glow-violet-soft"
               >
-                <MessageCircle className="w-4 h-4 shrink-0" />
-                <span>Konsultasi Custom</span>
+                <span className="inline-flex items-center justify-center gap-2">
+                  <MessageCircle className="w-4 h-4 shrink-0" />
+                  <span>Konsultasi Custom</span>
+                </span>
               </a>
             </div>
           </div>

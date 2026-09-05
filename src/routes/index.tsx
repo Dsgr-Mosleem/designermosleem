@@ -145,7 +145,7 @@ function NavBar() {
           href={WA_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 inline-flex items-center justify-center text-center whitespace-nowrap rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-4 sm:px-5 h-10 text-xs sm:text-sm leading-none transition-all hover:glow-violet-soft"
+          className="shrink-0 inline-flex items-center justify-center rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-4 sm:px-5 h-10 text-xs sm:text-sm leading-none whitespace-nowrap transition-all hover:glow-violet-soft"
         >
           Hubungi Kami
         </a>
@@ -203,7 +203,7 @@ function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-transparent px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
+        <span className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-transparent px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
           ✦ Jasa Desain Grafis ✦
         </span>
 
@@ -233,10 +233,10 @@ function Hero() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-7 py-3.5 text-sm md:text-base transition-all hover:glow-violet-soft inline-flex items-center gap-2"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-7 py-3.5 text-sm md:text-base leading-none whitespace-nowrap transition-all hover:glow-violet-soft"
           >
-            <MessageCircle className="w-4 h-4" />
-            Konsultasi via WhatsApp
+            <MessageCircle className="w-4 h-4 shrink-0" />
+            <span>Konsultasi via WhatsApp</span>
           </a>
           <a
             href="#katalog"
@@ -404,7 +404,7 @@ function Gallery() {
         <div className="text-center mt-12">
           <a
             href="#"
-            className="inline-flex rounded-full border-2 border-violet-bright/60 hover:bg-violet-bright/20 text-white font-semibold px-7 py-3 text-sm transition-all hover:glow-violet-soft"
+            className="inline-flex items-center justify-center rounded-full border-2 border-violet-bright/60 hover:bg-violet-bright/20 text-white font-semibold px-7 py-3 text-sm leading-none whitespace-nowrap transition-all hover:glow-violet-soft"
           >
             Lihat Semua Karya
           </a>
@@ -464,10 +464,10 @@ function Pricing() {
             Harga Terjangkau untuk <span className="text-violet-bright">Semua Kalangan</span>
           </h2>
 
-          <div className="my-10 inline-flex items-center gap-3 rounded-full border-2 border-gold bg-[rgba(232,181,35,0.1)] px-8 py-3">
-            <Sparkles className="w-5 h-5 text-gold" />
+          <div className="my-10 inline-flex items-center justify-center gap-3 rounded-full border-2 border-gold bg-[rgba(232,181,35,0.1)] px-8 py-3">
+            <Sparkles className="w-5 h-5 shrink-0 text-gold" />
             <span className="text-display text-2xl md:text-3xl text-gold">Start from 25K</span>
-            <Sparkles className="w-5 h-5 text-gold" />
+            <Sparkles className="w-5 h-5 shrink-0 text-gold" />
           </div>
 
           <p className="text-white/75 max-w-xl mx-auto">
@@ -506,10 +506,10 @@ function CTABanner() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-violet-deep hover:bg-gold hover:text-violet-deep font-bold px-8 py-4 text-base transition-all hover:scale-105"
+            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white text-violet-deep hover:bg-gold hover:text-violet-deep font-bold px-8 py-4 text-base leading-none whitespace-nowrap transition-all hover:scale-105"
           >
-            <MessageCircle className="w-5 h-5" />
-            Chat WhatsApp Sekarang
+            <MessageCircle className="w-5 h-5 shrink-0" />
+            <span>Chat WhatsApp Sekarang</span>
           </a>
         </div>
       </div>
@@ -565,8 +565,8 @@ function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-violet-bright transition-colors mb-4"
             >
-              <MessageCircle className="w-4 h-4" />
-              WhatsApp: {WA_DISPLAY}
+              <MessageCircle className="w-4 h-4 shrink-0" />
+              <span>WhatsApp: {WA_DISPLAY}</span>
             </a>
             <div className="flex gap-3 mt-2">
               <a
