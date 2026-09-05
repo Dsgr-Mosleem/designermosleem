@@ -203,7 +203,7 @@ function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-transparent px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
+        <span className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-transparent px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
           ✦ Jasa Desain Grafis ✦
         </span>
 
@@ -464,10 +464,10 @@ function Pricing() {
             Harga Terjangkau untuk <span className="text-violet-bright">Semua Kalangan</span>
           </h2>
 
-          <div className="my-10 inline-flex items-center gap-3 rounded-full border-2 border-gold bg-[rgba(232,181,35,0.1)] px-8 py-3">
-            <Sparkles className="w-5 h-5 text-gold" />
+          <div className="my-10 inline-flex items-center justify-center gap-3 rounded-full border-2 border-gold bg-[rgba(232,181,35,0.1)] px-8 py-3">
+            <Sparkles className="w-5 h-5 shrink-0 text-gold" />
             <span className="text-display text-2xl md:text-3xl text-gold">Start from 25K</span>
-            <Sparkles className="w-5 h-5 text-gold" />
+            <Sparkles className="w-5 h-5 shrink-0 text-gold" />
           </div>
 
           <p className="text-white/75 max-w-xl mx-auto">
