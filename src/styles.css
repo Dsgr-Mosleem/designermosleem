@@ -75,9 +75,9 @@
   --input: var(--border);
   --ring: var(--brand-bright);
   --overlay: oklch(0.08 0.025 268);
-  --gradient-brand: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-electric) 65%, var(--brand-medium) 100%);
-  --gradient-hero: linear-gradient(130deg, var(--brand-deep) 0%, var(--brand-dark) 52%, var(--brand-electric) 100%);
-  --gradient-page: linear-gradient(140deg, var(--brand-deep) 0%, var(--brand-dark) 58%, var(--brand-medium) 100%);
+  --gradient-brand: linear-gradient(135deg, var(--brand-dark) 0%, color-mix(in oklab, var(--brand-dark) 60%, var(--brand-electric)) 38%, var(--brand-electric) 70%, color-mix(in oklab, var(--brand-electric) 55%, var(--brand-medium)) 100%);
+  --gradient-hero: linear-gradient(130deg, var(--brand-deep) 0%, color-mix(in oklab, var(--brand-deep) 62%, var(--brand-dark)) 26%, var(--brand-dark) 52%, color-mix(in oklab, var(--brand-dark) 55%, var(--brand-electric)) 78%, var(--brand-electric) 100%);
+  --gradient-page: linear-gradient(140deg, var(--brand-deep) 0%, color-mix(in oklab, var(--brand-deep) 65%, var(--brand-dark)) 28%, var(--brand-dark) 55%, color-mix(in oklab, var(--brand-dark) 60%, var(--brand-medium)) 80%, var(--brand-medium) 100%);
   --gradient-icon: linear-gradient(135deg, color-mix(in oklab, var(--brand-electric) 55%, transparent), color-mix(in oklab, var(--gold) 28%, transparent));
   --pattern-grid: linear-gradient(color-mix(in oklab, var(--brand-bright) 70%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--brand-bright) 70%, transparent) 1px, transparent 1px);
   --pattern-dots: radial-gradient(color-mix(in oklab, var(--gold) 80%, transparent) 1px, transparent 1px);
