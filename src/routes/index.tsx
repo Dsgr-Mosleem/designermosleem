@@ -2,7 +2,7 @@ import { assetUrl } from "@/lib/asset-url";
 import { WA_URL, WA_DISPLAY } from "@/lib/whatsapp";
 import { createFileRoute } from "@tanstack/react-router";
 import { PricingSection, CustomSection, TermsSection, FAQSection } from "@/components/pricing-sections";
-import mosleemLogo from "@/assets/mosleem-logo.jpeg.asset.json";
+import mosleemLogo from "@/assets/mosleem-logo-blue.jpeg.asset.json";
 import p1 from "@/assets/portfolio/09-31.21.jpeg.asset.json";
 import p2 from "@/assets/portfolio/09-31.21_1.jpeg.asset.json";
 import p3 from "@/assets/portfolio/09-31.22.jpeg.asset.json";
@@ -32,8 +32,9 @@ import p26 from "@/assets/portfolio/p26.png.asset.json";
 import p27 from "@/assets/portfolio/p27.jpeg.asset.json";
 import p28 from "@/assets/portfolio/p28.png.asset.json";
 import p29 from "@/assets/portfolio/p29.png.asset.json";
+import badalUmrah from "@/assets/portfolio/badal-umrah.jpg.asset.json";
 const bannerImages = [p20, p21];
-const portfolioImages = [...bannerImages, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p22, p23, p24, p25, p26, p27, p28, p29];
+const portfolioImages = [...bannerImages, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p22, p23, p24, p25, p26, p27, p28, p29, badalUmrah];
 import { useEffect, useState } from "react";
 import {
   Palette,
@@ -68,6 +69,8 @@ export const Route = createFileRoute("/")({
         content:
           "Desain grafis profesional untuk pelaku usaha, komunitas Islam, dan organisasi.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
@@ -111,7 +114,7 @@ function NavBar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-[rgba(26,5,51,0.75)] border-b border-[rgba(232,181,35,0.2)]"
+          ? "backdrop-blur-xl bg-background/75 border-b border-gold/20"
           : "bg-transparent"
       }`}
     >
@@ -121,11 +124,11 @@ function NavBar() {
           onClick={(e) => handleClick(e, "beranda")}
           className="flex min-w-0 items-center gap-2"
         >
-          <div className="w-9 h-9 shrink-0 rounded-lg overflow-hidden grid place-items-center glow-violet-soft">
+          <div className="w-9 h-9 shrink-0 rounded-lg overflow-hidden grid place-items-center glow-brand-soft">
             <img src={assetUrl(mosleemLogo)} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
           </div>
           <span className="text-display text-base sm:text-lg tracking-wide leading-[1.05]">
-            DESIGNER <span className="text-violet-bright">MOSLEEM</span>
+            DESIGNER <span className="text-brand-bright">MOSLEEM</span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-8">
@@ -134,7 +137,7 @@ function NavBar() {
               key={l.id}
               href={`#${l.id}`}
               onClick={(e) => handleClick(e, l.id)}
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+              className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
             >
               {l.label}
             </a>
@@ -145,7 +148,7 @@ function NavBar() {
           href={WA_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 inline-flex items-center justify-center rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-4 sm:px-5 h-10 text-xs sm:text-sm leading-tight text-center transition-all hover:glow-violet-soft"
+          className="shrink-0 inline-flex items-center justify-center rounded-full bg-gradient-brand hover:bg-brand-bright/90 text-foreground font-semibold px-4 sm:px-5 h-10 text-xs sm:text-sm leading-tight text-center transition-all hover:glow-brand-soft"
         >
           Hubungi Kami
         </a>
@@ -167,7 +170,7 @@ function Hero() {
         className="absolute inset-0 opacity-[0.08] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(139,123,199,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(139,123,199,0.7) 1px, transparent 1px)",
+            "var(--pattern-grid)",
           backgroundSize: "56px 56px",
           maskImage:
             "radial-gradient(ellipse at center, black 30%, transparent 75%)",
@@ -176,28 +179,28 @@ function Hero() {
         }}
       />
       {/* Ambient glows */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-violet-electric/15 blur-[120px] pointer-events-none" />
-      <div className="absolute top-40 -left-24 w-[380px] h-[380px] rounded-full bg-violet-bright/20 blur-[100px] pointer-events-none" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-brand-electric/15 blur-[120px] pointer-events-none" />
+      <div className="absolute top-40 -left-24 w-[380px] h-[380px] rounded-full bg-brand-bright/20 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 -right-24 w-[420px] h-[420px] rounded-full bg-gold/10 blur-[110px] pointer-events-none" />
 
       {/* Floating creative tool chips */}
       <div className="absolute top-28 left-[6%] hidden lg:block opacity-60">
-        <div className="w-16 h-16 rounded-2xl border border-violet-bright/30 bg-violet-medium/40 backdrop-blur-sm grid place-items-center -rotate-12 glow-violet-soft">
-          <Palette className="w-7 h-7 text-violet-bright" />
+        <div className="w-16 h-16 rounded-2xl border border-brand-bright/30 bg-brand-medium/40 backdrop-blur-sm grid place-items-center -rotate-12 glow-brand-soft">
+          <Palette className="w-7 h-7 text-brand-bright" />
         </div>
       </div>
       <div className="absolute top-44 right-[8%] hidden lg:block opacity-60">
-        <div className="w-14 h-14 rounded-2xl border border-gold/40 bg-[rgba(232,181,35,0.1)] backdrop-blur-sm grid place-items-center rotate-12">
+        <div className="w-14 h-14 rounded-2xl border border-gold/40 bg-gold/10 backdrop-blur-sm grid place-items-center rotate-12">
           <ImageIcon className="w-6 h-6 text-gold" />
         </div>
       </div>
       <div className="absolute bottom-24 left-[12%] hidden lg:block opacity-55">
-        <div className="w-12 h-12 rounded-xl border border-violet-bright/30 bg-violet-medium/40 backdrop-blur-sm grid place-items-center rotate-6 glow-violet-soft">
-          <Globe className="w-5 h-5 text-violet-bright" />
+        <div className="w-12 h-12 rounded-xl border border-brand-bright/30 bg-brand-medium/40 backdrop-blur-sm grid place-items-center rotate-6 glow-brand-soft">
+          <Globe className="w-5 h-5 text-brand-bright" />
         </div>
       </div>
       <div className="absolute bottom-32 right-[12%] hidden lg:block opacity-55">
-        <div className="w-12 h-12 rounded-xl border border-gold/40 bg-[rgba(232,181,35,0.1)] backdrop-blur-sm grid place-items-center -rotate-12">
+        <div className="w-12 h-12 rounded-xl border border-gold/40 bg-gold/10 backdrop-blur-sm grid place-items-center -rotate-12">
           <Sparkles className="w-5 h-5 text-gold" />
         </div>
       </div>
@@ -213,17 +216,17 @@ function Hero() {
 
         <div className="animate-fade-up">
           <div className="mx-auto w-full text-center">
-            <h1 className="text-display text-5xl sm:text-7xl md:text-9xl text-white leading-[0.9]">
+            <h1 className="text-display text-5xl sm:text-7xl md:text-9xl text-foreground leading-[0.9]">
               GRAPHICS
             </h1>
-            <h2 className="text-display text-[1.75rem] sm:text-5xl md:text-7xl text-violet-bright leading-[1.05]">
+            <h2 className="text-display text-[1.75rem] sm:text-5xl md:text-7xl text-brand-bright leading-[1.05]">
               DESIGN SERVICE
             </h2>
           </div>
         </div>
 
 
-        <p className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-white/75">
+        <p className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-foreground/75">
           Wujudkan identitas visual bisnis dan komunitas Anda dengan desain
           profesional yang kreatif dan berkarakter.
         </p>
@@ -233,14 +236,14 @@ function Hero() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-gradient-violet hover:bg-violet-bright/90 text-white font-semibold px-5 sm:px-7 py-3.5 text-sm md:text-base leading-tight text-center transition-all hover:glow-violet-soft"
+            className="inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-gradient-brand hover:bg-brand-bright/90 text-foreground font-semibold px-5 sm:px-7 py-3.5 text-sm md:text-base leading-tight text-center transition-all hover:glow-brand-soft"
           >
             <MessageCircle className="w-4 h-4 shrink-0" />
             <span>Konsultasi via WhatsApp</span>
           </a>
           <a
             href="#katalog"
-            className="rounded-full border-2 border-white/70 hover:border-white bg-transparent hover:bg-white/10 text-white font-semibold px-7 py-3.5 text-sm md:text-base transition-all"
+            className="rounded-full border-2 border-foreground/70 hover:border-foreground bg-transparent hover:bg-foreground/10 text-foreground font-semibold px-7 py-3.5 text-sm md:text-base transition-all"
           >
             Lihat Portofolio
           </a>
@@ -265,13 +268,13 @@ function Features() {
           {features.map((f) => (
             <div
               key={f.title}
-              className="group rounded-2xl bg-violet-medium/40 backdrop-blur-sm border border-white/10 p-6 transition-all hover:border-violet-bright/50 hover:-translate-y-1 hover:glow-violet-soft"
+              className="group rounded-2xl bg-brand-medium/40 backdrop-blur-sm border border-foreground/10 p-6 transition-all hover:border-brand-bright/50 hover:-translate-y-1 hover:glow-brand-soft"
             >
-              <div className="w-12 h-12 rounded-xl bg-[rgba(232,181,35,0.12)] border border-gold/40 grid place-items-center mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-gold/12 border border-gold/40 grid place-items-center mb-4 group-hover:scale-110 transition-transform">
                 <f.icon className="w-6 h-6 text-gold" />
               </div>
-              <h3 className="text-display text-lg text-white mb-1.5">{f.title}</h3>
-              <p className="text-sm text-white/65">{f.desc}</p>
+              <h3 className="text-display text-lg text-foreground mb-1.5">{f.title}</h3>
+              <p className="text-sm text-foreground/65">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -291,12 +294,12 @@ const grafisServices = [
 
 function ServiceCard({ icon: Icon, title, desc }: { icon: typeof Globe; title: string; desc: string }) {
   return (
-    <div className="group rounded-2xl bg-violet-medium/40 border border-white/10 p-6 transition-all hover:border-violet-bright/50 hover:glow-violet-soft hover:-translate-y-1">
-      <div className="w-11 h-11 rounded-lg bg-gradient-violet grid place-items-center mb-4 group-hover:glow-violet-soft transition-all">
-        <Icon className="w-5 h-5 text-white" />
+    <div className="group rounded-2xl bg-brand-medium/40 border border-foreground/10 p-6 transition-all hover:border-brand-bright/50 hover:glow-brand-soft hover:-translate-y-1">
+      <div className="w-11 h-11 rounded-lg bg-gradient-brand grid place-items-center mb-4 group-hover:glow-brand-soft transition-all">
+        <Icon className="w-5 h-5 text-foreground" />
       </div>
-      <h4 className="text-display text-base text-white mb-1.5">{title}</h4>
-      <p className="text-sm text-white/65 leading-relaxed">{desc}</p>
+      <h4 className="text-display text-base text-foreground mb-1.5">{title}</h4>
+      <p className="text-sm text-foreground/65 leading-relaxed">{desc}</p>
     </div>
   );
 }
@@ -308,7 +311,7 @@ function Services() {
         <div className="text-center mb-14">
           <span className="text-gold text-sm font-semibold tracking-widest">LAYANAN KAMI</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">
-            Solusi Kreatif <span className="text-violet-bright">Lengkap</span>
+            Solusi Kreatif <span className="text-brand-bright">Lengkap</span>
           </h2>
         </div>
 
@@ -354,7 +357,7 @@ function Gallery() {
         <div className="text-center mb-14">
           <span className="text-gold text-sm font-semibold tracking-widest">PORTOFOLIO</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">Hasil Karya Kami</h2>
-          <p className="text-white/65 mt-4 max-w-xl mx-auto">
+          <p className="text-foreground/65 mt-4 max-w-xl mx-auto">
             Beberapa contoh proyek desain yang telah kami kerjakan.
           </p>
         </div>
@@ -365,7 +368,7 @@ function Gallery() {
               type="button"
               key={`banner-${i}`}
               onClick={() => setLightbox(i)}
-              className="group relative aspect-[5/2] rounded-2xl overflow-hidden bg-violet-medium/50 border border-white/10 cursor-pointer text-left"
+              className="group relative aspect-[5/2] rounded-2xl overflow-hidden bg-brand-medium/50 border border-foreground/10 cursor-pointer text-left"
             >
               <img
                 src={assetUrl(img)}
@@ -373,8 +376,8 @@ function Gallery() {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-violet-electric/0 group-hover:bg-violet-electric/40 transition-all duration-300 grid place-items-center opacity-0 group-hover:opacity-100">
-                <ZoomIn className="w-10 h-10 text-white" />
+              <div className="absolute inset-0 bg-brand-electric/0 group-hover:bg-brand-electric/40 transition-all duration-300 grid place-items-center opacity-0 group-hover:opacity-100">
+                <ZoomIn className="w-10 h-10 text-foreground" />
               </div>
             </button>
           ))}
@@ -386,7 +389,7 @@ function Gallery() {
               type="button"
               key={i}
               onClick={() => setLightbox(i + bannerImages.length)}
-              className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-violet-medium/50 border border-white/10 cursor-pointer text-left"
+              className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-brand-medium/50 border border-foreground/10 cursor-pointer text-left"
             >
               <img
                 src={assetUrl(img)}
@@ -394,8 +397,8 @@ function Gallery() {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-violet-electric/0 group-hover:bg-violet-electric/40 transition-all duration-300 grid place-items-center opacity-0 group-hover:opacity-100">
-                <ZoomIn className="w-10 h-10 text-white" />
+              <div className="absolute inset-0 bg-brand-electric/0 group-hover:bg-brand-electric/40 transition-all duration-300 grid place-items-center opacity-0 group-hover:opacity-100">
+                <ZoomIn className="w-10 h-10 text-foreground" />
               </div>
             </button>
           ))}
@@ -404,7 +407,7 @@ function Gallery() {
         <div className="text-center mt-12">
           <a
             href="#"
-            className="inline-flex max-w-full items-center justify-center rounded-full border-2 border-violet-bright/60 hover:bg-violet-bright/20 text-white font-semibold px-5 sm:px-7 py-3 text-sm leading-tight text-center transition-all hover:glow-violet-soft"
+            className="inline-flex max-w-full items-center justify-center rounded-full border-2 border-brand-bright/60 hover:bg-brand-bright/20 text-foreground font-semibold px-5 sm:px-7 py-3 text-sm leading-tight text-center transition-all hover:glow-brand-soft"
           >
             Lihat Semua Karya
           </a>
@@ -413,14 +416,14 @@ function Gallery() {
 
       {lightbox !== null && (
         <div
-          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-[100] bg-overlay/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
           onClick={() => setLightbox(null)}
         >
           <button
             type="button"
             aria-label="Tutup"
             onClick={() => setLightbox(null)}
-            className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white grid place-items-center transition"
+            className="absolute top-5 right-5 w-11 h-11 rounded-full bg-foreground/10 hover:bg-foreground/20 border border-foreground/20 text-foreground grid place-items-center transition"
           >
             <span className="text-2xl leading-none">×</span>
           </button>
@@ -428,7 +431,7 @@ function Gallery() {
             type="button"
             aria-label="Sebelumnya"
             onClick={(e) => { e.stopPropagation(); setLightbox((i) => (i === null ? i : (i - 1 + portfolioImages.length) % portfolioImages.length)); }}
-            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white grid place-items-center transition"
+            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-foreground/10 hover:bg-foreground/20 border border-foreground/20 text-foreground grid place-items-center transition"
           >
             <span className="text-2xl leading-none">‹</span>
           </button>
@@ -436,7 +439,7 @@ function Gallery() {
             type="button"
             aria-label="Berikutnya"
             onClick={(e) => { e.stopPropagation(); setLightbox((i) => (i === null ? i : (i + 1) % portfolioImages.length)); }}
-            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white grid place-items-center transition"
+            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-foreground/10 hover:bg-foreground/20 border border-foreground/20 text-foreground grid place-items-center transition"
           >
             <span className="text-2xl leading-none">›</span>
           </button>
@@ -457,20 +460,20 @@ function Pricing() {
   return (
     <section id="harga" className="scroll-mt-20 py-20 px-6">
       <div className="max-w-4xl mx-auto text-center relative">
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-violet-electric/18 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-brand-electric/18 blur-3xl rounded-full pointer-events-none" />
         <div className="relative">
           <span className="text-gold text-sm font-semibold tracking-widest">PRICING</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">
-            Harga Terjangkau untuk <span className="text-violet-bright">Semua Kalangan</span>
+            Harga Terjangkau untuk <span className="text-brand-bright">Semua Kalangan</span>
           </h2>
 
-          <div className="my-10 inline-flex items-center justify-center gap-3 rounded-full border-2 border-gold bg-[rgba(232,181,35,0.1)] px-8 py-3">
+          <div className="my-10 inline-flex items-center justify-center gap-3 rounded-full border-2 border-gold bg-gold/10 px-8 py-3">
             <Sparkles className="w-5 h-5 shrink-0 text-gold" />
             <span className="text-display text-2xl md:text-3xl text-gold">Start from 25K</span>
             <Sparkles className="w-5 h-5 shrink-0 text-gold" />
           </div>
 
-          <p className="text-white/75 max-w-xl mx-auto">
+          <p className="text-foreground/75 max-w-xl mx-auto">
             Dapatkan desain profesional dengan harga yang bersahabat. Cocok untuk
             pelaku usaha, komunitas, dan kebutuhan personal.
           </p>
@@ -493,20 +496,20 @@ function CTABanner() {
     <section id="kontak" className="scroll-mt-20 py-12 px-6">
       <div
         className="max-w-7xl mx-auto rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
-        style={{ background: "var(--gradient-violet)" }}
+        style={{ background: "var(--gradient-brand)" }}
       >
         <div className="relative">
-          <h2 className="text-display text-4xl md:text-6xl text-white">
+          <h2 className="text-display text-4xl md:text-6xl text-foreground">
             Siap Tampil Lebih Profesional?
           </h2>
-          <p className="mt-5 text-white/90 text-lg max-w-2xl mx-auto">
+          <p className="mt-5 text-foreground/90 text-lg max-w-2xl mx-auto">
             Konsultasikan kebutuhan desain Anda sekarang — <span className="font-bold text-gold">GRATIS!</span>
           </p>
           <a
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-white text-violet-deep hover:bg-gold hover:text-violet-deep font-bold px-6 sm:px-8 py-4 text-sm sm:text-base leading-tight text-center transition-all hover:scale-105"
+            className="mt-8 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-foreground text-brand-deep hover:bg-gold hover:text-brand-deep font-bold px-6 sm:px-8 py-4 text-sm sm:text-base leading-tight text-center transition-all hover:scale-105"
           >
             <MessageCircle className="w-5 h-5 shrink-0" />
             <span>Chat WhatsApp Sekarang</span>
@@ -521,17 +524,17 @@ function Footer() {
   return (
     <footer style={{ backgroundColor: "var(--footer)" }} className="pt-16 pb-8 px-6 mt-12">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-violet-bright/20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-brand-bright/20">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-9 h-9 rounded-lg overflow-hidden grid place-items-center">
                 <img src={assetUrl(mosleemLogo)} alt="Designer Mosleem logo" className="w-full h-full object-cover" />
               </div>
               <span className="text-display text-lg">
-                DESIGNER <span className="text-violet-bright">MOSLEEM</span>
+                DESIGNER <span className="text-brand-bright">MOSLEEM</span>
               </span>
             </div>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-foreground/65 leading-relaxed">
               Jasa desain grafis profesional untuk bisnis,
               komunitas, dan acara Anda.
             </p>
@@ -539,7 +542,7 @@ function Footer() {
 
           <div>
             <h4 className="text-display text-sm tracking-wider text-gold mb-4">MENU CEPAT</h4>
-            <ul className="space-y-2 text-sm text-white/70">
+            <ul className="space-y-2 text-sm text-foreground/70">
               {["Beranda", "Layanan", "Katalog", "Harga", "Kontak"].map((m) => (
                 <li key={m}>
                   <a
@@ -548,7 +551,7 @@ function Footer() {
                       e.preventDefault();
                       scrollToSection(m.toLowerCase());
                     }}
-                    className="hover:text-violet-bright transition-colors"
+                    className="hover:text-brand-bright transition-colors"
                   >
                     {m}
                   </a>
@@ -563,7 +566,7 @@ function Footer() {
               href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-violet-bright transition-colors mb-4"
+              className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-brand-bright transition-colors mb-4"
             >
               <MessageCircle className="w-4 h-4 shrink-0" />
               <span>WhatsApp: {WA_DISPLAY}</span>
@@ -574,15 +577,15 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="w-10 h-10 rounded-full bg-violet-medium/70 hover:bg-violet-electric/80 grid place-items-center transition-all hover:glow-violet-soft"
+                className="w-10 h-10 rounded-full bg-brand-medium/70 hover:bg-brand-electric/80 grid place-items-center transition-all hover:glow-brand-soft"
               >
-                <MessageCircle className="w-5 h-5 text-white" />
+                <MessageCircle className="w-5 h-5 text-foreground" />
               </a>
             </div>
           </div>
         </div>
 
-        <p className="text-center text-xs text-white/50 mt-8">
+        <p className="text-center text-xs text-foreground/50 mt-8">
           © 2025 Designer Mosleem. All rights reserved.
         </p>
       </div>
@@ -599,7 +602,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen text-white">
+    <div className="min-h-screen text-foreground">
       <NavBar />
       <main>
         <Hero />

@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Define brand colors, gradients, patterns, and glow effects as semantic tokens in src/styles.css so palette changes remain consistent throughout the single-page site.
+- Reference uploaded portfolio and logo media through CDN asset pointers and assetUrl so both Lovable and GitHub Pages resolve them.
