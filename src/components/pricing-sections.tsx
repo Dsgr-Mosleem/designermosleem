@@ -72,15 +72,15 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
     <div
       className={`group relative flex w-[280px] shrink-0 snap-center flex-col rounded-2xl p-6 md:w-auto md:p-8 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${
         plan.highlighted
-          ? "bg-violet-deep/80 border-2 border-gold/60 glow-violet-soft hover:shadow-[0_0_45px_-10px_rgba(232,181,35,0.45)]"
-          : "bg-violet-deep/60 border border-white/10 hover:border-violet-bright/50 hover:shadow-[0_0_40px_-14px_rgba(139,123,199,0.6)]"
+          ? "bg-brand-deep/80 border-2 border-gold/60 glow-brand-soft hover:shadow-(--shadow-gold)"
+          : "bg-brand-deep/60 border border-foreground/10 hover:border-brand-bright/50 hover:glow-brand-soft"
       }`}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
           backgroundImage:
-            "radial-gradient(rgba(232,181,35,0.8) 1px, transparent 1px)",
+            "var(--pattern-dots)",
           backgroundSize: "18px 18px",
           maskImage:
             "radial-gradient(ellipse at top right, black 0%, transparent 65%)",
@@ -88,10 +88,10 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
             "radial-gradient(ellipse at top right, black 0%, transparent 65%)",
         }}
       />
-      <div className="pointer-events-none absolute -top-20 -right-16 w-44 h-44 rounded-full bg-violet-electric/20 blur-[70px]" />
+      <div className="pointer-events-none absolute -top-20 -right-16 w-44 h-44 rounded-full bg-brand-electric/20 blur-[70px]" />
 
       {plan.highlighted && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-gold to-[#F5D76E] text-violet-deep text-xs font-bold px-4 py-1 leading-none whitespace-nowrap shadow-lg z-10">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-gold to-gold-light text-brand-deep text-xs font-bold px-4 py-1 leading-none whitespace-nowrap shadow-lg z-10">
           PALING POPULER
         </span>
       )}
@@ -100,17 +100,17 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         <div
           className={`w-14 h-14 rounded-2xl grid place-items-center mb-5 border transition-shadow ${
             plan.highlighted
-              ? "border-gold/60 shadow-[0_0_25px_-6px_rgba(232,181,35,0.6)]"
-              : "border-violet-bright/40 shadow-[0_0_22px_-8px_rgba(139,123,199,0.8)]"
+              ? "border-gold/60 shadow-(--shadow-gold)"
+              : "border-brand-bright/40 glow-brand-soft"
           }`}
           style={{
             background:
-              "linear-gradient(135deg, rgba(107,95,168,0.55), rgba(232,181,35,0.28))",
+              "var(--gradient-icon)",
           }}
         >
           {plan.icon}
         </div>
-        <h4 className="text-display text-2xl text-white mb-2">{plan.name}</h4>
+        <h4 className="text-display text-2xl text-foreground mb-2">{plan.name}</h4>
         <p className="text-gold text-2xl md:text-3xl font-bold">{plan.price}</p>
       </div>
 
@@ -118,7 +118,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
       <ul className="relative flex-1 space-y-3 mb-8">
         {plan.features.map((feature, i) => (
-          <li key={i} className="flex items-start gap-3 text-sm md:text-base text-white/85">
+          <li key={i} className="flex items-start gap-3 text-sm md:text-base text-foreground/85">
             <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-gold/15 border border-gold/50 grid place-items-center">
               <Check className="w-3 h-3 text-gold" />
             </span>
@@ -133,8 +133,8 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         rel="noopener noreferrer"
         className={`relative mt-auto w-full flex items-center justify-center rounded-full font-semibold px-4 sm:px-6 py-3 text-sm leading-tight text-center transition-all ${
           plan.highlighted
-            ? "bg-gradient-violet text-white hover:glow-violet-soft"
-            : "bg-white/5 border border-white/20 text-white hover:bg-white/10 hover:border-violet-bright/40"
+            ? "bg-gradient-brand text-foreground hover:glow-brand-soft"
+            : "bg-foreground/5 border border-foreground/20 text-foreground hover:bg-foreground/10 hover:border-brand-bright/40"
         }`}
       >
         <span className="inline-flex items-center justify-center gap-2">
@@ -156,7 +156,7 @@ export function PricingSection() {
             Desain Grafis
           </span>
           <h3 className="text-display text-3xl md:text-5xl mt-3">
-            Detail Harga <span className="text-violet-bright">Desain Grafis</span>
+            Detail Harga <span className="text-brand-bright">Desain Grafis</span>
           </h3>
         </div>
 
@@ -174,8 +174,8 @@ export function CustomSection() {
   return (
     <section className="py-10 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="rounded-2xl bg-violet-deep/60 border border-white/10 p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-violet-electric/10 blur-[80px] pointer-events-none" />
+        <div className="rounded-2xl bg-brand-deep/60 border border-foreground/10 p-8 md:p-12 relative overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-brand-electric/10 blur-[80px] pointer-events-none" />
 
           <div className="relative flex flex-col md:flex-row md:items-start md:justify-between gap-8">
             <div className="flex-1">
@@ -183,10 +183,10 @@ export function CustomSection() {
                 <Sparkles className="w-5 h-5" />
                 Custom
               </span>
-              <h3 className="text-display text-3xl md:text-4xl text-white mb-4">
-                Butuh Paket <span className="text-violet-bright">Khusus?</span>
+              <h3 className="text-display text-3xl md:text-4xl text-foreground mb-4">
+                Butuh Paket <span className="text-brand-bright">Khusus?</span>
               </h3>
-              <p className="text-white/75 leading-relaxed max-w-2xl">
+              <p className="text-foreground/75 leading-relaxed max-w-2xl">
                 Untuk proyek besar, permintaan khusus lembaga/institusi, atau
                 kombinasi banyak layanan sekaligus. Scope dan harga disesuaikan
                 sepenuhnya berdasarkan brief — bisa termasuk file AI/PSD/Figma,
@@ -194,16 +194,16 @@ export function CustomSection() {
               </p>
             </div>
 
-            <div className="md:w-80 shrink-0 rounded-2xl bg-violet-medium/30 border border-white/10 p-6">
+            <div className="md:w-80 shrink-0 rounded-2xl bg-brand-medium/30 border border-foreground/10 p-6">
               <p className="text-gold text-2xl font-bold mb-2">Nego</p>
-              <p className="text-white/70 text-sm mb-6">
+              <p className="text-foreground/70 text-sm mb-6">
                 Berdasarkan brief & scope project
               </p>
               <a
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative w-full flex items-center justify-center rounded-full bg-gradient-violet text-white font-semibold px-4 sm:px-6 py-3 text-sm leading-tight text-center transition-all hover:glow-violet-soft"
+                className="relative w-full flex items-center justify-center rounded-full bg-gradient-brand text-foreground font-semibold px-4 sm:px-6 py-3 text-sm leading-tight text-center transition-all hover:glow-brand-soft"
               >
                 <span className="inline-flex items-center justify-center gap-2">
                   <MessageCircle className="w-4 h-4 shrink-0" />
@@ -232,12 +232,12 @@ export function TermsSection() {
   return (
     <section className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="rounded-2xl bg-violet-deep/60 border border-white/10 p-8 md:p-12">
+        <div className="rounded-2xl bg-brand-deep/60 border border-foreground/10 p-8 md:p-12">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-[rgba(232,181,35,0.12)] border border-gold/40 grid place-items-center">
+            <div className="w-10 h-10 rounded-xl bg-gold/12 border border-gold/40 grid place-items-center">
               <Star className="w-5 h-5 text-gold" />
             </div>
-            <h3 className="text-display text-2xl md:text-3xl text-white">
+            <h3 className="text-display text-2xl md:text-3xl text-foreground">
               Ketentuan Umum
             </h3>
           </div>
@@ -246,7 +246,7 @@ export function TermsSection() {
             {terms.map((t, i) => (
               <li
                 key={i}
-                className="flex items-start gap-4 text-sm md:text-base text-white/85"
+                className="flex items-start gap-4 text-sm md:text-base text-foreground/85"
               >
                 <span className="shrink-0 w-7 h-7 rounded-full bg-gold/10 border border-gold/40 text-gold text-xs font-bold grid place-items-center">
                   {i + 1}
@@ -299,7 +299,7 @@ export function FAQSection() {
             FAQ
           </span>
           <h3 className="text-display text-3xl md:text-5xl mt-3">
-            Pertanyaan yang Sering <span className="text-violet-bright">Diajukan</span>
+            Pertanyaan yang Sering <span className="text-brand-bright">Diajukan</span>
           </h3>
         </div>
 
@@ -311,8 +311,8 @@ export function FAQSection() {
                 key={i}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? "bg-violet-medium/50 border-gold/50 glow-violet-soft"
-                    : "bg-violet-medium/30 border-white/10 hover:border-violet-bright/40"
+                    ? "bg-brand-medium/50 border-gold/50 glow-brand-soft"
+                    : "bg-brand-medium/30 border-foreground/10 hover:border-brand-bright/40"
                 }`}
               >
                 <button
@@ -320,14 +320,14 @@ export function FAQSection() {
                   className="w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base md:text-lg font-semibold text-white">
+                  <span className="text-base md:text-lg font-semibold text-foreground">
                     {item.q}
                   </span>
                   <span
                     className={`shrink-0 w-8 h-8 rounded-full grid place-items-center border transition-colors ${
                       isOpen
-                        ? "bg-gold border-gold text-violet-deep"
-                        : "border-violet-bright/40 text-violet-bright"
+                        ? "bg-gold border-gold text-brand-deep"
+                        : "border-brand-bright/40 text-brand-bright"
                     }`}
                   >
                     {isOpen ? (
@@ -342,7 +342,7 @@ export function FAQSection() {
                     isOpen ? "pb-5 md:pb-6 max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="text-sm md:text-base text-white/75 leading-relaxed">
+                  <p className="text-sm md:text-base text-foreground/75 leading-relaxed">
                     {item.a}
                   </p>
                 </div>
