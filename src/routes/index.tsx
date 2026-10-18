@@ -182,6 +182,14 @@ function Hero() {
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-brand-electric/15 blur-[120px] pointer-events-none" />
       <div className="absolute top-40 -left-24 w-[380px] h-[380px] rounded-full bg-brand-bright/20 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 -right-24 w-[420px] h-[420px] rounded-full bg-gold/10 blur-[110px] pointer-events-none" />
+      {/* Smooth fade ke background halaman agar transisi antar section menyatu */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-44 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, color-mix(in oklab, var(--brand-deep) 60%, var(--brand-dark)))",
+        }}
+      />
 
       {/* Floating creative tool chips */}
       <div className="absolute top-28 left-[6%] hidden lg:block opacity-60">
