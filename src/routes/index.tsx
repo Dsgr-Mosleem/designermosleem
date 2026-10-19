@@ -148,7 +148,7 @@ function NavBar() {
           href={WA_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 inline-flex items-center justify-center rounded-full bg-gradient-brand hover:bg-brand-bright/90 text-foreground font-semibold px-4 sm:px-5 h-10 text-xs sm:text-sm leading-tight text-center transition-all hover:glow-brand-soft"
+          className="shrink-0 inline-flex items-center justify-center rounded-full btn-glass btn-glass-primary font-semibold px-4 sm:px-5 h-10 text-xs sm:text-sm leading-tight text-center"
         >
           Hubungi Kami
         </a>
@@ -163,8 +163,16 @@ function Hero() {
     <section
       id="beranda"
       className="relative pt-32 pb-24 overflow-hidden noise-bg"
-      style={{ background: "var(--gradient-hero)" }}
     >
+      {/* Hero gradient memudar mulus ke background halaman */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "var(--gradient-hero)",
+          maskImage: "linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.75) 70%, rgba(0,0,0,0.35) 85%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.75) 70%, rgba(0,0,0,0.35) 85%, transparent 100%)",
+        }}
+      />
       {/* Grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.08] pointer-events-none"
@@ -182,14 +190,6 @@ function Hero() {
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-brand-electric/15 blur-[120px] pointer-events-none" />
       <div className="absolute top-40 -left-24 w-[380px] h-[380px] rounded-full bg-brand-bright/20 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 -right-24 w-[420px] h-[420px] rounded-full bg-gold/10 blur-[110px] pointer-events-none" />
-      {/* Smooth fade ke background halaman agar transisi antar section menyatu */}
-      <div
-        className="absolute inset-x-0 bottom-0 h-44 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, color-mix(in oklab, var(--brand-deep) 60%, var(--brand-dark)))",
-        }}
-      />
 
       {/* Floating creative tool chips */}
       <div className="absolute top-28 left-[6%] hidden lg:block opacity-60">
@@ -214,7 +214,8 @@ function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
-        <span className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-transparent px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
+        <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[420px] h-[160px] rounded-full bg-brand-bright/25 blur-[80px] pointer-events-none" />
+        <span className="relative inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-transparent px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
           ✦ Jasa Desain Grafis ✦
         </span>
 
@@ -244,14 +245,14 @@ function Hero() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-gradient-brand hover:bg-brand-bright/90 text-foreground font-semibold px-5 sm:px-7 py-3.5 text-sm md:text-base leading-tight text-center transition-all hover:glow-brand-soft"
+            className="inline-flex max-w-full items-center justify-center gap-2 rounded-full btn-glass btn-glass-primary font-semibold px-5 sm:px-7 py-3.5 text-sm md:text-base leading-tight text-center"
           >
             <MessageCircle className="w-4 h-4 shrink-0" />
             <span>Konsultasi via WhatsApp</span>
           </a>
           <a
             href="#katalog"
-            className="rounded-full border-2 border-foreground/70 hover:border-foreground bg-transparent hover:bg-foreground/10 text-foreground font-semibold px-7 py-3.5 text-sm md:text-base transition-all"
+            className="relative rounded-full btn-glass font-semibold px-7 py-3.5 text-sm md:text-base"
           >
             Lihat Portofolio
           </a>
@@ -415,7 +416,7 @@ function Gallery() {
         <div className="text-center mt-12">
           <a
             href="#"
-            className="inline-flex max-w-full items-center justify-center rounded-full border-2 border-brand-bright/60 hover:bg-brand-bright/20 text-foreground font-semibold px-5 sm:px-7 py-3 text-sm leading-tight text-center transition-all hover:glow-brand-soft"
+            className="inline-flex max-w-full items-center justify-center rounded-full btn-glass font-semibold px-5 sm:px-7 py-3 text-sm leading-tight text-center"
           >
             Lihat Semua Karya
           </a>
@@ -517,7 +518,7 @@ function CTABanner() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-foreground text-brand-deep hover:bg-gold hover:text-brand-deep font-bold px-6 sm:px-8 py-4 text-sm sm:text-base leading-tight text-center transition-all hover:scale-105"
+            className="mt-8 inline-flex max-w-full items-center justify-center gap-2 rounded-full btn-glass btn-glass-primary font-bold px-6 sm:px-8 py-4 text-sm sm:text-base leading-tight text-center"
           >
             <MessageCircle className="w-5 h-5 shrink-0" />
             <span>Chat WhatsApp Sekarang</span>
