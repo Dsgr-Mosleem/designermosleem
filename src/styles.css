@@ -38,6 +38,9 @@
   --color-gold-light: var(--gold-light);
   --color-overlay: var(--overlay);
   --color-footer: var(--footer);
+  --color-body: var(--text-body);
+  --color-cyan: var(--accent-cyan);
+  --color-sky: var(--accent-blue);
 
   --font-display: "Archivo Black", "Inter", sans-serif;
   --font-script: "Alex Brush", cursive;
@@ -47,16 +50,29 @@
 :root {
   --radius: 0.75rem;
 
-  --brand-deep: oklch(0.19 0.075 268);
-  --brand-dark: oklch(0.25 0.12 267);
-  --brand-medium: oklch(0.32 0.15 267);
-  --brand-electric: oklch(0.46 0.20 265);
-  --brand-bright: oklch(0.72 0.13 261);
+  --brand-deep: #050b24;
+  --bg-black: #02040f;
+  --bg-navy-1: #050b24;
+  --bg-navy-2: #081235;
+  --bg-navy-3: #0b1a4a;
+  --accent-cyan: #38bdf8;
+  --accent-blue: #60a5fa;
+  --accent-glow: #1d6bff;
+  --text-heading: #f8faff;
+  --text-body: #b4c2e0;
+  --text-muted: #7f90b5;
+  --glass-bg: rgba(255,255,255,0.06);
+  --glass-bg-strong: rgba(255,255,255,0.10);
+  --glass-border: rgba(255,255,255,0.16);
+  --brand-dark: #081235;
+  --brand-medium: #0b1a4a;
+  --brand-electric: #1d6bff;
+  --brand-bright: #38bdf8;
   --gold: oklch(0.79 0.15 86);
   --gold-light: oklch(0.88 0.12 90);
-  --footer: oklch(0.16 0.06 268);
+  --footer: var(--bg-black);
   --background: var(--brand-deep);
-  --foreground: oklch(0.99 0.005 265);
+  --foreground: var(--text-heading);
   --card: var(--brand-medium);
   --card-foreground: var(--foreground);
   --popover: var(--brand-dark);
@@ -66,7 +82,7 @@
   --secondary: var(--brand-medium);
   --secondary-foreground: var(--foreground);
   --muted: var(--brand-dark);
-  --muted-foreground: oklch(0.80 0.05 261);
+  --muted-foreground: var(--text-muted);
   --accent: var(--brand-bright);
   --accent-foreground: var(--brand-deep);
   --destructive: oklch(0.577 0.245 27.325);
@@ -74,7 +90,7 @@
   --border: color-mix(in oklab, var(--brand-bright) 25%, transparent);
   --input: var(--border);
   --ring: var(--brand-bright);
-  --overlay: oklch(0.08 0.025 268);
+  --overlay: var(--bg-black);
   --gradient-brand: linear-gradient(135deg, var(--brand-dark) 0%, color-mix(in oklab, var(--brand-dark) 60%, var(--brand-electric)) 38%, var(--brand-electric) 70%, color-mix(in oklab, var(--brand-electric) 55%, var(--brand-medium)) 100%);
   --gradient-hero: linear-gradient(130deg, var(--brand-deep) 0%, color-mix(in oklab, var(--brand-deep) 62%, var(--brand-dark)) 26%, var(--brand-dark) 52%, color-mix(in oklab, var(--brand-dark) 55%, var(--brand-electric)) 78%, var(--brand-electric) 100%);
   --gradient-page: linear-gradient(140deg, var(--brand-deep) 0%, color-mix(in oklab, var(--brand-deep) 65%, var(--brand-dark)) 28%, var(--brand-dark) 55%, color-mix(in oklab, var(--brand-dark) 60%, var(--brand-medium)) 80%, var(--brand-medium) 100%);
@@ -99,11 +115,10 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: var(--color-background);
+    background-color: var(--bg-black);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    background-image: var(--gradient-page);
-    background-attachment: fixed;
+    background-image: none;
   }
 }
 
@@ -162,25 +177,84 @@
   animation: fade-up 0.7s ease-out both;
 }
 
-/* Glassmorphism buttons */
+/* Dark Blue Glass */
+@utility glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
+  @media (max-width: 767px) { backdrop-filter: blur(12px) saturate(150%); }
+}
+@utility glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+@utility glass-hover {
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56,189,248,0.4);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45), 0 0 24px rgba(56,189,248,0.18), inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+}
+@utility text-gradient-cyan {
+  background-image: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+  background-clip: text;
+  color: transparent;
+}
+@utility section-band {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56,189,248,0.6), transparent);
+    box-shadow: 0 0 24px rgba(56,189,248,0.35);
+    pointer-events: none;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: -120px;
+    width: 420px; height: 420px;
+    border-radius: 9999px;
+    background: var(--accent-glow);
+    opacity: 0.18;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+@utility blob-right { &::after { left: auto; right: -120px; top: 40%; } }
+@utility bg-band-1 { background: linear-gradient(to bottom, var(--bg-black) 0%, color-mix(in oklab, var(--bg-black) 50%, var(--bg-navy-1)) 50%, var(--bg-navy-1) 100%); }
+@utility bg-band-2 { background: var(--bg-navy-2); }
+@utility bg-band-3 { background: var(--bg-navy-1); }
+@utility bg-band-4 { background: linear-gradient(to bottom, var(--bg-navy-3) 0%, var(--bg-navy-2) 100%); }
+@utility bg-band-5 { background: var(--bg-black); }
+
 @utility btn-glass {
-  background: color-mix(in oklab, var(--foreground) 8%, transparent);
-  backdrop-filter: blur(14px) saturate(160%);
-  border: 1px solid color-mix(in oklab, var(--foreground) 22%, transparent);
-  box-shadow: 0 8px 32px color-mix(in oklab, var(--overlay) 25%, transparent), inset 0 1px 0 color-mix(in oklab, var(--foreground) 30%, transparent);
-  color: var(--foreground);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
+  color: var(--text-heading);
   transition: background 250ms ease, transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
   &:hover {
-    background: color-mix(in oklab, var(--foreground) 16%, transparent);
+    background: var(--glass-bg-strong);
     transform: translateY(-2px);
-    box-shadow: 0 12px 40px color-mix(in oklab, var(--overlay) 35%, transparent), inset 0 1px 0 color-mix(in oklab, var(--foreground) 35%, transparent);
   }
   &:active { transform: scale(0.98); }
-  &:focus-visible { outline: 2px solid var(--brand-bright); outline-offset: 2px; }
+  &:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 2px; }
 }
 
 @utility btn-glass-primary {
-  background: color-mix(in oklab, var(--brand-bright) 24%, transparent);
-  border-color: color-mix(in oklab, var(--brand-bright) 45%, transparent);
-  &:hover { background: color-mix(in oklab, var(--brand-bright) 32%, transparent); }
+  background: rgba(29,107,255,0.28);
+  border-color: rgba(96,165,250,0.5);
+  &:hover { background: rgba(29,107,255,0.4); }
 }
