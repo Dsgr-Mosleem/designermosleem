@@ -131,10 +131,8 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         href={WA_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className={`relative mt-auto w-full flex items-center justify-center rounded-full font-semibold px-4 sm:px-6 py-3 text-sm leading-tight text-center transition-all ${
-          plan.highlighted
-            ? "bg-gradient-brand text-foreground hover:glow-brand-soft"
-            : "bg-foreground/5 border border-foreground/20 text-foreground hover:bg-foreground/10 hover:border-brand-bright/40"
+        className={`relative mt-auto w-full flex items-center justify-center rounded-full btn-glass font-semibold px-4 sm:px-6 py-3 text-sm leading-tight text-center ${
+          plan.highlighted ? "btn-glass-primary" : ""
         }`}
       >
         <span className="inline-flex items-center justify-center gap-2">
@@ -203,7 +201,7 @@ export function CustomSection() {
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative w-full flex items-center justify-center rounded-full bg-gradient-brand text-foreground font-semibold px-4 sm:px-6 py-3 text-sm leading-tight text-center transition-all hover:glow-brand-soft"
+                className="relative w-full flex items-center justify-center rounded-full btn-glass btn-glass-primary font-semibold px-4 sm:px-6 py-3 text-sm leading-tight text-center"
               >
                 <span className="inline-flex items-center justify-center gap-2">
                   <MessageCircle className="w-4 h-4 shrink-0" />
