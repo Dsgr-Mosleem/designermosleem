@@ -2,6 +2,7 @@ import { assetUrl } from "@/lib/asset-url";
 import { WA_URL, WA_DISPLAY } from "@/lib/whatsapp";
 import { createFileRoute } from "@tanstack/react-router";
 import { PricingSection, CustomSection, TermsSection, FAQSection } from "@/components/pricing-sections";
+import heroBg from "@/assets/hero-bg.jpg.asset.json";
 import mosleemLogo from "@/assets/mosleem-logo-blue.jpeg.asset.json";
 import p1 from "@/assets/portfolio/09-31.21.jpeg.asset.json";
 import p2 from "@/assets/portfolio/09-31.21_1.jpeg.asset.json";
@@ -114,7 +115,7 @@ function NavBar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-background/75 border-b border-gold/20"
+          ? "backdrop-blur-[20px] bg-[rgba(5,11,36,0.55)] border-b border-[var(--glass-border)]"
           : "bg-transparent"
       }`}
     >
@@ -137,7 +138,7 @@ function NavBar() {
               key={l.id}
               href={`#${l.id}`}
               onClick={(e) => handleClick(e, l.id)}
-              className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+              className="text-sm font-medium text-foreground/80 hover:text-cyan transition-colors"
             >
               {l.label}
             </a>
@@ -162,35 +163,20 @@ function Hero() {
   return (
     <section
       id="beranda"
-      className="relative pt-32 pb-24 overflow-hidden noise-bg"
+      className="relative isolate min-h-screen flex items-center pt-32 pb-24 overflow-hidden bg-band-5"
     >
-      {/* Hero gradient memudar mulus ke background halaman */}
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "var(--gradient-hero)",
-          maskImage: "linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.75) 70%, rgba(0,0,0,0.35) 85%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.75) 70%, rgba(0,0,0,0.35) 85%, transparent 100%)",
-        }}
+        className="absolute inset-0 pointer-events-none bg-cover bg-center -z-10"
+        style={{ backgroundImage: `url(${assetUrl(heroBg)})` }}
       />
-      {/* Grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.08] pointer-events-none"
-        style={{
-          backgroundImage:
-            "var(--pattern-grid)",
-          backgroundSize: "56px 56px",
-          maskImage:
-            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-        }}
+        className="absolute inset-0 pointer-events-none -z-10"
+        style={{ background: "linear-gradient(to bottom, rgba(2,4,15,0.55) 0%, rgba(2,4,15,0.35) 40%, rgba(2,4,15,0.7) 70%, rgba(2,4,15,0.85) 85%, var(--bg-black) 100%)" }}
       />
-      {/* Ambient glows */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-brand-electric/15 blur-[120px] pointer-events-none" />
-      <div className="absolute top-40 -left-24 w-[380px] h-[380px] rounded-full bg-brand-bright/20 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 -right-24 w-[420px] h-[420px] rounded-full bg-gold/10 blur-[110px] pointer-events-none" />
-
+      <div
+        className="absolute inset-0 pointer-events-none -z-10"
+        style={{ background: "radial-gradient(ellipse at top left, rgba(2,4,15,0.7) 0%, rgba(2,4,15,0.35) 35%, transparent 65%)" }}
+      />
       {/* Floating creative tool chips */}
       <div className="absolute top-28 left-[6%] hidden lg:block opacity-60">
         <div className="w-16 h-16 rounded-2xl border border-brand-bright/30 bg-brand-medium/40 backdrop-blur-sm grid place-items-center -rotate-12 glow-brand-soft">
@@ -213,29 +199,29 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 text-center">
+      <div className="relative w-full max-w-7xl mx-auto px-6 text-center">
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[420px] h-[160px] rounded-full bg-brand-bright/25 blur-[80px] pointer-events-none" />
-        <span className="relative inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-transparent px-4 py-1.5 text-xs md:text-sm text-gold font-medium">
+        <span className="relative inline-flex items-center justify-center gap-2 rounded-full glass px-4 py-1.5 text-xs md:text-sm text-cyan font-medium">
           ✦ Jasa Desain Grafis ✦
         </span>
 
-        <p className="mt-3 mb-5 text-sm md:text-base text-gold/80 font-medium tracking-wide">
+        <p className="mt-3 mb-5 text-sm md:text-base text-muted-foreground font-medium tracking-wide">
           by Junior Designer
         </p>
 
         <div className="animate-fade-up">
           <div className="mx-auto w-full text-center">
-            <h1 className="text-display text-5xl sm:text-7xl md:text-9xl text-foreground leading-[0.9]">
+            <h1 className="text-display text-5xl sm:text-7xl md:text-9xl text-foreground leading-[0.9]" style={{ textShadow: "0 4px 30px rgba(56,189,248,0.35)" }}>
               GRAPHICS
             </h1>
-            <h2 className="text-display text-[1.75rem] sm:text-5xl md:text-7xl text-brand-bright leading-[1.05]">
+            <h2 className="text-display text-[1.75rem] sm:text-5xl md:text-7xl text-gradient-cyan leading-[1.05]">
               DESIGN SERVICE
             </h2>
           </div>
         </div>
 
 
-        <p className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-foreground/75">
+        <p className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-body">
           Wujudkan identitas visual bisnis dan komunitas Anda dengan desain
           profesional yang kreatif dan berkarakter.
         </p>
@@ -271,19 +257,19 @@ const features = [
 
 function Features() {
   return (
-    <section className="py-20 px-6">
+    <section className="section-band bg-band-1 py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {features.map((f) => (
             <div
               key={f.title}
-              className="group rounded-2xl bg-brand-medium/40 backdrop-blur-sm border border-foreground/10 p-6 transition-all hover:border-brand-bright/50 hover:-translate-y-1 hover:glow-brand-soft"
+              className="group rounded-2xl glass glass-hover p-6"
             >
               <div className="w-12 h-12 rounded-xl bg-gold/12 border border-gold/40 grid place-items-center mb-4 group-hover:scale-110 transition-transform">
                 <f.icon className="w-6 h-6 text-gold" />
               </div>
               <h3 className="text-display text-lg text-foreground mb-1.5">{f.title}</h3>
-              <p className="text-sm text-foreground/65">{f.desc}</p>
+              <p className="text-sm text-body">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -303,19 +289,19 @@ const grafisServices = [
 
 function ServiceCard({ icon: Icon, title, desc }: { icon: typeof Globe; title: string; desc: string }) {
   return (
-    <div className="group rounded-2xl bg-brand-medium/40 border border-foreground/10 p-6 transition-all hover:border-brand-bright/50 hover:glow-brand-soft hover:-translate-y-1">
+    <div className="group rounded-2xl glass glass-hover p-6">
       <div className="w-11 h-11 rounded-lg bg-gradient-brand grid place-items-center mb-4 group-hover:glow-brand-soft transition-all">
         <Icon className="w-5 h-5 text-foreground" />
       </div>
       <h4 className="text-display text-base text-foreground mb-1.5">{title}</h4>
-      <p className="text-sm text-foreground/65 leading-relaxed">{desc}</p>
+      <p className="text-sm text-body leading-relaxed">{desc}</p>
     </div>
   );
 }
 
 function Services() {
   return (
-    <section id="layanan" className="scroll-mt-20 py-20 px-6 relative">
+    <section id="layanan" className="scroll-mt-20 py-20 px-6 section-band blob-right bg-band-2">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-gold text-sm font-semibold tracking-widest">LAYANAN KAMI</span>
@@ -361,12 +347,12 @@ function Gallery() {
   }, [lightbox]);
 
   return (
-    <section id="katalog" className="scroll-mt-20 py-20 px-6">
+    <section id="katalog" className="scroll-mt-20 py-20 px-6 section-band bg-band-3">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-gold text-sm font-semibold tracking-widest">PORTOFOLIO</span>
           <h2 className="text-display text-4xl md:text-6xl mt-3">Hasil Karya Kami</h2>
-          <p className="text-foreground/65 mt-4 max-w-xl mx-auto">
+          <p className="text-body mt-4 max-w-xl mx-auto">
             Beberapa contoh proyek desain yang telah kami kerjakan.
           </p>
         </div>
@@ -377,7 +363,7 @@ function Gallery() {
               type="button"
               key={`banner-${i}`}
               onClick={() => setLightbox(i)}
-              className="group relative aspect-[5/2] rounded-2xl overflow-hidden bg-brand-medium/50 border border-foreground/10 cursor-pointer text-left"
+              className="group relative aspect-[5/2] rounded-2xl overflow-hidden glass glass-hover cursor-pointer text-left"
             >
               <img
                 src={assetUrl(img)}
@@ -398,7 +384,7 @@ function Gallery() {
               type="button"
               key={i}
               onClick={() => setLightbox(i + bannerImages.length)}
-              className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-brand-medium/50 border border-foreground/10 cursor-pointer text-left"
+              className="group relative aspect-[4/5] rounded-2xl overflow-hidden glass glass-hover cursor-pointer text-left"
             >
               <img
                 src={assetUrl(img)}
@@ -467,7 +453,7 @@ function Gallery() {
 
 function Pricing() {
   return (
-    <section id="harga" className="scroll-mt-20 py-20 px-6">
+    <section id="harga" className="scroll-mt-20 py-20 px-6 section-band blob-right bg-band-4">
       <div className="max-w-4xl mx-auto text-center relative">
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-brand-electric/18 blur-3xl rounded-full pointer-events-none" />
         <div className="relative">
@@ -476,13 +462,13 @@ function Pricing() {
             Harga Terjangkau untuk <span className="text-brand-bright">Semua Kalangan</span>
           </h2>
 
-          <div className="my-10 inline-flex items-center justify-center gap-3 rounded-full border-2 border-gold bg-gold/10 px-8 py-3">
+          <div className="my-10 inline-flex items-center justify-center gap-3 rounded-full glass border-gold/60 px-8 py-3">
             <Sparkles className="w-5 h-5 shrink-0 text-gold" />
             <span className="text-display text-2xl md:text-3xl text-gold">Start from 25K</span>
             <Sparkles className="w-5 h-5 shrink-0 text-gold" />
           </div>
 
-          <p className="text-foreground/75 max-w-xl mx-auto">
+          <p className="text-body max-w-xl mx-auto">
             Dapatkan desain profesional dengan harga yang bersahabat. Cocok untuk
             pelaku usaha, komunitas, dan kebutuhan personal.
           </p>
@@ -502,16 +488,16 @@ function Pricing() {
 
 function CTABanner() {
   return (
-    <section id="kontak" className="scroll-mt-20 py-12 px-6">
+    <section id="kontak" className="scroll-mt-20 py-12 px-6 section-band bg-band-5">
       <div
-        className="max-w-7xl mx-auto rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
-        style={{ background: "var(--gradient-brand)" }}
+        className="max-w-7xl mx-auto rounded-3xl glass p-10 md:p-16 text-center relative overflow-hidden"
+        style={{ background: "linear-gradient(135deg, rgba(29,107,255,0.22), rgba(56,189,248,0.08))" }}
       >
         <div className="relative">
           <h2 className="text-display text-4xl md:text-6xl text-foreground">
             Siap Tampil Lebih Profesional?
           </h2>
-          <p className="mt-5 text-foreground/90 text-lg max-w-2xl mx-auto">
+          <p className="mt-5 text-body text-lg max-w-2xl mx-auto">
             Konsultasikan kebutuhan desain Anda sekarang — <span className="font-bold text-gold">GRATIS!</span>
           </p>
           <a
@@ -531,7 +517,7 @@ function CTABanner() {
 
 function Footer() {
   return (
-    <footer style={{ backgroundColor: "var(--footer)" }} className="pt-16 pb-8 px-6 mt-12">
+    <footer style={{ backgroundColor: "var(--footer)" }} className="pt-16 pb-8 px-6 section-band blob-right">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-brand-bright/20">
           <div>
@@ -543,7 +529,7 @@ function Footer() {
                 DESIGNER <span className="text-brand-bright">MOSLEEM</span>
               </span>
             </div>
-            <p className="text-sm text-foreground/65 leading-relaxed">
+            <p className="text-sm text-body leading-relaxed">
               Jasa desain grafis profesional untuk bisnis,
               komunitas, dan acara Anda.
             </p>
@@ -551,7 +537,7 @@ function Footer() {
 
           <div>
             <h4 className="text-display text-sm tracking-wider text-gold mb-4">MENU CEPAT</h4>
-            <ul className="space-y-2 text-sm text-foreground/70">
+            <ul className="space-y-2 text-sm text-body">
               {["Beranda", "Layanan", "Katalog", "Harga", "Kontak"].map((m) => (
                 <li key={m}>
                   <a

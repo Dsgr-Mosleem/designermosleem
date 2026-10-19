@@ -72,8 +72,8 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
     <div
       className={`group relative flex w-[280px] shrink-0 snap-center flex-col rounded-2xl p-6 md:w-auto md:p-8 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${
         plan.highlighted
-          ? "bg-brand-deep/80 border-2 border-gold/60 glow-brand-soft hover:shadow-(--shadow-gold)"
-          : "bg-brand-deep/60 border border-foreground/10 hover:border-brand-bright/50 hover:glow-brand-soft"
+          ? "glass-strong border-2 border-gold/60 hover:shadow-(--shadow-gold)"
+          : "glass hover:border-cyan/40"
       }`}
     >
       <div
@@ -118,7 +118,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
       <ul className="relative flex-1 space-y-3 mb-8">
         {plan.features.map((feature, i) => (
-          <li key={i} className="flex items-start gap-3 text-sm md:text-base text-foreground/85">
+          <li key={i} className="flex items-start gap-3 text-sm md:text-base text-body">
             <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-gold/15 border border-gold/50 grid place-items-center">
               <Check className="w-3 h-3 text-gold" />
             </span>
@@ -172,7 +172,7 @@ export function CustomSection() {
   return (
     <section className="py-10 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="rounded-2xl bg-brand-deep/60 border border-foreground/10 p-8 md:p-12 relative overflow-hidden">
+        <div className="rounded-2xl glass p-8 md:p-12 relative overflow-hidden">
           <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-brand-electric/10 blur-[80px] pointer-events-none" />
 
           <div className="relative flex flex-col md:flex-row md:items-start md:justify-between gap-8">
@@ -184,7 +184,7 @@ export function CustomSection() {
               <h3 className="text-display text-3xl md:text-4xl text-foreground mb-4">
                 Butuh Paket <span className="text-brand-bright">Khusus?</span>
               </h3>
-              <p className="text-foreground/75 leading-relaxed max-w-2xl">
+              <p className="text-body leading-relaxed max-w-2xl">
                 Untuk proyek besar, permintaan khusus lembaga/institusi, atau
                 kombinasi banyak layanan sekaligus. Scope dan harga disesuaikan
                 sepenuhnya berdasarkan brief — bisa termasuk file AI/PSD/Figma,
@@ -192,9 +192,9 @@ export function CustomSection() {
               </p>
             </div>
 
-            <div className="md:w-80 shrink-0 rounded-2xl bg-brand-medium/30 border border-foreground/10 p-6">
+            <div className="md:w-80 shrink-0 rounded-2xl glass-strong p-6">
               <p className="text-gold text-2xl font-bold mb-2">Nego</p>
-              <p className="text-foreground/70 text-sm mb-6">
+              <p className="text-body text-sm mb-6">
                 Berdasarkan brief & scope project
               </p>
               <a
@@ -230,7 +230,7 @@ export function TermsSection() {
   return (
     <section className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="rounded-2xl bg-brand-deep/60 border border-foreground/10 p-8 md:p-12">
+        <div className="rounded-2xl glass p-8 md:p-12">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-10 h-10 rounded-xl bg-gold/12 border border-gold/40 grid place-items-center">
               <Star className="w-5 h-5 text-gold" />
@@ -244,7 +244,7 @@ export function TermsSection() {
             {terms.map((t, i) => (
               <li
                 key={i}
-                className="flex items-start gap-4 text-sm md:text-base text-foreground/85"
+                className="flex items-start gap-4 text-sm md:text-base text-body"
               >
                 <span className="shrink-0 w-7 h-7 rounded-full bg-gold/10 border border-gold/40 text-gold text-xs font-bold grid place-items-center">
                   {i + 1}
@@ -309,8 +309,8 @@ export function FAQSection() {
                 key={i}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? "bg-brand-medium/50 border-gold/50 glow-brand-soft"
-                    : "bg-brand-medium/30 border-foreground/10 hover:border-brand-bright/40"
+                    ? "glass-strong border-cyan/40"
+                    : "glass hover:border-cyan/40"
                 }`}
               >
                 <button
@@ -340,7 +340,7 @@ export function FAQSection() {
                     isOpen ? "pb-5 md:pb-6 max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="text-sm md:text-base text-foreground/75 leading-relaxed">
+                  <p className="text-sm md:text-base text-body leading-relaxed">
                     {item.a}
                   </p>
                 </div>
