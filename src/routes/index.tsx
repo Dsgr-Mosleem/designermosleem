@@ -199,9 +199,9 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 text-center">
+      <div className="relative w-full max-w-7xl mx-auto px-6 text-center">
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[420px] h-[160px] rounded-full bg-brand-bright/25 blur-[80px] pointer-events-none" />
-        <span className="relative inline-flex items-center justify-center gap-2 rounded-full glass px-4 py-1.5 text-xs md:text-sm text-sky-200 font-medium">
+        <span className="relative inline-flex items-center justify-center gap-2 rounded-full glass px-4 py-1.5 text-xs md:text-sm text-cyan font-medium">
           ✦ Jasa Desain Grafis ✦
         </span>
 
