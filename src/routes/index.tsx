@@ -594,6 +594,30 @@ function Footer() {
 
 function Home() {
   useEffect(() => {
+    const targets = document.querySelectorAll<HTMLElement>(
+      "main section:not(#beranda) h2, main section:not(#beranda) h3, main section:not(#beranda) .glass, main section:not(#beranda) .glass-strong, main section:not(#beranda) p",
+    );
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const el = e.target as HTMLElement;
+            el.classList.add("is-visible");
+            io.unobserve(el);
+            window.setTimeout(() => el.classList.remove("reveal", "is-visible"), 1000);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+    );
+    targets.forEach((el) => {
+      if (el.closest(".reveal") && el.closest(".reveal") !== el) return;
+      el.classList.add("reveal");
+      io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
+  useEffect(() => {
     const hash = window.location.hash.replace("#", "");
     if (!hash) return;
     const t = window.setTimeout(() => scrollToSection(hash), 120);
