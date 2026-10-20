@@ -163,7 +163,8 @@ function Hero() {
   return (
     <section
       id="beranda"
-      className="relative isolate min-h-screen flex items-center pt-32 pb-24 overflow-hidden bg-band-5"
+      className="relative isolate flex items-center pt-24 pb-14 sm:pt-32 sm:pb-24 md:min-h-[90vh] overflow-hidden bg-band-5"
+      style={{ boxShadow: "0 18px 40px -12px rgba(0,0,0,0.75)" }}
     >
       <div
         className="absolute inset-0 pointer-events-none bg-cover bg-center -z-10"
@@ -171,8 +172,9 @@ function Hero() {
       />
       <div
         className="absolute inset-0 pointer-events-none -z-10"
-        style={{ background: "linear-gradient(to bottom, rgba(2,4,15,0.55) 0%, rgba(2,4,15,0.35) 40%, rgba(2,4,15,0.7) 70%, rgba(2,4,15,0.85) 85%, var(--bg-black) 100%)" }}
+        style={{ background: "linear-gradient(to bottom, rgba(2,4,15,0.55) 0%, rgba(2,4,15,0.35) 45%, rgba(2,4,15,0.55) 80%, rgba(2,4,15,0.8) 100%)" }}
       />
+      <div className="absolute inset-x-0 bottom-0 h-10 pointer-events-none -z-10" style={{ background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.55))" }} />
       <div
         className="absolute inset-0 pointer-events-none -z-10"
         style={{ background: "radial-gradient(ellipse at top left, rgba(2,4,15,0.7) 0%, rgba(2,4,15,0.35) 35%, transparent 65%)" }}
