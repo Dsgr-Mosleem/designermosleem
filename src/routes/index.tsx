@@ -601,8 +601,10 @@ function Home() {
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            e.target.classList.add("is-visible");
-            io.unobserve(e.target);
+            const el = e.target as HTMLElement;
+            el.classList.add("is-visible");
+            io.unobserve(el);
+            window.setTimeout(() => el.classList.remove("reveal", "is-visible"), 1000);
           }
         });
       },
