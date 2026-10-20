@@ -214,10 +214,10 @@ function Hero() {
 
         <div className="animate-fade-up">
           <div className="mx-auto w-full text-center">
-            <h1 className="text-display text-5xl sm:text-7xl md:text-9xl text-foreground leading-[0.9]" style={{ textShadow: "0 4px 30px rgba(56,189,248,0.35)" }}>
+            <h1 className="text-display text-[2.6rem] sm:text-7xl md:text-9xl text-foreground leading-[0.9]" style={{ textShadow: "0 4px 30px rgba(56,189,248,0.35)" }}>
               GRAPHICS
             </h1>
-            <h2 className="text-display text-[1.75rem] sm:text-5xl md:text-7xl text-gradient-cyan leading-[1.05]">
+            <h2 className="text-display text-[1.45rem] sm:text-5xl md:text-7xl text-gradient-cyan leading-[1.05]">
               DESIGN SERVICE
             </h2>
           </div>
