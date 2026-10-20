@@ -146,18 +146,8 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
 export function PricingSection() {
   return (
-    <section className="py-10 px-0 md:px-6">
+    <section className="pt-2 pb-10 px-0 md:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 md:mb-20 px-6">
-          <span className="inline-flex items-center gap-2 text-gold text-sm font-semibold tracking-widest">
-            <Palette className="w-5 h-5" />
-            Desain Grafis
-          </span>
-          <h3 className="text-display text-3xl md:text-5xl mt-3">
-            Detail Harga <span className="text-brand-bright">Desain Grafis</span>
-          </h3>
-        </div>
-
         <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 pt-4 md:grid md:grid-cols-3 md:overflow-visible lg:gap-8 items-stretch">
           {plans.map((plan) => (
             <PlanCard key={plan.key} plan={plan} />
