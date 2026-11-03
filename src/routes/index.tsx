@@ -34,8 +34,15 @@ import p27 from "@/assets/portfolio/p27.jpeg.asset.json";
 import p28 from "@/assets/portfolio/p28.png.asset.json";
 import p29 from "@/assets/portfolio/p29.png.asset.json";
 import badalUmrah from "@/assets/portfolio/badal-umrah.jpg.asset.json";
+import p30 from "@/assets/portfolio/p30.jpg.asset.json";
+import p31 from "@/assets/portfolio/p31.jpg.asset.json";
+import p32 from "@/assets/portfolio/p32.jpg.asset.json";
+import p33 from "@/assets/portfolio/p33.jpg.asset.json";
+import p34 from "@/assets/portfolio/p34.jpg.asset.json";
+import p35 from "@/assets/portfolio/p35.jpg.asset.json";
+import p36 from "@/assets/portfolio/p36.jpg.asset.json";
 const bannerImages = [p20, p21];
-const portfolioImages = [...bannerImages, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p22, p23, p24, p25, p26, p27, p28, p29, badalUmrah];
+const portfolioImages = [...bannerImages, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, badalUmrah];
 import { useEffect, useState } from "react";
 import {
   Palette,
